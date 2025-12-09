@@ -1,0 +1,1081 @@
+"fold"	"mol_prop"	"split_type"	"sim_type"	"sim"
+0	" BACE"	"Scaffold"	"Training vs Test"	0.709998373236311
+1	" BACE"	"Scaffold"	"Training vs Test"	0.685679846198151
+2	" BACE"	"Scaffold"	"Training vs Test"	0.72253427262369
+3	" BACE"	"Scaffold"	"Training vs Test"	0.726425465490473
+4	" BACE"	"Scaffold"	"Training vs Test"	0.725172200191178
+5	" BACE"	"Scaffold"	"Training vs Test"	0.734461614666016
+6	" BACE"	"Scaffold"	"Training vs Test"	0.714049397134467
+7	" BACE"	"Scaffold"	"Training vs Test"	0.731010876203838
+8	" BACE"	"Scaffold"	"Training vs Test"	0.715065638093572
+9	" BACE"	"Scaffold"	"Training vs Test"	0.715892804394427
+10	" BACE"	"Scaffold"	"Training vs Test"	0.700874601833914
+11	" BACE"	"Scaffold"	"Training vs Test"	0.736234506101985
+12	" BACE"	"Scaffold"	"Training vs Test"	0.740773991632618
+13	" BACE"	"Scaffold"	"Training vs Test"	0.716861592409642
+14	" BACE"	"Scaffold"	"Training vs Test"	0.724496350966786
+15	" BACE"	"Scaffold"	"Training vs Test"	0.762555898804414
+16	" BACE"	"Scaffold"	"Training vs Test"	0.726664418746766
+17	" BACE"	"Scaffold"	"Training vs Test"	0.71136774220749
+18	" BACE"	"Scaffold"	"Training vs Test"	0.718192966360795
+19	" BACE"	"Scaffold"	"Training vs Test"	0.719717578668343
+20	" BACE"	"Scaffold"	"Training vs Test"	0.715340772447617
+21	" BACE"	"Scaffold"	"Training vs Test"	0.714126067726236
+22	" BACE"	"Scaffold"	"Training vs Test"	0.689571593348917
+23	" BACE"	"Scaffold"	"Training vs Test"	0.73810675691225
+24	" BACE"	"Scaffold"	"Training vs Test"	0.741220758149498
+25	" BACE"	"Scaffold"	"Training vs Test"	0.722672871657108
+26	" BACE"	"Scaffold"	"Training vs Test"	0.723148641813742
+27	" BACE"	"Scaffold"	"Training vs Test"	0.745193703590255
+28	" BACE"	"Scaffold"	"Training vs Test"	0.721045750928552
+29	" BACE"	"Scaffold"	"Training vs Test"	0.711179635830616
+0	" BBBP"	"Scaffold"	"Training vs Test"	0.467846929518188
+1	" BBBP"	"Scaffold"	"Training vs Test"	0.450588707880276
+2	" BBBP"	"Scaffold"	"Training vs Test"	0.487010403522631
+3	" BBBP"	"Scaffold"	"Training vs Test"	0.463272748415063
+4	" BBBP"	"Scaffold"	"Training vs Test"	0.535180837061347
+5	" BBBP"	"Scaffold"	"Training vs Test"	0.490335044046728
+6	" BBBP"	"Scaffold"	"Training vs Test"	0.468674005458995
+7	" BBBP"	"Scaffold"	"Training vs Test"	0.525180979254769
+8	" BBBP"	"Scaffold"	"Training vs Test"	0.48545855629008
+9	" BBBP"	"Scaffold"	"Training vs Test"	0.484812595059232
+10	" BBBP"	"Scaffold"	"Training vs Test"	0.480290289913736
+11	" BBBP"	"Scaffold"	"Training vs Test"	0.531947070723627
+12	" BBBP"	"Scaffold"	"Training vs Test"	0.360606527128598
+13	" BBBP"	"Scaffold"	"Training vs Test"	0.456340404545389
+14	" BBBP"	"Scaffold"	"Training vs Test"	0.487700425052061
+15	" BBBP"	"Scaffold"	"Training vs Test"	0.346283514343384
+16	" BBBP"	"Scaffold"	"Training vs Test"	0.494912266404164
+17	" BBBP"	"Scaffold"	"Training vs Test"	0.474346993609173
+18	" BBBP"	"Scaffold"	"Training vs Test"	0.497690677170346
+19	" BBBP"	"Scaffold"	"Training vs Test"	0.477866130994587
+20	" BBBP"	"Scaffold"	"Training vs Test"	0.465063436074955
+21	" BBBP"	"Scaffold"	"Training vs Test"	0.498010994348584
+22	" BBBP"	"Scaffold"	"Training vs Test"	0.533891890397886
+23	" BBBP"	"Scaffold"	"Training vs Test"	0.465821389236101
+24	" BBBP"	"Scaffold"	"Training vs Test"	0.492181158429239
+25	" BBBP"	"Scaffold"	"Training vs Test"	0.500281893698181
+26	" BBBP"	"Scaffold"	"Training vs Test"	0.518479806402834
+27	" BBBP"	"Scaffold"	"Training vs Test"	0.516558928387921
+28	" BBBP"	"Scaffold"	"Training vs Test"	0.457276721843859
+29	" BBBP"	"Scaffold"	"Training vs Test"	0.476966115396197
+0	" HIV"	"Scaffold"	"Training vs Test"	0.537314379636226
+1	" HIV"	"Scaffold"	"Training vs Test"	0.541324274880287
+2	" HIV"	"Scaffold"	"Training vs Test"	0.537369991088621
+3	" HIV"	"Scaffold"	"Training vs Test"	0.542792677709055
+4	" HIV"	"Scaffold"	"Training vs Test"	0.532032953578424
+5	" HIV"	"Scaffold"	"Training vs Test"	0.525062154102667
+6	" HIV"	"Scaffold"	"Training vs Test"	0.534727263517285
+7	" HIV"	"Scaffold"	"Training vs Test"	0.535738810331694
+8	" HIV"	"Scaffold"	"Training vs Test"	0.543679876853059
+9	" HIV"	"Scaffold"	"Training vs Test"	0.547110395616071
+10	" HIV"	"Scaffold"	"Training vs Test"	0.538907815885897
+11	" HIV"	"Scaffold"	"Training vs Test"	0.532036127043907
+12	" HIV"	"Scaffold"	"Training vs Test"	0.543828295474501
+13	" HIV"	"Scaffold"	"Training vs Test"	0.540858220357023
+14	" HIV"	"Scaffold"	"Training vs Test"	0.537260390693128
+15	" HIV"	"Scaffold"	"Training vs Test"	0.53361919869001
+16	" HIV"	"Scaffold"	"Training vs Test"	0.539354124990238
+17	" HIV"	"Scaffold"	"Training vs Test"	0.541744167468364
+18	" HIV"	"Scaffold"	"Training vs Test"	0.54644395851202
+19	" HIV"	"Scaffold"	"Training vs Test"	0.480824146875349
+20	" HIV"	"Scaffold"	"Training vs Test"	0.542426557167586
+21	" HIV"	"Scaffold"	"Training vs Test"	0.475199810984852
+22	" HIV"	"Scaffold"	"Training vs Test"	0.472887695112818
+23	" HIV"	"Scaffold"	"Training vs Test"	0.537475033330129
+24	" HIV"	"Scaffold"	"Training vs Test"	0.541583097188643
+25	" HIV"	"Scaffold"	"Training vs Test"	0.54120795316804
+26	" HIV"	"Scaffold"	"Training vs Test"	0.539495719550098
+27	" HIV"	"Scaffold"	"Training vs Test"	0.533837360631309
+28	" HIV"	"Scaffold"	"Training vs Test"	0.467314005446947
+29	" HIV"	"Scaffold"	"Training vs Test"	0.53820356263091
+0	"ESOL"	"Scaffold"	"Training vs Test"	0.435251233478387
+1	"ESOL"	"Scaffold"	"Training vs Test"	0.448288719643626
+2	"ESOL"	"Scaffold"	"Training vs Test"	0.438540517107437
+3	"ESOL"	"Scaffold"	"Training vs Test"	0.406896284144176
+4	"ESOL"	"Scaffold"	"Training vs Test"	0.479354864803323
+5	"ESOL"	"Scaffold"	"Training vs Test"	0.430726933897587
+6	"ESOL"	"Scaffold"	"Training vs Test"	0.418796709624299
+7	"ESOL"	"Scaffold"	"Training vs Test"	0.436031133328613
+8	"ESOL"	"Scaffold"	"Training vs Test"	0.466101140698843
+9	"ESOL"	"Scaffold"	"Training vs Test"	0.424847658658237
+10	"ESOL"	"Scaffold"	"Training vs Test"	0.417510670920213
+11	"ESOL"	"Scaffold"	"Training vs Test"	0.447384325427967
+12	"ESOL"	"Scaffold"	"Training vs Test"	0.485935018250817
+13	"ESOL"	"Scaffold"	"Training vs Test"	0.414725788068353
+14	"ESOL"	"Scaffold"	"Training vs Test"	0.416725476321421
+15	"ESOL"	"Scaffold"	"Training vs Test"	0.474068807143914
+16	"ESOL"	"Scaffold"	"Training vs Test"	0.458246014097281
+17	"ESOL"	"Scaffold"	"Training vs Test"	0.436636181254136
+18	"ESOL"	"Scaffold"	"Training vs Test"	0.436735927274353
+19	"ESOL"	"Scaffold"	"Training vs Test"	0.532361126913313
+20	"ESOL"	"Scaffold"	"Training vs Test"	0.502541529635588
+21	"ESOL"	"Scaffold"	"Training vs Test"	0.497826890202991
+22	"ESOL"	"Scaffold"	"Training vs Test"	0.47493819251918
+23	"ESOL"	"Scaffold"	"Training vs Test"	0.457481318398526
+24	"ESOL"	"Scaffold"	"Training vs Test"	0.373931974434016
+25	"ESOL"	"Scaffold"	"Training vs Test"	0.44306809232946
+26	"ESOL"	"Scaffold"	"Training vs Test"	0.442533311090971
+27	"ESOL"	"Scaffold"	"Training vs Test"	0.431139934481236
+28	"ESOL"	"Scaffold"	"Training vs Test"	0.410935956527267
+29	"ESOL"	"Scaffold"	"Training vs Test"	0.460363017101037
+0	"FreeSolv"	"Scaffold"	"Training vs Test"	0.402082146360324
+1	"FreeSolv"	"Scaffold"	"Training vs Test"	0.343623387011198
+2	"FreeSolv"	"Scaffold"	"Training vs Test"	0.382468659717303
+3	"FreeSolv"	"Scaffold"	"Training vs Test"	0.403539109344666
+4	"FreeSolv"	"Scaffold"	"Training vs Test"	0.292822874280123
+5	"FreeSolv"	"Scaffold"	"Training vs Test"	0.336912635771128
+6	"FreeSolv"	"Scaffold"	"Training vs Test"	0.36064889648786
+7	"FreeSolv"	"Scaffold"	"Training vs Test"	0.382395586027549
+8	"FreeSolv"	"Scaffold"	"Training vs Test"	0.399972214721716
+9	"FreeSolv"	"Scaffold"	"Training vs Test"	0.404616995958182
+10	"FreeSolv"	"Scaffold"	"Training vs Test"	0.36952781195824
+11	"FreeSolv"	"Scaffold"	"Training vs Test"	0.357160193645037
+12	"FreeSolv"	"Scaffold"	"Training vs Test"	0.373248270268624
+13	"FreeSolv"	"Scaffold"	"Training vs Test"	0.2697183741973
+14	"FreeSolv"	"Scaffold"	"Training vs Test"	0.389998600230767
+15	"FreeSolv"	"Scaffold"	"Training vs Test"	0.429033893805284
+16	"FreeSolv"	"Scaffold"	"Training vs Test"	0.375180701682201
+17	"FreeSolv"	"Scaffold"	"Training vs Test"	0.361555911485965
+18	"FreeSolv"	"Scaffold"	"Training vs Test"	0.374915324495389
+19	"FreeSolv"	"Scaffold"	"Training vs Test"	0.360886610012788
+20	"FreeSolv"	"Scaffold"	"Training vs Test"	0.356278819991992
+21	"FreeSolv"	"Scaffold"	"Training vs Test"	0.405992477444502
+22	"FreeSolv"	"Scaffold"	"Training vs Test"	0.304394238040997
+23	"FreeSolv"	"Scaffold"	"Training vs Test"	0.378514780218785
+24	"FreeSolv"	"Scaffold"	"Training vs Test"	0.386907744866151
+25	"FreeSolv"	"Scaffold"	"Training vs Test"	0.391209898545192
+26	"FreeSolv"	"Scaffold"	"Training vs Test"	0.386238393187523
+27	"FreeSolv"	"Scaffold"	"Training vs Test"	0.363422324794989
+28	"FreeSolv"	"Scaffold"	"Training vs Test"	0.321196020108003
+29	"FreeSolv"	"Scaffold"	"Training vs Test"	0.42613425713319
+0	"Lipop"	"Scaffold"	"Training vs Test"	0.558264611732392
+1	"Lipop"	"Scaffold"	"Training vs Test"	0.56595369027484
+2	"Lipop"	"Scaffold"	"Training vs Test"	0.535688843790974
+3	"Lipop"	"Scaffold"	"Training vs Test"	0.547470910173087
+4	"Lipop"	"Scaffold"	"Training vs Test"	0.558717881391446
+5	"Lipop"	"Scaffold"	"Training vs Test"	0.555506638863257
+6	"Lipop"	"Scaffold"	"Training vs Test"	0.526284076131526
+7	"Lipop"	"Scaffold"	"Training vs Test"	0.550096378120638
+8	"Lipop"	"Scaffold"	"Training vs Test"	0.562177770726737
+9	"Lipop"	"Scaffold"	"Training vs Test"	0.577090068551756
+10	"Lipop"	"Scaffold"	"Training vs Test"	0.539051883348397
+11	"Lipop"	"Scaffold"	"Training vs Test"	0.568045295739458
+12	"Lipop"	"Scaffold"	"Training vs Test"	0.534692767049585
+13	"Lipop"	"Scaffold"	"Training vs Test"	0.602255220356442
+14	"Lipop"	"Scaffold"	"Training vs Test"	0.569712106422299
+15	"Lipop"	"Scaffold"	"Training vs Test"	0.547297523419062
+16	"Lipop"	"Scaffold"	"Training vs Test"	0.558947044114272
+17	"Lipop"	"Scaffold"	"Training vs Test"	0.539103197164479
+18	"Lipop"	"Scaffold"	"Training vs Test"	0.575412387755655
+19	"Lipop"	"Scaffold"	"Training vs Test"	0.547155096665734
+20	"Lipop"	"Scaffold"	"Training vs Test"	0.548195287833611
+21	"Lipop"	"Scaffold"	"Training vs Test"	0.532805629748674
+22	"Lipop"	"Scaffold"	"Training vs Test"	0.567867774338949
+23	"Lipop"	"Scaffold"	"Training vs Test"	0.565120873351892
+24	"Lipop"	"Scaffold"	"Training vs Test"	0.565173649149282
+25	"Lipop"	"Scaffold"	"Training vs Test"	0.550039407823767
+26	"Lipop"	"Scaffold"	"Training vs Test"	0.522935609200171
+27	"Lipop"	"Scaffold"	"Training vs Test"	0.57359518284599
+28	"Lipop"	"Scaffold"	"Training vs Test"	0.551232442508141
+29	"Lipop"	"Scaffold"	"Training vs Test"	0.552249960282019
+0	" BACE"	"Random"	"Training vs Test"	0.795085744932294
+1	" BACE"	"Random"	"Training vs Test"	0.802143468668586
+2	" BACE"	"Random"	"Training vs Test"	0.795376087097745
+3	" BACE"	"Random"	"Training vs Test"	0.78086955374793
+4	" BACE"	"Random"	"Training vs Test"	0.803706844778437
+5	" BACE"	"Random"	"Training vs Test"	0.807121260385764
+6	" BACE"	"Random"	"Training vs Test"	0.788689360414681
+7	" BACE"	"Random"	"Training vs Test"	0.787139818856591
+8	" BACE"	"Random"	"Training vs Test"	0.794099884009675
+9	" BACE"	"Random"	"Training vs Test"	0.78562158738312
+10	" BACE"	"Random"	"Training vs Test"	0.788187085895946
+11	" BACE"	"Random"	"Training vs Test"	0.789508821148621
+12	" BACE"	"Random"	"Training vs Test"	0.804078904813842
+13	" BACE"	"Random"	"Training vs Test"	0.809267246017331
+14	" BACE"	"Random"	"Training vs Test"	0.791802329452414
+15	" BACE"	"Random"	"Training vs Test"	0.796054276980852
+16	" BACE"	"Random"	"Training vs Test"	0.788941237291223
+17	" BACE"	"Random"	"Training vs Test"	0.778610091852514
+18	" BACE"	"Random"	"Training vs Test"	0.813052448198984
+19	" BACE"	"Random"	"Training vs Test"	0.791864904329965
+20	" BACE"	"Random"	"Training vs Test"	0.78571451563192
+21	" BACE"	"Random"	"Training vs Test"	0.803341146754591
+22	" BACE"	"Random"	"Training vs Test"	0.789854260651689
+23	" BACE"	"Random"	"Training vs Test"	0.783044642523715
+24	" BACE"	"Random"	"Training vs Test"	0.788924984829991
+25	" BACE"	"Random"	"Training vs Test"	0.78237564626493
+26	" BACE"	"Random"	"Training vs Test"	0.779704796444429
+27	" BACE"	"Random"	"Training vs Test"	0.779572655986014
+28	" BACE"	"Random"	"Training vs Test"	0.80211071611235
+29	" BACE"	"Random"	"Training vs Test"	0.788373378742682
+0	" BBBP"	"Random"	"Training vs Test"	0.583391536830687
+1	" BBBP"	"Random"	"Training vs Test"	0.574967264325595
+2	" BBBP"	"Random"	"Training vs Test"	0.578962563299665
+3	" BBBP"	"Random"	"Training vs Test"	0.603999515155367
+4	" BBBP"	"Random"	"Training vs Test"	0.598546462827453
+5	" BBBP"	"Random"	"Training vs Test"	0.609176757288914
+6	" BBBP"	"Random"	"Training vs Test"	0.580004612970002
+7	" BBBP"	"Random"	"Training vs Test"	0.593024146432678
+8	" BBBP"	"Random"	"Training vs Test"	0.568876759167395
+9	" BBBP"	"Random"	"Training vs Test"	0.575885114278279
+10	" BBBP"	"Random"	"Training vs Test"	0.604632446469337
+11	" BBBP"	"Random"	"Training vs Test"	0.577900844571345
+12	" BBBP"	"Random"	"Training vs Test"	0.614826179529522
+13	" BBBP"	"Random"	"Training vs Test"	0.597628436909587
+14	" BBBP"	"Random"	"Training vs Test"	0.601947180415485
+15	" BBBP"	"Random"	"Training vs Test"	0.592770962300254
+16	" BBBP"	"Random"	"Training vs Test"	0.599172270181132
+17	" BBBP"	"Random"	"Training vs Test"	0.589208746146338
+18	" BBBP"	"Random"	"Training vs Test"	0.564061384940264
+19	" BBBP"	"Random"	"Training vs Test"	0.605273504686706
+20	" BBBP"	"Random"	"Training vs Test"	0.598183076828718
+21	" BBBP"	"Random"	"Training vs Test"	0.579556002811182
+22	" BBBP"	"Random"	"Training vs Test"	0.571785554801132
+23	" BBBP"	"Random"	"Training vs Test"	0.600947987945641
+24	" BBBP"	"Random"	"Training vs Test"	0.597225236359472
+25	" BBBP"	"Random"	"Training vs Test"	0.56868392210819
+26	" BBBP"	"Random"	"Training vs Test"	0.597099950062294
+27	" BBBP"	"Random"	"Training vs Test"	0.592618542778141
+28	" BBBP"	"Random"	"Training vs Test"	0.607371440851221
+29	" BBBP"	"Random"	"Training vs Test"	0.615338206364244
+0	" HIV"	"Random"	"Training vs Test"	0.614169176520294
+1	" HIV"	"Random"	"Training vs Test"	0.616745050577186
+2	" HIV"	"Random"	"Training vs Test"	0.620564512129526
+3	" HIV"	"Random"	"Training vs Test"	0.615498744641491
+4	" HIV"	"Random"	"Training vs Test"	0.61162697991373
+5	" HIV"	"Random"	"Training vs Test"	0.616064246835397
+6	" HIV"	"Random"	"Training vs Test"	0.613821484592313
+7	" HIV"	"Random"	"Training vs Test"	0.607063290881119
+8	" HIV"	"Random"	"Training vs Test"	0.618101207387728
+9	" HIV"	"Random"	"Training vs Test"	0.611218289087904
+10	" HIV"	"Random"	"Training vs Test"	0.616316069565114
+11	" HIV"	"Random"	"Training vs Test"	0.61378037971561
+12	" HIV"	"Random"	"Training vs Test"	0.613230878314687
+13	" HIV"	"Random"	"Training vs Test"	0.616039930060488
+14	" HIV"	"Random"	"Training vs Test"	0.61734058022673
+15	" HIV"	"Random"	"Training vs Test"	0.61858622369839
+16	" HIV"	"Random"	"Training vs Test"	0.616241847776074
+17	" HIV"	"Random"	"Training vs Test"	0.615524599279274
+18	" HIV"	"Random"	"Training vs Test"	0.613105152036887
+19	" HIV"	"Random"	"Training vs Test"	0.615579616710446
+20	" HIV"	"Random"	"Training vs Test"	0.614528806002912
+21	" HIV"	"Random"	"Training vs Test"	0.616496145616562
+22	" HIV"	"Random"	"Training vs Test"	0.618854207914878
+23	" HIV"	"Random"	"Training vs Test"	0.614416813407679
+24	" HIV"	"Random"	"Training vs Test"	0.616210615771865
+25	" HIV"	"Random"	"Training vs Test"	0.619090485240953
+26	" HIV"	"Random"	"Training vs Test"	0.617815521992009
+27	" HIV"	"Random"	"Training vs Test"	0.612535085468405
+28	" HIV"	"Random"	"Training vs Test"	0.61552123289212
+29	" HIV"	"Random"	"Training vs Test"	0.610367932385651
+0	"ESOL"	"Random"	"Training vs Test"	0.571322895784294
+1	"ESOL"	"Random"	"Training vs Test"	0.592918562018766
+2	"ESOL"	"Random"	"Training vs Test"	0.529085779216437
+3	"ESOL"	"Random"	"Training vs Test"	0.580772866981219
+4	"ESOL"	"Random"	"Training vs Test"	0.561156655571102
+5	"ESOL"	"Random"	"Training vs Test"	0.541565486815123
+6	"ESOL"	"Random"	"Training vs Test"	0.550553813312961
+7	"ESOL"	"Random"	"Training vs Test"	0.567825097359915
+8	"ESOL"	"Random"	"Training vs Test"	0.588266176657867
+9	"ESOL"	"Random"	"Training vs Test"	0.554446337233602
+10	"ESOL"	"Random"	"Training vs Test"	0.57320138719757
+11	"ESOL"	"Random"	"Training vs Test"	0.579292571254536
+12	"ESOL"	"Random"	"Training vs Test"	0.60414908246129
+13	"ESOL"	"Random"	"Training vs Test"	0.553181514935156
+14	"ESOL"	"Random"	"Training vs Test"	0.550215570800072
+15	"ESOL"	"Random"	"Training vs Test"	0.558702326981367
+16	"ESOL"	"Random"	"Training vs Test"	0.566981000578509
+17	"ESOL"	"Random"	"Training vs Test"	0.576504126323008
+18	"ESOL"	"Random"	"Training vs Test"	0.596050811684237
+19	"ESOL"	"Random"	"Training vs Test"	0.56770037431105
+20	"ESOL"	"Random"	"Training vs Test"	0.556428553256313
+21	"ESOL"	"Random"	"Training vs Test"	0.578786060873386
+22	"ESOL"	"Random"	"Training vs Test"	0.578135733451464
+23	"ESOL"	"Random"	"Training vs Test"	0.586594223976135
+24	"ESOL"	"Random"	"Training vs Test"	0.573985457947824
+25	"ESOL"	"Random"	"Training vs Test"	0.564460622393979
+26	"ESOL"	"Random"	"Training vs Test"	0.598673425812637
+27	"ESOL"	"Random"	"Training vs Test"	0.582119297005434
+28	"ESOL"	"Random"	"Training vs Test"	0.526424251298989
+29	"ESOL"	"Random"	"Training vs Test"	0.591626818860527
+0	"FreeSolv"	"Random"	"Training vs Test"	0.530085963125412
+1	"FreeSolv"	"Random"	"Training vs Test"	0.567013091995166
+2	"FreeSolv"	"Random"	"Training vs Test"	0.532121476531029
+3	"FreeSolv"	"Random"	"Training vs Test"	0.540183833929209
+4	"FreeSolv"	"Random"	"Training vs Test"	0.560315604851796
+5	"FreeSolv"	"Random"	"Training vs Test"	0.536359167557496
+6	"FreeSolv"	"Random"	"Training vs Test"	0.537820913012211
+7	"FreeSolv"	"Random"	"Training vs Test"	0.577950937358233
+8	"FreeSolv"	"Random"	"Training vs Test"	0.568733765758001
+9	"FreeSolv"	"Random"	"Training vs Test"	0.573057257441374
+10	"FreeSolv"	"Random"	"Training vs Test"	0.553949622466014
+11	"FreeSolv"	"Random"	"Training vs Test"	0.604765676535093
+12	"FreeSolv"	"Random"	"Training vs Test"	0.558478978963999
+13	"FreeSolv"	"Random"	"Training vs Test"	0.55309021633405
+14	"FreeSolv"	"Random"	"Training vs Test"	0.550412150758963
+15	"FreeSolv"	"Random"	"Training vs Test"	0.521464601732217
+16	"FreeSolv"	"Random"	"Training vs Test"	0.536171945929527
+17	"FreeSolv"	"Random"	"Training vs Test"	0.555488055027448
+18	"FreeSolv"	"Random"	"Training vs Test"	0.527826373852216
+19	"FreeSolv"	"Random"	"Training vs Test"	0.525976725495779
+20	"FreeSolv"	"Random"	"Training vs Test"	0.5460362636126
+21	"FreeSolv"	"Random"	"Training vs Test"	0.564937607600139
+22	"FreeSolv"	"Random"	"Training vs Test"	0.54384268613962
+23	"FreeSolv"	"Random"	"Training vs Test"	0.537623761479671
+24	"FreeSolv"	"Random"	"Training vs Test"	0.507119374779554
+25	"FreeSolv"	"Random"	"Training vs Test"	0.526961599175747
+26	"FreeSolv"	"Random"	"Training vs Test"	0.544583362799424
+27	"FreeSolv"	"Random"	"Training vs Test"	0.570130847967588
+28	"FreeSolv"	"Random"	"Training vs Test"	0.565669521460166
+29	"FreeSolv"	"Random"	"Training vs Test"	0.563549217581749
+0	"Lipop"	"Random"	"Training vs Test"	0.647646098051752
+1	"Lipop"	"Random"	"Training vs Test"	0.653155376797631
+2	"Lipop"	"Random"	"Training vs Test"	0.63452161138966
+3	"Lipop"	"Random"	"Training vs Test"	0.632022282623109
+4	"Lipop"	"Random"	"Training vs Test"	0.637093358912638
+5	"Lipop"	"Random"	"Training vs Test"	0.640993817824693
+6	"Lipop"	"Random"	"Training vs Test"	0.637118657288097
+7	"Lipop"	"Random"	"Training vs Test"	0.633891492443425
+8	"Lipop"	"Random"	"Training vs Test"	0.640017765547548
+9	"Lipop"	"Random"	"Training vs Test"	0.644140008517674
+10	"Lipop"	"Random"	"Training vs Test"	0.648279103494826
+11	"Lipop"	"Random"	"Training vs Test"	0.636975894939332
+12	"Lipop"	"Random"	"Training vs Test"	0.63615759976563
+13	"Lipop"	"Random"	"Training vs Test"	0.657988937553905
+14	"Lipop"	"Random"	"Training vs Test"	0.655719167881069
+15	"Lipop"	"Random"	"Training vs Test"	0.633433141417447
+16	"Lipop"	"Random"	"Training vs Test"	0.654343057636704
+17	"Lipop"	"Random"	"Training vs Test"	0.655539791392429
+18	"Lipop"	"Random"	"Training vs Test"	0.636928960929314
+19	"Lipop"	"Random"	"Training vs Test"	0.639807673685607
+20	"Lipop"	"Random"	"Training vs Test"	0.641280823520252
+21	"Lipop"	"Random"	"Training vs Test"	0.645343921120678
+22	"Lipop"	"Random"	"Training vs Test"	0.636872133648112
+23	"Lipop"	"Random"	"Training vs Test"	0.652346207059565
+24	"Lipop"	"Random"	"Training vs Test"	0.636209194433121
+25	"Lipop"	"Random"	"Training vs Test"	0.638194468049776
+26	"Lipop"	"Random"	"Training vs Test"	0.648274333384775
+27	"Lipop"	"Random"	"Training vs Test"	0.653413386678412
+28	"Lipop"	"Random"	"Training vs Test"	0.646401953271457
+29	"Lipop"	"Random"	"Training vs Test"	0.638762530223245
+0	" BACE"	"Scaffold"	" Training vs Validation"	0.71081884412576
+1	" BACE"	"Scaffold"	" Training vs Validation"	0.730655575923572
+2	" BACE"	"Scaffold"	" Training vs Validation"	0.756766623811217
+3	" BACE"	"Scaffold"	" Training vs Validation"	0.721695766741077
+4	" BACE"	"Scaffold"	" Training vs Validation"	0.719245851434619
+5	" BACE"	"Scaffold"	" Training vs Validation"	0.717149374303439
+6	" BACE"	"Scaffold"	" Training vs Validation"	0.741740753516456
+7	" BACE"	"Scaffold"	" Training vs Validation"	0.721465799587452
+8	" BACE"	"Scaffold"	" Training vs Validation"	0.707833225166561
+9	" BACE"	"Scaffold"	" Training vs Validation"	0.697085830549531
+10	" BACE"	"Scaffold"	" Training vs Validation"	0.729619080459835
+11	" BACE"	"Scaffold"	" Training vs Validation"	0.740967640320197
+12	" BACE"	"Scaffold"	" Training vs Validation"	0.709638752684688
+13	" BACE"	"Scaffold"	" Training vs Validation"	0.713495293397777
+14	" BACE"	"Scaffold"	" Training vs Validation"	0.704159637752748
+15	" BACE"	"Scaffold"	" Training vs Validation"	0.722227436422512
+16	" BACE"	"Scaffold"	" Training vs Validation"	0.708921295128121
+17	" BACE"	"Scaffold"	" Training vs Validation"	0.713686636050805
+18	" BACE"	"Scaffold"	" Training vs Validation"	0.704604662708099
+19	" BACE"	"Scaffold"	" Training vs Validation"	0.732987458342748
+20	" BACE"	"Scaffold"	" Training vs Validation"	0.746494979455771
+21	" BACE"	"Scaffold"	" Training vs Validation"	0.71777014878412
+22	" BACE"	"Scaffold"	" Training vs Validation"	0.722752320253296
+23	" BACE"	"Scaffold"	" Training vs Validation"	0.727370556419259
+24	" BACE"	"Scaffold"	" Training vs Validation"	0.75593318252374
+25	" BACE"	"Scaffold"	" Training vs Validation"	0.712652959867029
+26	" BACE"	"Scaffold"	" Training vs Validation"	0.720807369872434
+27	" BACE"	"Scaffold"	" Training vs Validation"	0.711258298908638
+28	" BACE"	"Scaffold"	" Training vs Validation"	0.726773242879388
+29	" BACE"	"Scaffold"	" Training vs Validation"	0.720458077279148
+0	" BBBP"	"Scaffold"	" Training vs Validation"	0.467131203765352
+1	" BBBP"	"Scaffold"	" Training vs Validation"	0.505419900191241
+2	" BBBP"	"Scaffold"	" Training vs Validation"	0.479672029981472
+3	" BBBP"	"Scaffold"	" Training vs Validation"	0.349391954450919
+4	" BBBP"	"Scaffold"	" Training vs Validation"	0.481663633009483
+5	" BBBP"	"Scaffold"	" Training vs Validation"	0.472023791133477
+6	" BBBP"	"Scaffold"	" Training vs Validation"	0.472152893986608
+7	" BBBP"	"Scaffold"	" Training vs Validation"	0.493957890445376
+8	" BBBP"	"Scaffold"	" Training vs Validation"	0.53416126386579
+9	" BBBP"	"Scaffold"	" Training vs Validation"	0.461612794273005
+10	" BBBP"	"Scaffold"	" Training vs Validation"	0.531131265712489
+11	" BBBP"	"Scaffold"	" Training vs Validation"	0.334360844414369
+12	" BBBP"	"Scaffold"	" Training vs Validation"	0.49619993431668
+13	" BBBP"	"Scaffold"	" Training vs Validation"	0.485711041782877
+14	" BBBP"	"Scaffold"	" Training vs Validation"	0.513483189596918
+15	" BBBP"	"Scaffold"	" Training vs Validation"	0.4658432689867
+16	" BBBP"	"Scaffold"	" Training vs Validation"	0.321168788199501
+17	" BBBP"	"Scaffold"	" Training vs Validation"	0.468556565090353
+18	" BBBP"	"Scaffold"	" Training vs Validation"	0.347610465356429
+19	" BBBP"	"Scaffold"	" Training vs Validation"	0.50699373595233
+20	" BBBP"	"Scaffold"	" Training vs Validation"	0.47754973444739
+21	" BBBP"	"Scaffold"	" Training vs Validation"	0.483528974975271
+22	" BBBP"	"Scaffold"	" Training vs Validation"	0.45271452681478
+23	" BBBP"	"Scaffold"	" Training vs Validation"	0.509683660575615
+24	" BBBP"	"Scaffold"	" Training vs Validation"	0.492415389954457
+25	" BBBP"	"Scaffold"	" Training vs Validation"	0.49489596508113
+26	" BBBP"	"Scaffold"	" Training vs Validation"	0.486758994645086
+27	" BBBP"	"Scaffold"	" Training vs Validation"	0.48509787434134
+28	" BBBP"	"Scaffold"	" Training vs Validation"	0.452230222046082
+29	" BBBP"	"Scaffold"	" Training vs Validation"	0.482734112463561
+0	" HIV"	"Scaffold"	" Training vs Validation"	0.539312194632403
+1	" HIV"	"Scaffold"	" Training vs Validation"	0.53352801344477
+2	" HIV"	"Scaffold"	" Training vs Validation"	0.543322748834347
+3	" HIV"	"Scaffold"	" Training vs Validation"	0.473719075488847
+4	" HIV"	"Scaffold"	" Training vs Validation"	0.542340919342805
+5	" HIV"	"Scaffold"	" Training vs Validation"	0.547119181333218
+6	" HIV"	"Scaffold"	" Training vs Validation"	0.54260935445211
+7	" HIV"	"Scaffold"	" Training vs Validation"	0.538675698893804
+8	" HIV"	"Scaffold"	" Training vs Validation"	0.545102512880667
+9	" HIV"	"Scaffold"	" Training vs Validation"	0.538457710716279
+10	" HIV"	"Scaffold"	" Training vs Validation"	0.542344672264756
+11	" HIV"	"Scaffold"	" Training vs Validation"	0.545836910616302
+12	" HIV"	"Scaffold"	" Training vs Validation"	0.534255373954831
+13	" HIV"	"Scaffold"	" Training vs Validation"	0.534585855276132
+14	" HIV"	"Scaffold"	" Training vs Validation"	0.537735067007172
+15	" HIV"	"Scaffold"	" Training vs Validation"	0.54145576701235
+16	" HIV"	"Scaffold"	" Training vs Validation"	0.539011626859496
+17	" HIV"	"Scaffold"	" Training vs Validation"	0.534471605418808
+18	" HIV"	"Scaffold"	" Training vs Validation"	0.540050858722326
+19	" HIV"	"Scaffold"	" Training vs Validation"	0.544269862012206
+20	" HIV"	"Scaffold"	" Training vs Validation"	0.54125477976423
+21	" HIV"	"Scaffold"	" Training vs Validation"	0.541133314052213
+22	" HIV"	"Scaffold"	" Training vs Validation"	0.548837738608079
+23	" HIV"	"Scaffold"	" Training vs Validation"	0.539471800989881
+24	" HIV"	"Scaffold"	" Training vs Validation"	0.541457266162661
+25	" HIV"	"Scaffold"	" Training vs Validation"	0.536319619881765
+26	" HIV"	"Scaffold"	" Training vs Validation"	0.474939064510486
+27	" HIV"	"Scaffold"	" Training vs Validation"	0.544235794957191
+28	" HIV"	"Scaffold"	" Training vs Validation"	0.547090037051835
+29	" HIV"	"Scaffold"	" Training vs Validation"	0.467409388223801
+0	"ESOL"	"Scaffold"	" Training vs Validation"	0.491549205301063
+1	"ESOL"	"Scaffold"	" Training vs Validation"	0.450278371306402
+2	"ESOL"	"Scaffold"	" Training vs Validation"	0.430191622115672
+3	"ESOL"	"Scaffold"	" Training vs Validation"	0.488848247033145
+4	"ESOL"	"Scaffold"	" Training vs Validation"	0.416489954372602
+5	"ESOL"	"Scaffold"	" Training vs Validation"	0.470481273452086
+6	"ESOL"	"Scaffold"	" Training vs Validation"	0.455087679571339
+7	"ESOL"	"Scaffold"	" Training vs Validation"	0.447103917465678
+8	"ESOL"	"Scaffold"	" Training vs Validation"	0.434469984179097
+9	"ESOL"	"Scaffold"	" Training vs Validation"	0.468401703850499
+10	"ESOL"	"Scaffold"	" Training vs Validation"	0.428057627087193
+11	"ESOL"	"Scaffold"	" Training vs Validation"	0.481184189207852
+12	"ESOL"	"Scaffold"	" Training vs Validation"	0.446354417130351
+13	"ESOL"	"Scaffold"	" Training vs Validation"	0.436925179990275
+14	"ESOL"	"Scaffold"	" Training vs Validation"	0.488963006862572
+15	"ESOL"	"Scaffold"	" Training vs Validation"	0.438258795466806
+16	"ESOL"	"Scaffold"	" Training vs Validation"	0.445990301269506
+17	"ESOL"	"Scaffold"	" Training vs Validation"	0.475449757384402
+18	"ESOL"	"Scaffold"	" Training vs Validation"	0.436685176300151
+19	"ESOL"	"Scaffold"	" Training vs Validation"	0.403186319928084
+20	"ESOL"	"Scaffold"	" Training vs Validation"	0.404804129020444
+21	"ESOL"	"Scaffold"	" Training vs Validation"	0.418675871965076
+22	"ESOL"	"Scaffold"	" Training vs Validation"	0.453596193609493
+23	"ESOL"	"Scaffold"	" Training vs Validation"	0.437937135542078
+24	"ESOL"	"Scaffold"	" Training vs Validation"	0.45367604387658
+25	"ESOL"	"Scaffold"	" Training vs Validation"	0.421892199665308
+26	"ESOL"	"Scaffold"	" Training vs Validation"	0.427593298655535
+27	"ESOL"	"Scaffold"	" Training vs Validation"	0.452195999877793
+28	"ESOL"	"Scaffold"	" Training vs Validation"	0.456712360892977
+29	"ESOL"	"Scaffold"	" Training vs Validation"	0.48980435755636
+0	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.376851853332482
+1	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.390210672747344
+2	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.366121657425538
+3	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.346819310332648
+4	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.418271062197164
+5	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.311192353023216
+6	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.350574629381299
+7	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.321773933595978
+8	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.340383798466064
+9	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.374105872120708
+10	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.384355723275803
+11	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.313449904322624
+12	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.409363746643066
+13	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.372207500156946
+14	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.374786439118907
+15	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.396791324019432
+16	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.376104171504267
+17	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.422368264524266
+18	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.36172670207452
+19	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.420681291958317
+20	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.411346341483295
+21	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.371218170970678
+22	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.328623158158734
+23	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.388855332508683
+24	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.397070933599025
+25	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.37845894927159
+26	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.394638431374915
+27	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.412538495729677
+28	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.364059774787165
+29	"FreeSolv"	"Scaffold"	" Training vs Validation"	0.37340235861484
+0	"Lipop"	"Scaffold"	" Training vs Validation"	0.563159314755883
+1	"Lipop"	"Scaffold"	" Training vs Validation"	0.563871223337594
+2	"Lipop"	"Scaffold"	" Training vs Validation"	0.562884691676923
+3	"Lipop"	"Scaffold"	" Training vs Validation"	0.586374236891667
+4	"Lipop"	"Scaffold"	" Training vs Validation"	0.557908558668125
+5	"Lipop"	"Scaffold"	" Training vs Validation"	0.589922212241661
+6	"Lipop"	"Scaffold"	" Training vs Validation"	0.568954536886442
+7	"Lipop"	"Scaffold"	" Training vs Validation"	0.586502301976794
+8	"Lipop"	"Scaffold"	" Training vs Validation"	0.562339408731177
+9	"Lipop"	"Scaffold"	" Training vs Validation"	0.55020822960706
+10	"Lipop"	"Scaffold"	" Training vs Validation"	0.568323852866888
+11	"Lipop"	"Scaffold"	" Training vs Validation"	0.533892750811009
+12	"Lipop"	"Scaffold"	" Training vs Validation"	0.548211298066945
+13	"Lipop"	"Scaffold"	" Training vs Validation"	0.574027688801289
+14	"Lipop"	"Scaffold"	" Training vs Validation"	0.536439796501682
+15	"Lipop"	"Scaffold"	" Training vs Validation"	0.55246161013132
+16	"Lipop"	"Scaffold"	" Training vs Validation"	0.572070575860285
+17	"Lipop"	"Scaffold"	" Training vs Validation"	0.573621843010187
+18	"Lipop"	"Scaffold"	" Training vs Validation"	0.543702511915139
+19	"Lipop"	"Scaffold"	" Training vs Validation"	0.556728927258934
+20	"Lipop"	"Scaffold"	" Training vs Validation"	0.52234680223323
+21	"Lipop"	"Scaffold"	" Training vs Validation"	0.582978359432448
+22	"Lipop"	"Scaffold"	" Training vs Validation"	0.570896895868438
+23	"Lipop"	"Scaffold"	" Training vs Validation"	0.572513480165175
+24	"Lipop"	"Scaffold"	" Training vs Validation"	0.563595664359274
+25	"Lipop"	"Scaffold"	" Training vs Validation"	0.586269681474992
+26	"Lipop"	"Scaffold"	" Training vs Validation"	0.546016276521342
+27	"Lipop"	"Scaffold"	" Training vs Validation"	0.550127040523858
+28	"Lipop"	"Scaffold"	" Training vs Validation"	0.585034599509977
+29	"Lipop"	"Scaffold"	" Training vs Validation"	0.570422612556389
+0	" BACE"	"Random"	" Training vs Validation"	0.784026747113032
+1	" BACE"	"Random"	" Training vs Validation"	0.787994051907236
+2	" BACE"	"Random"	" Training vs Validation"	0.787448662598402
+3	" BACE"	"Random"	" Training vs Validation"	0.787651380758412
+4	" BACE"	"Random"	" Training vs Validation"	0.780660771770983
+5	" BACE"	"Random"	" Training vs Validation"	0.806737470903144
+6	" BACE"	"Random"	" Training vs Validation"	0.791267696990083
+7	" BACE"	"Random"	" Training vs Validation"	0.784940389213183
+8	" BACE"	"Random"	" Training vs Validation"	0.799997347178838
+9	" BACE"	"Random"	" Training vs Validation"	0.782888205536943
+10	" BACE"	"Random"	" Training vs Validation"	0.792922340876219
+11	" BACE"	"Random"	" Training vs Validation"	0.786227292572426
+12	" BACE"	"Random"	" Training vs Validation"	0.782737948641872
+13	" BACE"	"Random"	" Training vs Validation"	0.794318045606676
+14	" BACE"	"Random"	" Training vs Validation"	0.786834621863649
+15	" BACE"	"Random"	" Training vs Validation"	0.791939005946481
+16	" BACE"	"Random"	" Training vs Validation"	0.782703484920476
+17	" BACE"	"Random"	" Training vs Validation"	0.798002682280856
+18	" BACE"	"Random"	" Training vs Validation"	0.797959600458082
+19	" BACE"	"Random"	" Training vs Validation"	0.793821327338945
+20	" BACE"	"Random"	" Training vs Validation"	0.788144298736623
+21	" BACE"	"Random"	" Training vs Validation"	0.787848024474864
+22	" BACE"	"Random"	" Training vs Validation"	0.789031411440957
+23	" BACE"	"Random"	" Training vs Validation"	0.795966135547651
+24	" BACE"	"Random"	" Training vs Validation"	0.78747064822557
+25	" BACE"	"Random"	" Training vs Validation"	0.771670049981566
+26	" BACE"	"Random"	" Training vs Validation"	0.776158163977775
+27	" BACE"	"Random"	" Training vs Validation"	0.787136049262735
+28	" BACE"	"Random"	" Training vs Validation"	0.799855614537435
+29	" BACE"	"Random"	" Training vs Validation"	0.802450699916739
+0	" BBBP"	"Random"	" Training vs Validation"	0.607659009924414
+1	" BBBP"	"Random"	" Training vs Validation"	0.615763624436131
+2	" BBBP"	"Random"	" Training vs Validation"	0.594515300556725
+3	" BBBP"	"Random"	" Training vs Validation"	0.591250810260866
+4	" BBBP"	"Random"	" Training vs Validation"	0.589934896695994
+5	" BBBP"	"Random"	" Training vs Validation"	0.563131973768274
+6	" BBBP"	"Random"	" Training vs Validation"	0.588242156321512
+7	" BBBP"	"Random"	" Training vs Validation"	0.587626393300061
+8	" BBBP"	"Random"	" Training vs Validation"	0.600317994899609
+9	" BBBP"	"Random"	" Training vs Validation"	0.6133578869642
+10	" BBBP"	"Random"	" Training vs Validation"	0.582047078101074
+11	" BBBP"	"Random"	" Training vs Validation"	0.576344481906762
+12	" BBBP"	"Random"	" Training vs Validation"	0.576508700920671
+13	" BBBP"	"Random"	" Training vs Validation"	0.602558007646425
+14	" BBBP"	"Random"	" Training vs Validation"	0.567203425455327
+15	" BBBP"	"Random"	" Training vs Validation"	0.577708423575934
+16	" BBBP"	"Random"	" Training vs Validation"	0.576994770809132
+17	" BBBP"	"Random"	" Training vs Validation"	0.597216668374398
+18	" BBBP"	"Random"	" Training vs Validation"	0.564976163573709
+19	" BBBP"	"Random"	" Training vs Validation"	0.587984339060152
+20	" BBBP"	"Random"	" Training vs Validation"	0.575041067256939
+21	" BBBP"	"Random"	" Training vs Validation"	0.58208039556356
+22	" BBBP"	"Random"	" Training vs Validation"	0.580434173929925
+23	" BBBP"	"Random"	" Training vs Validation"	0.578038628815728
+24	" BBBP"	"Random"	" Training vs Validation"	0.579214529809999
+25	" BBBP"	"Random"	" Training vs Validation"	0.580065860540844
+26	" BBBP"	"Random"	" Training vs Validation"	0.599465672072827
+27	" BBBP"	"Random"	" Training vs Validation"	0.57464712931245
+28	" BBBP"	"Random"	" Training vs Validation"	0.592511824898276
+29	" BBBP"	"Random"	" Training vs Validation"	0.576525505705207
+0	" HIV"	"Random"	" Training vs Validation"	0.612403505010683
+1	" HIV"	"Random"	" Training vs Validation"	0.615670009512556
+2	" HIV"	"Random"	" Training vs Validation"	0.615448220738061
+3	" HIV"	"Random"	" Training vs Validation"	0.619232247697719
+4	" HIV"	"Random"	" Training vs Validation"	0.615542536449224
+5	" HIV"	"Random"	" Training vs Validation"	0.61776885839817
+6	" HIV"	"Random"	" Training vs Validation"	0.615321625821321
+7	" HIV"	"Random"	" Training vs Validation"	0.613791488176248
+8	" HIV"	"Random"	" Training vs Validation"	0.614106983165637
+9	" HIV"	"Random"	" Training vs Validation"	0.613210909141061
+10	" HIV"	"Random"	" Training vs Validation"	0.615201065360282
+11	" HIV"	"Random"	" Training vs Validation"	0.618942854844454
+12	" HIV"	"Random"	" Training vs Validation"	0.616111630816665
+13	" HIV"	"Random"	" Training vs Validation"	0.611940373691951
+14	" HIV"	"Random"	" Training vs Validation"	0.619298094122558
+15	" HIV"	"Random"	" Training vs Validation"	0.61859472544958
+16	" HIV"	"Random"	" Training vs Validation"	0.617556490515022
+17	" HIV"	"Random"	" Training vs Validation"	0.615667004509673
+18	" HIV"	"Random"	" Training vs Validation"	0.611945592356186
+19	" HIV"	"Random"	" Training vs Validation"	0.617421381501662
+20	" HIV"	"Random"	" Training vs Validation"	0.610933087434591
+21	" HIV"	"Random"	" Training vs Validation"	0.614968127685197
+22	" HIV"	"Random"	" Training vs Validation"	0.617374198496748
+23	" HIV"	"Random"	" Training vs Validation"	0.613177913596223
+24	" HIV"	"Random"	" Training vs Validation"	0.614378522523472
+25	" HIV"	"Random"	" Training vs Validation"	0.616486555530693
+26	" HIV"	"Random"	" Training vs Validation"	0.612856349737496
+27	" HIV"	"Random"	" Training vs Validation"	0.610457017387224
+28	" HIV"	"Random"	" Training vs Validation"	0.615521751086913
+29	" HIV"	"Random"	" Training vs Validation"	0.615869135766178
+0	"ESOL"	"Random"	" Training vs Validation"	0.567257758394807
+1	"ESOL"	"Random"	" Training vs Validation"	0.572492504278115
+2	"ESOL"	"Random"	" Training vs Validation"	0.581741294634026
+3	"ESOL"	"Random"	" Training vs Validation"	0.540515769108207
+4	"ESOL"	"Random"	" Training vs Validation"	0.58176068592388
+5	"ESOL"	"Random"	" Training vs Validation"	0.558923106014201
+6	"ESOL"	"Random"	" Training vs Validation"	0.596388663865824
+7	"ESOL"	"Random"	" Training vs Validation"	0.564214976356093
+8	"ESOL"	"Random"	" Training vs Validation"	0.584679343531617
+9	"ESOL"	"Random"	" Training vs Validation"	0.578725334817329
+10	"ESOL"	"Random"	" Training vs Validation"	0.545800772915899
+11	"ESOL"	"Random"	" Training vs Validation"	0.548896092888528
+12	"ESOL"	"Random"	" Training vs Validation"	0.563205184266631
+13	"ESOL"	"Random"	" Training vs Validation"	0.586848749523669
+14	"ESOL"	"Random"	" Training vs Validation"	0.578153896120797
+15	"ESOL"	"Random"	" Training vs Validation"	0.584482259389046
+16	"ESOL"	"Random"	" Training vs Validation"	0.553644414232895
+17	"ESOL"	"Random"	" Training vs Validation"	0.532989120325156
+18	"ESOL"	"Random"	" Training vs Validation"	0.551327249908869
+19	"ESOL"	"Random"	" Training vs Validation"	0.572320274810875
+20	"ESOL"	"Random"	" Training vs Validation"	0.587392041772868
+21	"ESOL"	"Random"	" Training vs Validation"	0.543123073150626
+22	"ESOL"	"Random"	" Training vs Validation"	0.589121115023056
+23	"ESOL"	"Random"	" Training vs Validation"	0.552076121083403
+24	"ESOL"	"Random"	" Training vs Validation"	0.560064326477262
+25	"ESOL"	"Random"	" Training vs Validation"	0.574278248292682
+26	"ESOL"	"Random"	" Training vs Validation"	0.568683921631459
+27	"ESOL"	"Random"	" Training vs Validation"	0.584820498407415
+28	"ESOL"	"Random"	" Training vs Validation"	0.566484466326975
+29	"ESOL"	"Random"	" Training vs Validation"	0.569242690648653
+0	"FreeSolv"	"Random"	" Training vs Validation"	0.551710807252675
+1	"FreeSolv"	"Random"	" Training vs Validation"	0.558537210803479
+2	"FreeSolv"	"Random"	" Training vs Validation"	0.555060815648176
+3	"FreeSolv"	"Random"	" Training vs Validation"	0.544721368816681
+4	"FreeSolv"	"Random"	" Training vs Validation"	0.562080103205517
+5	"FreeSolv"	"Random"	" Training vs Validation"	0.544316446175799
+6	"FreeSolv"	"Random"	" Training vs Validation"	0.567495591938496
+7	"FreeSolv"	"Random"	" Training vs Validation"	0.569689188618213
+8	"FreeSolv"	"Random"	" Training vs Validation"	0.535391132812947
+9	"FreeSolv"	"Random"	" Training vs Validation"	0.540576301515102
+10	"FreeSolv"	"Random"	" Training vs Validation"	0.55757347762119
+11	"FreeSolv"	"Random"	" Training vs Validation"	0.52802379662171
+12	"FreeSolv"	"Random"	" Training vs Validation"	0.526653923094273
+13	"FreeSolv"	"Random"	" Training vs Validation"	0.544823774369434
+14	"FreeSolv"	"Random"	" Training vs Validation"	0.524636642308906
+15	"FreeSolv"	"Random"	" Training vs Validation"	0.526955799665302
+16	"FreeSolv"	"Random"	" Training vs Validation"	0.57948119728826
+17	"FreeSolv"	"Random"	" Training vs Validation"	0.528284056577832
+18	"FreeSolv"	"Random"	" Training vs Validation"	0.520129857817665
+19	"FreeSolv"	"Random"	" Training vs Validation"	0.521180013893172
+20	"FreeSolv"	"Random"	" Training vs Validation"	0.566175959538668
+21	"FreeSolv"	"Random"	" Training vs Validation"	0.525523392949253
+22	"FreeSolv"	"Random"	" Training vs Validation"	0.546071820310317
+23	"FreeSolv"	"Random"	" Training vs Validation"	0.531014894600958
+24	"FreeSolv"	"Random"	" Training vs Validation"	0.556560039520264
+25	"FreeSolv"	"Random"	" Training vs Validation"	0.538137607043609
+26	"FreeSolv"	"Random"	" Training vs Validation"	0.572179482551292
+27	"FreeSolv"	"Random"	" Training vs Validation"	0.562225648667663
+28	"FreeSolv"	"Random"	" Training vs Validation"	0.554539905162528
+29	"FreeSolv"	"Random"	" Training vs Validation"	0.557671861955896
+0	"Lipop"	"Random"	" Training vs Validation"	0.64024136194161
+1	"Lipop"	"Random"	" Training vs Validation"	0.645644676472459
+2	"Lipop"	"Random"	" Training vs Validation"	0.643863096762271
+3	"Lipop"	"Random"	" Training vs Validation"	0.653838234039999
+4	"Lipop"	"Random"	" Training vs Validation"	0.648100321988265
+5	"Lipop"	"Random"	" Training vs Validation"	0.664203312035118
+6	"Lipop"	"Random"	" Training vs Validation"	0.645908202869552
+7	"Lipop"	"Random"	" Training vs Validation"	0.658550169531788
+8	"Lipop"	"Random"	" Training vs Validation"	0.641450794892652
+9	"Lipop"	"Random"	" Training vs Validation"	0.637921520074209
+10	"Lipop"	"Random"	" Training vs Validation"	0.656943845181238
+11	"Lipop"	"Random"	" Training vs Validation"	0.654568261937017
+12	"Lipop"	"Random"	" Training vs Validation"	0.651458736792916
+13	"Lipop"	"Random"	" Training vs Validation"	0.644234331377915
+14	"Lipop"	"Random"	" Training vs Validation"	0.643668357779582
+15	"Lipop"	"Random"	" Training vs Validation"	0.638916109963542
+16	"Lipop"	"Random"	" Training vs Validation"	0.634036632698207
+17	"Lipop"	"Random"	" Training vs Validation"	0.657895389695962
+18	"Lipop"	"Random"	" Training vs Validation"	0.648671944510369
+19	"Lipop"	"Random"	" Training vs Validation"	0.657832755290327
+20	"Lipop"	"Random"	" Training vs Validation"	0.631565181591681
+21	"Lipop"	"Random"	" Training vs Validation"	0.63125017217937
+22	"Lipop"	"Random"	" Training vs Validation"	0.659479754382656
+23	"Lipop"	"Random"	" Training vs Validation"	0.639231509147655
+24	"Lipop"	"Random"	" Training vs Validation"	0.64416400300605
+25	"Lipop"	"Random"	" Training vs Validation"	0.637543096357868
+26	"Lipop"	"Random"	" Training vs Validation"	0.626331417688302
+27	"Lipop"	"Random"	" Training vs Validation"	0.665243663567872
+28	"Lipop"	"Random"	" Training vs Validation"	0.642341991336573
+29	"Lipop"	"Random"	" Training vs Validation"	0.643386468220325
+0	" BACE"	"Scaffold"	" Validation vs Test"	0.529328113029662
+1	" BACE"	"Scaffold"	" Validation vs Test"	0.569744103441113
+2	" BACE"	"Scaffold"	" Validation vs Test"	0.56400247526012
+3	" BACE"	"Scaffold"	" Validation vs Test"	0.555926328328879
+4	" BACE"	"Scaffold"	" Validation vs Test"	0.465028244119726
+5	" BACE"	"Scaffold"	" Validation vs Test"	0.560189712106397
+6	" BACE"	"Scaffold"	" Validation vs Test"	0.485881576118501
+7	" BACE"	"Scaffold"	" Validation vs Test"	0.571786847553755
+8	" BACE"	"Scaffold"	" Validation vs Test"	0.501552915788795
+9	" BACE"	"Scaffold"	" Validation vs Test"	0.486515989233004
+10	" BACE"	"Scaffold"	" Validation vs Test"	0.568809896119331
+11	" BACE"	"Scaffold"	" Validation vs Test"	0.531727571040392
+12	" BACE"	"Scaffold"	" Validation vs Test"	0.534175073237796
+13	" BACE"	"Scaffold"	" Validation vs Test"	0.502528686468538
+14	" BACE"	"Scaffold"	" Validation vs Test"	0.432744287052437
+15	" BACE"	"Scaffold"	" Validation vs Test"	0.599497796673524
+16	" BACE"	"Scaffold"	" Validation vs Test"	0.558875568015011
+17	" BACE"	"Scaffold"	" Validation vs Test"	0.570488873182943
+18	" BACE"	"Scaffold"	" Validation vs Test"	0.554240131946771
+19	" BACE"	"Scaffold"	" Validation vs Test"	0.546337356692866
+20	" BACE"	"Scaffold"	" Validation vs Test"	0.547412832904803
+21	" BACE"	"Scaffold"	" Validation vs Test"	0.522050009550233
+22	" BACE"	"Scaffold"	" Validation vs Test"	0.538444481692032
+23	" BACE"	"Scaffold"	" Validation vs Test"	0.531794397062377
+24	" BACE"	"Scaffold"	" Validation vs Test"	0.542207286448071
+25	" BACE"	"Scaffold"	" Validation vs Test"	0.501984969957879
+26	" BACE"	"Scaffold"	" Validation vs Test"	0.537026828449023
+27	" BACE"	"Scaffold"	" Validation vs Test"	0.517970214156728
+28	" BACE"	"Scaffold"	" Validation vs Test"	0.52865244771697
+29	" BACE"	"Scaffold"	" Validation vs Test"	0.533221414508788
+0	" BBBP"	"Scaffold"	" Validation vs Test"	0.320928374659724
+1	" BBBP"	"Scaffold"	" Validation vs Test"	0.332111757194124
+2	" BBBP"	"Scaffold"	" Validation vs Test"	0.347933331822477
+3	" BBBP"	"Scaffold"	" Validation vs Test"	0.275177395489158
+4	" BBBP"	"Scaffold"	" Validation vs Test"	0.369227232075319
+5	" BBBP"	"Scaffold"	" Validation vs Test"	0.34637944429386
+6	" BBBP"	"Scaffold"	" Validation vs Test"	0.294167929815083
+7	" BBBP"	"Scaffold"	" Validation vs Test"	0.357743796488134
+8	" BBBP"	"Scaffold"	" Validation vs Test"	0.345008156975595
+9	" BBBP"	"Scaffold"	" Validation vs Test"	0.33895236479073
+10	" BBBP"	"Scaffold"	" Validation vs Test"	0.301161488599894
+11	" BBBP"	"Scaffold"	" Validation vs Test"	0.357755381268699
+12	" BBBP"	"Scaffold"	" Validation vs Test"	0.253933925999374
+13	" BBBP"	"Scaffold"	" Validation vs Test"	0.340341629851155
+14	" BBBP"	"Scaffold"	" Validation vs Test"	0.27091342036317
+15	" BBBP"	"Scaffold"	" Validation vs Test"	0.22670241965935
+16	" BBBP"	"Scaffold"	" Validation vs Test"	0.292433333142502
+17	" BBBP"	"Scaffold"	" Validation vs Test"	0.325112084063088
+18	" BBBP"	"Scaffold"	" Validation vs Test"	0.298251578248129
+19	" BBBP"	"Scaffold"	" Validation vs Test"	0.315105421223292
+20	" BBBP"	"Scaffold"	" Validation vs Test"	0.322714089438683
+21	" BBBP"	"Scaffold"	" Validation vs Test"	0.344263027935493
+22	" BBBP"	"Scaffold"	" Validation vs Test"	0.426793621553154
+23	" BBBP"	"Scaffold"	" Validation vs Test"	0.325116692955901
+24	" BBBP"	"Scaffold"	" Validation vs Test"	0.349509184534957
+25	" BBBP"	"Scaffold"	" Validation vs Test"	0.337477331481329
+26	" BBBP"	"Scaffold"	" Validation vs Test"	0.382952706406756
+27	" BBBP"	"Scaffold"	" Validation vs Test"	0.347517647321631
+28	" BBBP"	"Scaffold"	" Validation vs Test"	0.332760644068078
+29	" BBBP"	"Scaffold"	" Validation vs Test"	0.349269872322315
+0	" HIV"	"Scaffold"	" Validation vs Test"	0.394874305127167
+1	" HIV"	"Scaffold"	" Validation vs Test"	0.390297364730659
+2	" HIV"	"Scaffold"	" Validation vs Test"	0.388110822559838
+3	" HIV"	"Scaffold"	" Validation vs Test"	0.360404216868945
+4	" HIV"	"Scaffold"	" Validation vs Test"	0.384935276971851
+5	" HIV"	"Scaffold"	" Validation vs Test"	0.388311672645084
+6	" HIV"	"Scaffold"	" Validation vs Test"	0.395043251271988
+7	" HIV"	"Scaffold"	" Validation vs Test"	0.395733009205953
+8	" HIV"	"Scaffold"	" Validation vs Test"	0.388850460350224
+9	" HIV"	"Scaffold"	" Validation vs Test"	0.395607059713251
+10	" HIV"	"Scaffold"	" Validation vs Test"	0.391883016652488
+11	" HIV"	"Scaffold"	" Validation vs Test"	0.390225568713352
+12	" HIV"	"Scaffold"	" Validation vs Test"	0.387447499416256
+13	" HIV"	"Scaffold"	" Validation vs Test"	0.395233588557217
+14	" HIV"	"Scaffold"	" Validation vs Test"	0.387798680295525
+15	" HIV"	"Scaffold"	" Validation vs Test"	0.383337323516499
+16	" HIV"	"Scaffold"	" Validation vs Test"	0.394822761829451
+17	" HIV"	"Scaffold"	" Validation vs Test"	0.393583391310089
+18	" HIV"	"Scaffold"	" Validation vs Test"	0.395603253327015
+19	" HIV"	"Scaffold"	" Validation vs Test"	0.351320335636522
+20	" HIV"	"Scaffold"	" Validation vs Test"	0.401179758544288
+21	" HIV"	"Scaffold"	" Validation vs Test"	0.342499387313524
+22	" HIV"	"Scaffold"	" Validation vs Test"	0.335912710124998
+23	" HIV"	"Scaffold"	" Validation vs Test"	0.395402060792216
+24	" HIV"	"Scaffold"	" Validation vs Test"	0.397833555259323
+25	" HIV"	"Scaffold"	" Validation vs Test"	0.389062325150651
+26	" HIV"	"Scaffold"	" Validation vs Test"	0.362981262663232
+27	" HIV"	"Scaffold"	" Validation vs Test"	0.391589703340398
+28	" HIV"	"Scaffold"	" Validation vs Test"	0.334779234419636
+29	" HIV"	"Scaffold"	" Validation vs Test"	0.36038491900475
+0	"ESOL"	"Scaffold"	" Validation vs Test"	0.312308281529368
+1	"ESOL"	"Scaffold"	" Validation vs Test"	0.337036468807543
+2	"ESOL"	"Scaffold"	" Validation vs Test"	0.311138199903724
+3	"ESOL"	"Scaffold"	" Validation vs Test"	0.309775209348453
+4	"ESOL"	"Scaffold"	" Validation vs Test"	0.332376040060792
+5	"ESOL"	"Scaffold"	" Validation vs Test"	0.260629880389101
+6	"ESOL"	"Scaffold"	" Validation vs Test"	0.346255511437592
+7	"ESOL"	"Scaffold"	" Validation vs Test"	0.328002863416546
+8	"ESOL"	"Scaffold"	" Validation vs Test"	0.321935140380734
+9	"ESOL"	"Scaffold"	" Validation vs Test"	0.327091986607564
+10	"ESOL"	"Scaffold"	" Validation vs Test"	0.325890438598499
+11	"ESOL"	"Scaffold"	" Validation vs Test"	0.36624470653764
+12	"ESOL"	"Scaffold"	" Validation vs Test"	0.320243975114927
+13	"ESOL"	"Scaffold"	" Validation vs Test"	0.297794292370478
+14	"ESOL"	"Scaffold"	" Validation vs Test"	0.304698080608719
+15	"ESOL"	"Scaffold"	" Validation vs Test"	0.299360106780864
+16	"ESOL"	"Scaffold"	" Validation vs Test"	0.34374518228466
+17	"ESOL"	"Scaffold"	" Validation vs Test"	0.310282961383723
+18	"ESOL"	"Scaffold"	" Validation vs Test"	0.3093585928804
+19	"ESOL"	"Scaffold"	" Validation vs Test"	0.333690418355298
+20	"ESOL"	"Scaffold"	" Validation vs Test"	0.314088123409372
+21	"ESOL"	"Scaffold"	" Validation vs Test"	0.359003038129263
+22	"ESOL"	"Scaffold"	" Validation vs Test"	0.268601868889834
+23	"ESOL"	"Scaffold"	" Validation vs Test"	0.336620527205237
+24	"ESOL"	"Scaffold"	" Validation vs Test"	0.303779419838336
+25	"ESOL"	"Scaffold"	" Validation vs Test"	0.347729856899956
+26	"ESOL"	"Scaffold"	" Validation vs Test"	0.279249182722548
+27	"ESOL"	"Scaffold"	" Validation vs Test"	0.26551407320719
+28	"ESOL"	"Scaffold"	" Validation vs Test"	0.34620885903898
+29	"ESOL"	"Scaffold"	" Validation vs Test"	0.297128875102652
+0	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.318630697291631
+1	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.323156872047828
+2	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.326178902731492
+3	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.281345164202727
+4	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.272074115505585
+5	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.342940686471187
+6	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.316857110193142
+7	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.325966216967656
+8	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.257749016812214
+9	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.287388960100137
+10	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.296500244679359
+11	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.315418282437783
+12	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.290861146495892
+13	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.326547183726843
+14	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.292946899281098
+15	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.280042560054706
+16	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.288041605227269
+17	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.361341092162407
+18	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.289010570083673
+19	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.320278115570545
+20	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.335155994273149
+21	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.258204338756891
+22	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.332169333558816
+23	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.208043921824831
+24	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.345368382678582
+25	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.302703541631882
+26	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.323140560205166
+27	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.272749136846799
+28	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.358601661370351
+29	"FreeSolv"	"Scaffold"	" Validation vs Test"	0.263653170202787
+0	"Lipop"	"Scaffold"	" Validation vs Test"	0.402567802085763
+1	"Lipop"	"Scaffold"	" Validation vs Test"	0.381640337230194
+2	"Lipop"	"Scaffold"	" Validation vs Test"	0.377392022808393
+3	"Lipop"	"Scaffold"	" Validation vs Test"	0.365903215305436
+4	"Lipop"	"Scaffold"	" Validation vs Test"	0.373150196423133
+5	"Lipop"	"Scaffold"	" Validation vs Test"	0.38330480669226
+6	"Lipop"	"Scaffold"	" Validation vs Test"	0.353623689462741
+7	"Lipop"	"Scaffold"	" Validation vs Test"	0.379012967468727
+8	"Lipop"	"Scaffold"	" Validation vs Test"	0.375277614274195
+9	"Lipop"	"Scaffold"	" Validation vs Test"	0.380928909246411
+10	"Lipop"	"Scaffold"	" Validation vs Test"	0.3775796163295
+11	"Lipop"	"Scaffold"	" Validation vs Test"	0.38881966982569
+12	"Lipop"	"Scaffold"	" Validation vs Test"	0.364895719254301
+13	"Lipop"	"Scaffold"	" Validation vs Test"	0.42021446646679
+14	"Lipop"	"Scaffold"	" Validation vs Test"	0.402910756639072
+15	"Lipop"	"Scaffold"	" Validation vs Test"	0.385202460877952
+16	"Lipop"	"Scaffold"	" Validation vs Test"	0.384200710874228
+17	"Lipop"	"Scaffold"	" Validation vs Test"	0.402224600244136
+18	"Lipop"	"Scaffold"	" Validation vs Test"	0.40250068509153
+19	"Lipop"	"Scaffold"	" Validation vs Test"	0.355834635719657
+20	"Lipop"	"Scaffold"	" Validation vs Test"	0.359341851550908
+21	"Lipop"	"Scaffold"	" Validation vs Test"	0.372886714303777
+22	"Lipop"	"Scaffold"	" Validation vs Test"	0.40204839294865
+23	"Lipop"	"Scaffold"	" Validation vs Test"	0.382642470974298
+24	"Lipop"	"Scaffold"	" Validation vs Test"	0.386692774402244
+25	"Lipop"	"Scaffold"	" Validation vs Test"	0.401700585654804
+26	"Lipop"	"Scaffold"	" Validation vs Test"	0.364092823242148
+27	"Lipop"	"Scaffold"	" Validation vs Test"	0.389939132687591
+28	"Lipop"	"Scaffold"	" Validation vs Test"	0.355341249314092
+29	"Lipop"	"Scaffold"	" Validation vs Test"	0.358360471540973
+0	" BACE"	"Random"	" Validation vs Test"	0.649910066864992
+1	" BACE"	"Random"	" Validation vs Test"	0.638112586285723
+2	" BACE"	"Random"	" Validation vs Test"	0.655787448643854
+3	" BACE"	"Random"	" Validation vs Test"	0.607640043293175
+4	" BACE"	"Random"	" Validation vs Test"	0.654389342097075
+5	" BACE"	"Random"	" Validation vs Test"	0.651112984081632
+6	" BACE"	"Random"	" Validation vs Test"	0.632855291037183
+7	" BACE"	"Random"	" Validation vs Test"	0.618726237824089
+8	" BACE"	"Random"	" Validation vs Test"	0.615334879116792
+9	" BACE"	"Random"	" Validation vs Test"	0.635678391805605
+10	" BACE"	"Random"	" Validation vs Test"	0.645320421574931
+11	" BACE"	"Random"	" Validation vs Test"	0.61262157735856
+12	" BACE"	"Random"	" Validation vs Test"	0.661517239420822
+13	" BACE"	"Random"	" Validation vs Test"	0.650842278705616
+14	" BACE"	"Random"	" Validation vs Test"	0.615202566118617
+15	" BACE"	"Random"	" Validation vs Test"	0.611847689963485
+16	" BACE"	"Random"	" Validation vs Test"	0.658230073357883
+17	" BACE"	"Random"	" Validation vs Test"	0.62848069803103
+18	" BACE"	"Random"	" Validation vs Test"	0.651933718276651
+19	" BACE"	"Random"	" Validation vs Test"	0.632652647793293
+20	" BACE"	"Random"	" Validation vs Test"	0.629269103764703
+21	" BACE"	"Random"	" Validation vs Test"	0.637591816975098
+22	" BACE"	"Random"	" Validation vs Test"	0.651192627258991
+23	" BACE"	"Random"	" Validation vs Test"	0.648798887666903
+24	" BACE"	"Random"	" Validation vs Test"	0.610548160970211
+25	" BACE"	"Random"	" Validation vs Test"	0.628852409555724
+26	" BACE"	"Random"	" Validation vs Test"	0.623282319424968
+27	" BACE"	"Random"	" Validation vs Test"	0.624683173373342
+28	" BACE"	"Random"	" Validation vs Test"	0.63690443444801
+29	" BACE"	"Random"	" Validation vs Test"	0.615530387547455
+0	" BBBP"	"Random"	" Validation vs Test"	0.382007061923836
+1	" BBBP"	"Random"	" Validation vs Test"	0.417568643376523
+2	" BBBP"	"Random"	" Validation vs Test"	0.399136443129357
+3	" BBBP"	"Random"	" Validation vs Test"	0.413864471237449
+4	" BBBP"	"Random"	" Validation vs Test"	0.406606458492723
+5	" BBBP"	"Random"	" Validation vs Test"	0.391109518998978
+6	" BBBP"	"Random"	" Validation vs Test"	0.38830003606192
+7	" BBBP"	"Random"	" Validation vs Test"	0.378631021754414
+8	" BBBP"	"Random"	" Validation vs Test"	0.400609020399404
+9	" BBBP"	"Random"	" Validation vs Test"	0.403512397634925
+10	" BBBP"	"Random"	" Validation vs Test"	0.375329233486863
+11	" BBBP"	"Random"	" Validation vs Test"	0.369472309472222
+12	" BBBP"	"Random"	" Validation vs Test"	0.401385442171173
+13	" BBBP"	"Random"	" Validation vs Test"	0.387749091375108
+14	" BBBP"	"Random"	" Validation vs Test"	0.388431300427399
+15	" BBBP"	"Random"	" Validation vs Test"	0.378107229393779
+16	" BBBP"	"Random"	" Validation vs Test"	0.383719484814826
+17	" BBBP"	"Random"	" Validation vs Test"	0.414649559696223
+18	" BBBP"	"Random"	" Validation vs Test"	0.372157663143441
+19	" BBBP"	"Random"	" Validation vs Test"	0.388144799307281
+20	" BBBP"	"Random"	" Validation vs Test"	0.385316309902598
+21	" BBBP"	"Random"	" Validation vs Test"	0.382768108162518
+22	" BBBP"	"Random"	" Validation vs Test"	0.387676316788237
+23	" BBBP"	"Random"	" Validation vs Test"	0.381909435761033
+24	" BBBP"	"Random"	" Validation vs Test"	0.388886548469172
+25	" BBBP"	"Random"	" Validation vs Test"	0.387445798691581
+26	" BBBP"	"Random"	" Validation vs Test"	0.383548593404246
+27	" BBBP"	"Random"	" Validation vs Test"	0.407125474191179
+28	" BBBP"	"Random"	" Validation vs Test"	0.379384936947449
+29	" BBBP"	"Random"	" Validation vs Test"	0.408369988349139
+0	" HIV"	"Random"	" Validation vs Test"	0.44644253006997
+1	" HIV"	"Random"	" Validation vs Test"	0.450240029526139
+2	" HIV"	"Random"	" Validation vs Test"	0.449999792643078
+3	" HIV"	"Random"	" Validation vs Test"	0.451248808463444
+4	" HIV"	"Random"	" Validation vs Test"	0.449599566419514
+5	" HIV"	"Random"	" Validation vs Test"	0.448764263032968
+6	" HIV"	"Random"	" Validation vs Test"	0.445840456493791
+7	" HIV"	"Random"	" Validation vs Test"	0.441289770774002
+8	" HIV"	"Random"	" Validation vs Test"	0.451242334294748
+9	" HIV"	"Random"	" Validation vs Test"	0.440242416370518
+10	" HIV"	"Random"	" Validation vs Test"	0.443371617838237
+11	" HIV"	"Random"	" Validation vs Test"	0.450782201055654
+12	" HIV"	"Random"	" Validation vs Test"	0.44526096290476
+13	" HIV"	"Random"	" Validation vs Test"	0.449432860207607
+14	" HIV"	"Random"	" Validation vs Test"	0.449584062330093
+15	" HIV"	"Random"	" Validation vs Test"	0.448415676359637
+16	" HIV"	"Random"	" Validation vs Test"	0.447682460670833
+17	" HIV"	"Random"	" Validation vs Test"	0.449303068193443
+18	" HIV"	"Random"	" Validation vs Test"	0.447721760503544
+19	" HIV"	"Random"	" Validation vs Test"	0.445284161648769
+20	" HIV"	"Random"	" Validation vs Test"	0.446562839177891
+21	" HIV"	"Random"	" Validation vs Test"	0.448875588115595
+22	" HIV"	"Random"	" Validation vs Test"	0.447541068341794
+23	" HIV"	"Random"	" Validation vs Test"	0.447524733348699
+24	" HIV"	"Random"	" Validation vs Test"	0.449608032470952
+25	" HIV"	"Random"	" Validation vs Test"	0.448744410295252
+26	" HIV"	"Random"	" Validation vs Test"	0.445122201911382
+27	" HIV"	"Random"	" Validation vs Test"	0.447660462700289
+28	" HIV"	"Random"	" Validation vs Test"	0.44439218167932
+29	" HIV"	"Random"	" Validation vs Test"	0.443640970704462
+0	"ESOL"	"Random"	" Validation vs Test"	0.393849056906405
+1	"ESOL"	"Random"	" Validation vs Test"	0.379098451902381
+2	"ESOL"	"Random"	" Validation vs Test"	0.361081046077002
+3	"ESOL"	"Random"	" Validation vs Test"	0.388953936574733
+4	"ESOL"	"Random"	" Validation vs Test"	0.378636557378073
+5	"ESOL"	"Random"	" Validation vs Test"	0.354944896974922
+6	"ESOL"	"Random"	" Validation vs Test"	0.389607095217283
+7	"ESOL"	"Random"	" Validation vs Test"	0.379184341635061
+8	"ESOL"	"Random"	" Validation vs Test"	0.395048255941509
+9	"ESOL"	"Random"	" Validation vs Test"	0.37853022401048
+10	"ESOL"	"Random"	" Validation vs Test"	0.377805883905529
+11	"ESOL"	"Random"	" Validation vs Test"	0.38643789563361
+12	"ESOL"	"Random"	" Validation vs Test"	0.427900678816095
+13	"ESOL"	"Random"	" Validation vs Test"	0.396784642694798
+14	"ESOL"	"Random"	" Validation vs Test"	0.339506770063818
+15	"ESOL"	"Random"	" Validation vs Test"	0.381606171682345
+16	"ESOL"	"Random"	" Validation vs Test"	0.353705030099481
+17	"ESOL"	"Random"	" Validation vs Test"	0.399179345145162
+18	"ESOL"	"Random"	" Validation vs Test"	0.374935440521325
+19	"ESOL"	"Random"	" Validation vs Test"	0.361911539878465
+20	"ESOL"	"Random"	" Validation vs Test"	0.375954286582702
+21	"ESOL"	"Random"	" Validation vs Test"	0.382050758441993
+22	"ESOL"	"Random"	" Validation vs Test"	0.385443150271884
+23	"ESOL"	"Random"	" Validation vs Test"	0.384690114288731
+24	"ESOL"	"Random"	" Validation vs Test"	0.375808174169697
+25	"ESOL"	"Random"	" Validation vs Test"	0.397326484784088
+26	"ESOL"	"Random"	" Validation vs Test"	0.38542198000756
+27	"ESOL"	"Random"	" Validation vs Test"	0.39164174743722
+28	"ESOL"	"Random"	" Validation vs Test"	0.362982237266492
+29	"ESOL"	"Random"	" Validation vs Test"	0.367930863217442
+0	"FreeSolv"	"Random"	" Validation vs Test"	0.373756265754883
+1	"FreeSolv"	"Random"	" Validation vs Test"	0.362776095133561
+2	"FreeSolv"	"Random"	" Validation vs Test"	0.379673732817173
+3	"FreeSolv"	"Random"	" Validation vs Test"	0.35636906428979
+4	"FreeSolv"	"Random"	" Validation vs Test"	0.397111902557887
+5	"FreeSolv"	"Random"	" Validation vs Test"	0.367752382044609
+6	"FreeSolv"	"Random"	" Validation vs Test"	0.350365353891483
+7	"FreeSolv"	"Random"	" Validation vs Test"	0.41602328648934
+8	"FreeSolv"	"Random"	" Validation vs Test"	0.346020876558927
+9	"FreeSolv"	"Random"	" Validation vs Test"	0.346301114559174
+10	"FreeSolv"	"Random"	" Validation vs Test"	0.350054803834512
+11	"FreeSolv"	"Random"	" Validation vs Test"	0.38580701729426
+12	"FreeSolv"	"Random"	" Validation vs Test"	0.349033916111176
+13	"FreeSolv"	"Random"	" Validation vs Test"	0.35655011431529
+14	"FreeSolv"	"Random"	" Validation vs Test"	0.372947790072514
+15	"FreeSolv"	"Random"	" Validation vs Test"	0.373938425687643
+16	"FreeSolv"	"Random"	" Validation vs Test"	0.370202100735444
+17	"FreeSolv"	"Random"	" Validation vs Test"	0.369747657844654
+18	"FreeSolv"	"Random"	" Validation vs Test"	0.318195891265686
+19	"FreeSolv"	"Random"	" Validation vs Test"	0.314153445454744
+20	"FreeSolv"	"Random"	" Validation vs Test"	0.33729131347858
+21	"FreeSolv"	"Random"	" Validation vs Test"	0.383133560762956
+22	"FreeSolv"	"Random"	" Validation vs Test"	0.347055013363178
+23	"FreeSolv"	"Random"	" Validation vs Test"	0.344343959941314
+24	"FreeSolv"	"Random"	" Validation vs Test"	0.329195659321088
+25	"FreeSolv"	"Random"	" Validation vs Test"	0.367813623868502
+26	"FreeSolv"	"Random"	" Validation vs Test"	0.385066656309825
+27	"FreeSolv"	"Random"	" Validation vs Test"	0.384981798437925
+28	"FreeSolv"	"Random"	" Validation vs Test"	0.373299290125187
+29	"FreeSolv"	"Random"	" Validation vs Test"	0.335272704408719
+0	"Lipop"	"Random"	" Validation vs Test"	0.436321831530049
+1	"Lipop"	"Random"	" Validation vs Test"	0.478790829295204
+2	"Lipop"	"Random"	" Validation vs Test"	0.448400469656501
+3	"Lipop"	"Random"	" Validation vs Test"	0.450226579251743
+4	"Lipop"	"Random"	" Validation vs Test"	0.471772897811163
+5	"Lipop"	"Random"	" Validation vs Test"	0.44609354081608
+6	"Lipop"	"Random"	" Validation vs Test"	0.446096861681768
+7	"Lipop"	"Random"	" Validation vs Test"	0.452267027326993
+8	"Lipop"	"Random"	" Validation vs Test"	0.44844923672222
+9	"Lipop"	"Random"	" Validation vs Test"	0.452509895038037
+10	"Lipop"	"Random"	" Validation vs Test"	0.468148596052613
+11	"Lipop"	"Random"	" Validation vs Test"	0.466535041339341
+12	"Lipop"	"Random"	" Validation vs Test"	0.449491730935517
+13	"Lipop"	"Random"	" Validation vs Test"	0.457559990563563
+14	"Lipop"	"Random"	" Validation vs Test"	0.458176037598224
+15	"Lipop"	"Random"	" Validation vs Test"	0.441944009278502
+16	"Lipop"	"Random"	" Validation vs Test"	0.444952178498109
+17	"Lipop"	"Random"	" Validation vs Test"	0.462434802062455
+18	"Lipop"	"Random"	" Validation vs Test"	0.450733518564985
+19	"Lipop"	"Random"	" Validation vs Test"	0.456876257203874
+20	"Lipop"	"Random"	" Validation vs Test"	0.454879684781744
+21	"Lipop"	"Random"	" Validation vs Test"	0.445107737964108
+22	"Lipop"	"Random"	" Validation vs Test"	0.447360458597541
+23	"Lipop"	"Random"	" Validation vs Test"	0.462492698395536
+24	"Lipop"	"Random"	" Validation vs Test"	0.462735739634151
+25	"Lipop"	"Random"	" Validation vs Test"	0.459392911302192
+26	"Lipop"	"Random"	" Validation vs Test"	0.435679607625519
+27	"Lipop"	"Random"	" Validation vs Test"	0.464202656650117
+28	"Lipop"	"Random"	" Validation vs Test"	0.469216083522354
+29	"Lipop"	"Random"	" Validation vs Test"	0.463704526176055

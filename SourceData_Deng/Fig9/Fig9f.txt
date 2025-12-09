@@ -1,0 +1,225 @@
+"mean_metric_score"	"std_metric_score"	"split_type"	"mol_rep"	"mol_prop"	"model_name"	"metric_name"	"desc_name"	"size"
+25.572648605185	5.53469345474681	"scaffold"	"Fixed-1. MorganBits"	"mw_size100_desc"	"   RF"	"RMSE"	"MolWt"	100
+25.0735813525338	3.90961237139308	"scaffold"	"Fixed-2. MACCS"	"mw_size100_desc"	"   RF"	"RMSE"	"MolWt"	100
+22.0278319783301	3.02498653159116	"scaffold"	"Fixed-3. AtomPairs"	"mw_size100_desc"	"   RF"	"RMSE"	"MolWt"	100
+38.4730693516901	10.5031602013157	"scaffold"	"Fixed-1. MorganBits"	"mw_size100_desc"	"   SVM"	"RMSE"	"MolWt"	100
+29.1213097974175	6.4252439573514	"scaffold"	"Fixed-2. MACCS"	"mw_size100_desc"	"   SVM"	"RMSE"	"MolWt"	100
+31.6263252019265	6.47837194078658	"scaffold"	"Fixed-3. AtomPairs"	"mw_size100_desc"	"   SVM"	"RMSE"	"MolWt"	100
+26.7025579458932	4.77622049401708	"scaffold"	"Fixed-1. MorganBits"	"mw_size100_desc"	"   XGBoost"	"RMSE"	"MolWt"	100
+25.144930872921	4.89261892506581	"scaffold"	"Fixed-2. MACCS"	"mw_size100_desc"	"   XGBoost"	"RMSE"	"MolWt"	100
+22.5237602609119	3.87798062052371	"scaffold"	"Fixed-3. AtomPairs"	"mw_size100_desc"	"   XGBoost"	"RMSE"	"MolWt"	100
+35.1276608077511	19.5100971761608	"scaffold"	"Learned-1. SMILES"	"mw_size100_desc"	"  RNN"	"RMSE"	"MolWt"	100
+174.446160404902	30.473299816092	"scaffold"	"Learned-2. Graph"	"mw_size100_desc"	"GCN"	"RMSE"	"MolWt"	100
+153.76970788953	28.0612402141194	"scaffold"	"Learned-2. Graph"	"mw_size100_desc"	"GIN"	"RMSE"	"MolWt"	100
+28.3088407357672	4.55161695940682	"scaffold"	"Learned-2. Graph"	"mw_size100_desc"	"GROVER"	"RMSE"	"MolWt"	100
+312.866984810294	6.54935246485292	"scaffold"	"Learned-1. SMILES"	"mw_size100_desc"	" MolBERT"	"RMSE"	"MolWt"	100
+25.586630130897	3.23308001982144	"scaffold"	"Fixed-1. MorganBits"	"mw_size200_desc"	"   RF"	"RMSE"	"MolWt"	200
+24.3773623569234	2.80205370873176	"scaffold"	"Fixed-2. MACCS"	"mw_size200_desc"	"   RF"	"RMSE"	"MolWt"	200
+20.8358933969303	2.31087595977413	"scaffold"	"Fixed-3. AtomPairs"	"mw_size200_desc"	"   RF"	"RMSE"	"MolWt"	200
+34.4280754599268	6.9164963954901	"scaffold"	"Fixed-1. MorganBits"	"mw_size200_desc"	"   SVM"	"RMSE"	"MolWt"	200
+26.1700337795107	4.34325772498081	"scaffold"	"Fixed-2. MACCS"	"mw_size200_desc"	"   SVM"	"RMSE"	"MolWt"	200
+25.133946303474	4.84229769978042	"scaffold"	"Fixed-3. AtomPairs"	"mw_size200_desc"	"   SVM"	"RMSE"	"MolWt"	200
+27.2237931867092	3.38216347448091	"scaffold"	"Fixed-1. MorganBits"	"mw_size200_desc"	"   XGBoost"	"RMSE"	"MolWt"	200
+24.3718218895314	2.95984796697348	"scaffold"	"Fixed-2. MACCS"	"mw_size200_desc"	"   XGBoost"	"RMSE"	"MolWt"	200
+20.621682049036	2.366131756049	"scaffold"	"Fixed-3. AtomPairs"	"mw_size200_desc"	"   XGBoost"	"RMSE"	"MolWt"	200
+26.0447141573279	2.31348268655322	"scaffold"	"Learned-1. SMILES"	"mw_size200_desc"	"  RNN"	"RMSE"	"MolWt"	200
+136.924294595388	32.9888346099602	"scaffold"	"Learned-2. Graph"	"mw_size200_desc"	"GCN"	"RMSE"	"MolWt"	200
+112.721317199848	41.5301805937931	"scaffold"	"Learned-2. Graph"	"mw_size200_desc"	"GIN"	"RMSE"	"MolWt"	200
+26.2071905431482	2.56189572788142	"scaffold"	"Learned-2. Graph"	"mw_size200_desc"	"GROVER"	"RMSE"	"MolWt"	200
+311.126778965949	5.3462666668708	"scaffold"	"Learned-1. SMILES"	"mw_size200_desc"	" MolBERT"	"RMSE"	"MolWt"	200
+24.5155714321055	1.80390601058012	"scaffold"	"Fixed-1. MorganBits"	"mw_size400_desc"	"   RF"	"RMSE"	"MolWt"	400
+23.3349247233716	2.08916515060292	"scaffold"	"Fixed-2. MACCS"	"mw_size400_desc"	"   RF"	"RMSE"	"MolWt"	400
+20.2724318341022	2.13182431529702	"scaffold"	"Fixed-3. AtomPairs"	"mw_size400_desc"	"   RF"	"RMSE"	"MolWt"	400
+29.9169317457052	3.0262928504137	"scaffold"	"Fixed-1. MorganBits"	"mw_size400_desc"	"   SVM"	"RMSE"	"MolWt"	400
+23.8626288603511	3.2745726874768	"scaffold"	"Fixed-2. MACCS"	"mw_size400_desc"	"   SVM"	"RMSE"	"MolWt"	400
+20.0724969221269	2.81500744279815	"scaffold"	"Fixed-3. AtomPairs"	"mw_size400_desc"	"   SVM"	"RMSE"	"MolWt"	400
+25.6823153159762	1.78883069328918	"scaffold"	"Fixed-1. MorganBits"	"mw_size400_desc"	"   XGBoost"	"RMSE"	"MolWt"	400
+22.8751168669482	1.91132572385062	"scaffold"	"Fixed-2. MACCS"	"mw_size400_desc"	"   XGBoost"	"RMSE"	"MolWt"	400
+19.4009039101124	2.13202607804334	"scaffold"	"Fixed-3. AtomPairs"	"mw_size400_desc"	"   XGBoost"	"RMSE"	"MolWt"	400
+24.8603493197535	2.05171729489312	"scaffold"	"Learned-1. SMILES"	"mw_size400_desc"	"  RNN"	"RMSE"	"MolWt"	400
+137.822231094155	32.6746410241388	"scaffold"	"Learned-2. Graph"	"mw_size400_desc"	"GCN"	"RMSE"	"MolWt"	400
+108.78967945694	21.6751229614963	"scaffold"	"Learned-2. Graph"	"mw_size400_desc"	"GIN"	"RMSE"	"MolWt"	400
+25.6397034254768	2.18399420666909	"scaffold"	"Learned-2. Graph"	"mw_size400_desc"	"GROVER"	"RMSE"	"MolWt"	400
+310.405277503508	3.45879986114636	"scaffold"	"Learned-1. SMILES"	"mw_size400_desc"	" MolBERT"	"RMSE"	"MolWt"	400
+24.5232457238739	2.31807631652535	"scaffold"	"Fixed-1. MorganBits"	"mw_size600_desc"	"   RF"	"RMSE"	"MolWt"	600
+23.1080759107961	1.92901138066878	"scaffold"	"Fixed-2. MACCS"	"mw_size600_desc"	"   RF"	"RMSE"	"MolWt"	600
+20.1638103963174	1.97136407296088	"scaffold"	"Fixed-3. AtomPairs"	"mw_size600_desc"	"   RF"	"RMSE"	"MolWt"	600
+28.9438982857113	3.02814009076668	"scaffold"	"Fixed-1. MorganBits"	"mw_size600_desc"	"   SVM"	"RMSE"	"MolWt"	600
+24.9192844539957	3.45896993135405	"scaffold"	"Fixed-2. MACCS"	"mw_size600_desc"	"   SVM"	"RMSE"	"MolWt"	600
+16.0582186227631	2.32647144789506	"scaffold"	"Fixed-3. AtomPairs"	"mw_size600_desc"	"   SVM"	"RMSE"	"MolWt"	600
+24.9109281747652	2.19706558961058	"scaffold"	"Fixed-1. MorganBits"	"mw_size600_desc"	"   XGBoost"	"RMSE"	"MolWt"	600
+22.8023252335383	2.14097846856006	"scaffold"	"Fixed-2. MACCS"	"mw_size600_desc"	"   XGBoost"	"RMSE"	"MolWt"	600
+18.8511419254433	2.2361570226877	"scaffold"	"Fixed-3. AtomPairs"	"mw_size600_desc"	"   XGBoost"	"RMSE"	"MolWt"	600
+24.0689402116733	7.81176829353517	"scaffold"	"Learned-1. SMILES"	"mw_size600_desc"	"  RNN"	"RMSE"	"MolWt"	600
+86.5870229970485	34.2482672204547	"scaffold"	"Learned-2. Graph"	"mw_size600_desc"	"GCN"	"RMSE"	"MolWt"	600
+64.9852445984213	23.28559722204	"scaffold"	"Learned-2. Graph"	"mw_size600_desc"	"GIN"	"RMSE"	"MolWt"	600
+24.8164148115851	2.59964197354258	"scaffold"	"Learned-2. Graph"	"mw_size600_desc"	"GROVER"	"RMSE"	"MolWt"	600
+305.266638556837	3.74443540624198	"scaffold"	"Learned-1. SMILES"	"mw_size600_desc"	" MolBERT"	"RMSE"	"MolWt"	600
+24.4156812349206	1.85833754038306	"scaffold"	"Fixed-1. MorganBits"	"mw_size800_desc"	"   RF"	"RMSE"	"MolWt"	800
+22.8908613711425	1.52817912982794	"scaffold"	"Fixed-2. MACCS"	"mw_size800_desc"	"   RF"	"RMSE"	"MolWt"	800
+20.0236591004836	1.33264376446188	"scaffold"	"Fixed-3. AtomPairs"	"mw_size800_desc"	"   RF"	"RMSE"	"MolWt"	800
+27.7763517822647	2.19559614239122	"scaffold"	"Fixed-1. MorganBits"	"mw_size800_desc"	"   SVM"	"RMSE"	"MolWt"	800
+24.5791351722646	3.12973584785607	"scaffold"	"Fixed-2. MACCS"	"mw_size800_desc"	"   SVM"	"RMSE"	"MolWt"	800
+13.2627860607615	1.62764324774323	"scaffold"	"Fixed-3. AtomPairs"	"mw_size800_desc"	"   SVM"	"RMSE"	"MolWt"	800
+25.2231591673471	1.73721979731278	"scaffold"	"Fixed-1. MorganBits"	"mw_size800_desc"	"   XGBoost"	"RMSE"	"MolWt"	800
+22.1471805221193	1.58773208902585	"scaffold"	"Fixed-2. MACCS"	"mw_size800_desc"	"   XGBoost"	"RMSE"	"MolWt"	800
+18.4104720631937	1.34374300132686	"scaffold"	"Fixed-3. AtomPairs"	"mw_size800_desc"	"   XGBoost"	"RMSE"	"MolWt"	800
+19.122690013572	3.64141069631814	"scaffold"	"Learned-1. SMILES"	"mw_size800_desc"	"  RNN"	"RMSE"	"MolWt"	800
+50.8408845222341	27.0802441720531	"scaffold"	"Learned-2. Graph"	"mw_size800_desc"	"GCN"	"RMSE"	"MolWt"	800
+70.1725816265305	22.0027895657356	"scaffold"	"Learned-2. Graph"	"mw_size800_desc"	"GIN"	"RMSE"	"MolWt"	800
+24.8976036317746	2.79636453179475	"scaffold"	"Learned-2. Graph"	"mw_size800_desc"	"GROVER"	"RMSE"	"MolWt"	800
+303.161811762832	2.75715866530231	"scaffold"	"Learned-1. SMILES"	"mw_size800_desc"	" MolBERT"	"RMSE"	"MolWt"	800
+24.0035664375113	1.61551866599379	"scaffold"	"Fixed-1. MorganBits"	"mw_size1000_desc"	"   RF"	"RMSE"	"MolWt"	1000
+22.1002184944374	1.44508280973987	"scaffold"	"Fixed-2. MACCS"	"mw_size1000_desc"	"   RF"	"RMSE"	"MolWt"	1000
+19.7253192838659	1.00784431249978	"scaffold"	"Fixed-3. AtomPairs"	"mw_size1000_desc"	"   RF"	"RMSE"	"MolWt"	1000
+26.4549525721996	1.95723218992628	"scaffold"	"Fixed-1. MorganBits"	"mw_size1000_desc"	"   SVM"	"RMSE"	"MolWt"	1000
+22.6471509678726	2.05002286266232	"scaffold"	"Fixed-2. MACCS"	"mw_size1000_desc"	"   SVM"	"RMSE"	"MolWt"	1000
+12.0208943148219	1.41936088099177	"scaffold"	"Fixed-3. AtomPairs"	"mw_size1000_desc"	"   SVM"	"RMSE"	"MolWt"	1000
+24.6247679195985	1.46842003594864	"scaffold"	"Fixed-1. MorganBits"	"mw_size1000_desc"	"   XGBoost"	"RMSE"	"MolWt"	1000
+21.0967894046366	1.34186972169802	"scaffold"	"Fixed-2. MACCS"	"mw_size1000_desc"	"   XGBoost"	"RMSE"	"MolWt"	1000
+18.055943622592	1.11967416176684	"scaffold"	"Fixed-3. AtomPairs"	"mw_size1000_desc"	"   XGBoost"	"RMSE"	"MolWt"	1000
+17.9619463560793	3.77892965085568	"scaffold"	"Learned-1. SMILES"	"mw_size1000_desc"	"  RNN"	"RMSE"	"MolWt"	1000
+38.9851260300546	17.3807548477657	"scaffold"	"Learned-2. Graph"	"mw_size1000_desc"	"GCN"	"RMSE"	"MolWt"	1000
+52.2200819849461	6.69921509382377	"scaffold"	"Learned-2. Graph"	"mw_size1000_desc"	"GIN"	"RMSE"	"MolWt"	1000
+28.9056961281127	6.59374285797194	"scaffold"	"Learned-2. Graph"	"mw_size1000_desc"	"GROVER"	"RMSE"	"MolWt"	1000
+300.917243434502	2.97524753715019	"scaffold"	"Learned-1. SMILES"	"mw_size1000_desc"	" MolBERT"	"RMSE"	"MolWt"	1000
+23.8393990838094	1.06250074265138	"scaffold"	"Fixed-1. MorganBits"	"mw_size2000_desc"	"   RF"	"RMSE"	"MolWt"	2000
+22.0687836046103	0.940601565890781	"scaffold"	"Fixed-2. MACCS"	"mw_size2000_desc"	"   RF"	"RMSE"	"MolWt"	2000
+19.1446000554032	0.882843501586875	"scaffold"	"Fixed-3. AtomPairs"	"mw_size2000_desc"	"   RF"	"RMSE"	"MolWt"	2000
+23.5254644906612	1.14499916220932	"scaffold"	"Fixed-1. MorganBits"	"mw_size2000_desc"	"   SVM"	"RMSE"	"MolWt"	2000
+21.6354524779286	1.02830781134783	"scaffold"	"Fixed-2. MACCS"	"mw_size2000_desc"	"   SVM"	"RMSE"	"MolWt"	2000
+8.73258090352348	1.25652902577491	"scaffold"	"Fixed-3. AtomPairs"	"mw_size2000_desc"	"   SVM"	"RMSE"	"MolWt"	2000
+23.6536852107599	1.00716124121404	"scaffold"	"Fixed-1. MorganBits"	"mw_size2000_desc"	"   XGBoost"	"RMSE"	"MolWt"	2000
+20.9589316741571	0.875420867700178	"scaffold"	"Fixed-2. MACCS"	"mw_size2000_desc"	"   XGBoost"	"RMSE"	"MolWt"	2000
+17.5368515362253	0.926077800359517	"scaffold"	"Fixed-3. AtomPairs"	"mw_size2000_desc"	"   XGBoost"	"RMSE"	"MolWt"	2000
+9.79204897641216	1.89411010729486	"scaffold"	"Learned-1. SMILES"	"mw_size2000_desc"	"  RNN"	"RMSE"	"MolWt"	2000
+28.6017318701134	1.25936264994097	"scaffold"	"Learned-2. Graph"	"mw_size2000_desc"	"GCN"	"RMSE"	"MolWt"	2000
+34.0473439972419	5.84497720826036	"scaffold"	"Learned-2. Graph"	"mw_size2000_desc"	"GIN"	"RMSE"	"MolWt"	2000
+28.9423211513046	7.37443041347705	"scaffold"	"Learned-2. Graph"	"mw_size2000_desc"	"GROVER"	"RMSE"	"MolWt"	2000
+289.764009933658	1.98327113796267	"scaffold"	"Learned-1. SMILES"	"mw_size2000_desc"	" MolBERT"	"RMSE"	"MolWt"	2000
+23.7660428538036	0.647557891318226	"scaffold"	"Fixed-1. MorganBits"	"mw_size4000_desc"	"   RF"	"RMSE"	"MolWt"	4000
+21.9576746580227	0.465423227035479	"scaffold"	"Fixed-2. MACCS"	"mw_size4000_desc"	"   RF"	"RMSE"	"MolWt"	4000
+18.7821872355109	0.52729548757388	"scaffold"	"Fixed-3. AtomPairs"	"mw_size4000_desc"	"   RF"	"RMSE"	"MolWt"	4000
+20.4745018387328	0.464420844315077	"scaffold"	"Fixed-1. MorganBits"	"mw_size4000_desc"	"   SVM"	"RMSE"	"MolWt"	4000
+20.8002454179757	0.639339426766208	"scaffold"	"Fixed-2. MACCS"	"mw_size4000_desc"	"   SVM"	"RMSE"	"MolWt"	4000
+5.28598165173742	0.813578435671066	"scaffold"	"Fixed-3. AtomPairs"	"mw_size4000_desc"	"   SVM"	"RMSE"	"MolWt"	4000
+23.517698521158	0.588760188459382	"scaffold"	"Fixed-1. MorganBits"	"mw_size4000_desc"	"   XGBoost"	"RMSE"	"MolWt"	4000
+21.2319671681855	0.500731417859304	"scaffold"	"Fixed-2. MACCS"	"mw_size4000_desc"	"   XGBoost"	"RMSE"	"MolWt"	4000
+17.4091505137122	0.552055463575179	"scaffold"	"Fixed-3. AtomPairs"	"mw_size4000_desc"	"   XGBoost"	"RMSE"	"MolWt"	4000
+4.27598597184215	1.6843702106052	"scaffold"	"Learned-1. SMILES"	"mw_size4000_desc"	"  RNN"	"RMSE"	"MolWt"	4000
+27.6004900553435	1.20710342559763	"scaffold"	"Learned-2. Graph"	"mw_size4000_desc"	"GCN"	"RMSE"	"MolWt"	4000
+28.4120305016291	1.82715929242562	"scaffold"	"Learned-2. Graph"	"mw_size4000_desc"	"GIN"	"RMSE"	"MolWt"	4000
+29.6411254828405	7.24728101678437	"scaffold"	"Learned-2. Graph"	"mw_size4000_desc"	"GROVER"	"RMSE"	"MolWt"	4000
+267.531762318062	2.04982171880689	"scaffold"	"Learned-1. SMILES"	"mw_size4000_desc"	" MolBERT"	"RMSE"	"MolWt"	4000
+23.2522072461581	0.761401107529718	"scaffold"	"Fixed-1. MorganBits"	"mw_size6000_desc"	"   RF"	"RMSE"	"MolWt"	6000
+21.1826733930138	0.782910036854813	"scaffold"	"Fixed-2. MACCS"	"mw_size6000_desc"	"   RF"	"RMSE"	"MolWt"	6000
+18.3798337204991	0.538444123459675	"scaffold"	"Fixed-3. AtomPairs"	"mw_size6000_desc"	"   RF"	"RMSE"	"MolWt"	6000
+18.7958796539359	0.650628894994846	"scaffold"	"Fixed-1. MorganBits"	"mw_size6000_desc"	"   SVM"	"RMSE"	"MolWt"	6000
+20.3197069938429	0.665656816225482	"scaffold"	"Fixed-2. MACCS"	"mw_size6000_desc"	"   SVM"	"RMSE"	"MolWt"	6000
+4.3748512215864	0.803714509097412	"scaffold"	"Fixed-3. AtomPairs"	"mw_size6000_desc"	"   SVM"	"RMSE"	"MolWt"	6000
+23.1278097331264	0.713643082347106	"scaffold"	"Fixed-1. MorganBits"	"mw_size6000_desc"	"   XGBoost"	"RMSE"	"MolWt"	6000
+20.7641230820516	0.671012991006978	"scaffold"	"Fixed-2. MACCS"	"mw_size6000_desc"	"   XGBoost"	"RMSE"	"MolWt"	6000
+17.0936827879318	0.508802466228973	"scaffold"	"Fixed-3. AtomPairs"	"mw_size6000_desc"	"   XGBoost"	"RMSE"	"MolWt"	6000
+2.45185670580551	0.938059048312961	"scaffold"	"Learned-1. SMILES"	"mw_size6000_desc"	"  RNN"	"RMSE"	"MolWt"	6000
+26.6060933741106	0.80994165090386	"scaffold"	"Learned-2. Graph"	"mw_size6000_desc"	"GCN"	"RMSE"	"MolWt"	6000
+27.1730401776865	1.64063838094368	"scaffold"	"Learned-2. Graph"	"mw_size6000_desc"	"GIN"	"RMSE"	"MolWt"	6000
+26.3107884643413	1.9842897962663	"scaffold"	"Learned-2. Graph"	"mw_size6000_desc"	"GROVER"	"RMSE"	"MolWt"	6000
+245.853156303279	1.6508497490494	"scaffold"	"Learned-1. SMILES"	"mw_size6000_desc"	" MolBERT"	"RMSE"	"MolWt"	6000
+22.9843444161694	0.609668741808808	"scaffold"	"Fixed-1. MorganBits"	"mw_size8000_desc"	"   RF"	"RMSE"	"MolWt"	8000
+21.0177180085994	0.609051819074912	"scaffold"	"Fixed-2. MACCS"	"mw_size8000_desc"	"   RF"	"RMSE"	"MolWt"	8000
+18.0673015134121	0.401438400450748	"scaffold"	"Fixed-3. AtomPairs"	"mw_size8000_desc"	"   RF"	"RMSE"	"MolWt"	8000
+17.8782991938556	0.543452595915462	"scaffold"	"Fixed-1. MorganBits"	"mw_size8000_desc"	"   SVM"	"RMSE"	"MolWt"	8000
+20.1207842567609	0.524300085391951	"scaffold"	"Fixed-2. MACCS"	"mw_size8000_desc"	"   SVM"	"RMSE"	"MolWt"	8000
+3.93742003800232	0.940999597686222	"scaffold"	"Fixed-3. AtomPairs"	"mw_size8000_desc"	"   SVM"	"RMSE"	"MolWt"	8000
+22.9823601645903	0.5881564319931	"scaffold"	"Fixed-1. MorganBits"	"mw_size8000_desc"	"   XGBoost"	"RMSE"	"MolWt"	8000
+20.7381983561666	0.581678142142815	"scaffold"	"Fixed-2. MACCS"	"mw_size8000_desc"	"   XGBoost"	"RMSE"	"MolWt"	8000
+17.0394992832186	0.392889536207288	"scaffold"	"Fixed-3. AtomPairs"	"mw_size8000_desc"	"   XGBoost"	"RMSE"	"MolWt"	8000
+1.93531255903137	0.981358632976804	"scaffold"	"Learned-1. SMILES"	"mw_size8000_desc"	"  RNN"	"RMSE"	"MolWt"	8000
+26.1759640753325	0.852719306276555	"scaffold"	"Learned-2. Graph"	"mw_size8000_desc"	"GCN"	"RMSE"	"MolWt"	8000
+26.5304773428106	1.56630715350576	"scaffold"	"Learned-2. Graph"	"mw_size8000_desc"	"GIN"	"RMSE"	"MolWt"	8000
+29.3653019586574	6.73657718197018	"scaffold"	"Learned-2. Graph"	"mw_size8000_desc"	"GROVER"	"RMSE"	"MolWt"	8000
+224.378405566414	1.9642270355117	"scaffold"	"Learned-1. SMILES"	"mw_size8000_desc"	" MolBERT"	"RMSE"	"MolWt"	8000
+22.8528582483905	0.615637949846863	"scaffold"	"Fixed-1. MorganBits"	"mw_size10000_desc"	"   RF"	"RMSE"	"MolWt"	10000
+20.9315279174661	0.57195498335532	"scaffold"	"Fixed-2. MACCS"	"mw_size10000_desc"	"   RF"	"RMSE"	"MolWt"	10000
+17.8296652415044	0.423916932632095	"scaffold"	"Fixed-3. AtomPairs"	"mw_size10000_desc"	"   RF"	"RMSE"	"MolWt"	10000
+17.0711730860791	0.509195104717961	"scaffold"	"Fixed-1. MorganBits"	"mw_size10000_desc"	"   SVM"	"RMSE"	"MolWt"	10000
+19.9814327379767	0.443571222445661	"scaffold"	"Fixed-2. MACCS"	"mw_size10000_desc"	"   SVM"	"RMSE"	"MolWt"	10000
+3.56482626434644	0.840811048397773	"scaffold"	"Fixed-3. AtomPairs"	"mw_size10000_desc"	"   SVM"	"RMSE"	"MolWt"	10000
+22.9035636492346	0.560284056532578	"scaffold"	"Fixed-1. MorganBits"	"mw_size10000_desc"	"   XGBoost"	"RMSE"	"MolWt"	10000
+20.7190596765872	0.516573700289071	"scaffold"	"Fixed-2. MACCS"	"mw_size10000_desc"	"   XGBoost"	"RMSE"	"MolWt"	10000
+16.8920957880621	0.406355202140268	"scaffold"	"Fixed-3. AtomPairs"	"mw_size10000_desc"	"   XGBoost"	"RMSE"	"MolWt"	10000
+1.69114813624226	0.903493458718388	"scaffold"	"Learned-1. SMILES"	"mw_size10000_desc"	"  RNN"	"RMSE"	"MolWt"	10000
+25.6297451237716	0.760198378024506	"scaffold"	"Learned-2. Graph"	"mw_size10000_desc"	"GCN"	"RMSE"	"MolWt"	10000
+25.4702744914657	1.0218408562296	"scaffold"	"Learned-2. Graph"	"mw_size10000_desc"	"GIN"	"RMSE"	"MolWt"	10000
+26.8767335314705	2.59471791275313	"scaffold"	"Learned-2. Graph"	"mw_size10000_desc"	"GROVER"	"RMSE"	"MolWt"	10000
+203.023876270271	2.0877160739052	"scaffold"	"Learned-1. SMILES"	"mw_size10000_desc"	" MolBERT"	"RMSE"	"MolWt"	10000
+22.2428622778471	0.409741594087536	"scaffold"	"Fixed-1. MorganBits"	"mw_size20000_desc"	"   RF"	"RMSE"	"MolWt"	20000
+20.3605178988707	0.257546972284595	"scaffold"	"Fixed-2. MACCS"	"mw_size20000_desc"	"   RF"	"RMSE"	"MolWt"	20000
+17.0834777190126	0.310695216279357	"scaffold"	"Fixed-3. AtomPairs"	"mw_size20000_desc"	"   RF"	"RMSE"	"MolWt"	20000
+15.4631246971974	0.36553770690999	"scaffold"	"Fixed-1. MorganBits"	"mw_size20000_desc"	"   SVM"	"RMSE"	"MolWt"	20000
+19.6240888707084	0.29114355221392	"scaffold"	"Fixed-2. MACCS"	"mw_size20000_desc"	"   SVM"	"RMSE"	"MolWt"	20000
+2.90899113030783	0.770489277858462	"scaffold"	"Fixed-3. AtomPairs"	"mw_size20000_desc"	"   SVM"	"RMSE"	"MolWt"	20000
+22.6719191083216	0.355296495166792	"scaffold"	"Fixed-1. MorganBits"	"mw_size20000_desc"	"   XGBoost"	"RMSE"	"MolWt"	20000
+20.4953804294917	0.338664529055035	"scaffold"	"Fixed-2. MACCS"	"mw_size20000_desc"	"   XGBoost"	"RMSE"	"MolWt"	20000
+16.5143280302518	0.321586240478928	"scaffold"	"Fixed-3. AtomPairs"	"mw_size20000_desc"	"   XGBoost"	"RMSE"	"MolWt"	20000
+1.35630038873401	0.892213476797445	"scaffold"	"Learned-1. SMILES"	"mw_size20000_desc"	"  RNN"	"RMSE"	"MolWt"	20000
+24.8355445940384	0.996233482978602	"scaffold"	"Learned-2. Graph"	"mw_size20000_desc"	"GCN"	"RMSE"	"MolWt"	20000
+24.3901740607125	1.30352019199575	"scaffold"	"Learned-2. Graph"	"mw_size20000_desc"	"GIN"	"RMSE"	"MolWt"	20000
+29.4097743729687	6.56279631331197	"scaffold"	"Learned-2. Graph"	"mw_size20000_desc"	"GROVER"	"RMSE"	"MolWt"	20000
+107.434931556605	3.44858149705876	"scaffold"	"Learned-1. SMILES"	"mw_size20000_desc"	" MolBERT"	"RMSE"	"MolWt"	20000
+21.7508037573265	0.4282920720041	"scaffold"	"Fixed-1. MorganBits"	"mw_size40000_desc"	"   RF"	"RMSE"	"MolWt"	40000
+19.9584191713181	0.205757179589642	"scaffold"	"Fixed-2. MACCS"	"mw_size40000_desc"	"   RF"	"RMSE"	"MolWt"	40000
+16.5090339038102	0.369300323319112	"scaffold"	"Fixed-3. AtomPairs"	"mw_size40000_desc"	"   RF"	"RMSE"	"MolWt"	40000
+14.5139045115198	0.30126590985512	"scaffold"	"Fixed-1. MorganBits"	"mw_size40000_desc"	"   SVM"	"RMSE"	"MolWt"	40000
+19.505614129473	0.243802387842523	"scaffold"	"Fixed-2. MACCS"	"mw_size40000_desc"	"   SVM"	"RMSE"	"MolWt"	40000
+2.80666654637859	0.708667231447594	"scaffold"	"Fixed-3. AtomPairs"	"mw_size40000_desc"	"   SVM"	"RMSE"	"MolWt"	40000
+22.5223367834711	0.342480727942748	"scaffold"	"Fixed-1. MorganBits"	"mw_size40000_desc"	"   XGBoost"	"RMSE"	"MolWt"	40000
+20.4550605344364	0.292774307743581	"scaffold"	"Fixed-2. MACCS"	"mw_size40000_desc"	"   XGBoost"	"RMSE"	"MolWt"	40000
+16.4593953421399	0.292522085832914	"scaffold"	"Fixed-3. AtomPairs"	"mw_size40000_desc"	"   XGBoost"	"RMSE"	"MolWt"	40000
+0.642322878961737	0.371857960951858	"scaffold"	"Learned-1. SMILES"	"mw_size40000_desc"	"  RNN"	"RMSE"	"MolWt"	40000
+23.2349200045897	0.866119936273649	"scaffold"	"Learned-2. Graph"	"mw_size40000_desc"	"GCN"	"RMSE"	"MolWt"	40000
+23.0812032188755	2.27710566431408	"scaffold"	"Learned-2. Graph"	"mw_size40000_desc"	"GIN"	"RMSE"	"MolWt"	40000
+29.2306990574029	7.32560443867601	"scaffold"	"Learned-2. Graph"	"mw_size40000_desc"	"GROVER"	"RMSE"	"MolWt"	40000
+47.5876684517736	0.819646113193046	"scaffold"	"Learned-1. SMILES"	"mw_size40000_desc"	" MolBERT"	"RMSE"	"MolWt"	40000
+21.7296967028005	0.624072948135626	"scaffold"	"Fixed-1. MorganBits"	"mw_size60000_desc"	"   RF"	"RMSE"	"MolWt"	60000
+19.7504285675534	0.299168817276389	"scaffold"	"Fixed-2. MACCS"	"mw_size60000_desc"	"   RF"	"RMSE"	"MolWt"	60000
+16.3152602621423	0.428229686399438	"scaffold"	"Fixed-3. AtomPairs"	"mw_size60000_desc"	"   RF"	"RMSE"	"MolWt"	60000
+14.3853252988512	0.344157474417626	"scaffold"	"Fixed-1. MorganBits"	"mw_size60000_desc"	"   SVM"	"RMSE"	"MolWt"	60000
+19.5370662988169	0.17745933905862	"scaffold"	"Fixed-2. MACCS"	"mw_size60000_desc"	"   SVM"	"RMSE"	"MolWt"	60000
+2.92066862303022	0.732954983522457	"scaffold"	"Fixed-3. AtomPairs"	"mw_size60000_desc"	"   SVM"	"RMSE"	"MolWt"	60000
+22.6926317302442	0.448175268545207	"scaffold"	"Fixed-1. MorganBits"	"mw_size60000_desc"	"   XGBoost"	"RMSE"	"MolWt"	60000
+20.5653230296381	0.242907740655317	"scaffold"	"Fixed-2. MACCS"	"mw_size60000_desc"	"   XGBoost"	"RMSE"	"MolWt"	60000
+16.5724909954605	0.425902411253013	"scaffold"	"Fixed-3. AtomPairs"	"mw_size60000_desc"	"   XGBoost"	"RMSE"	"MolWt"	60000
+0.532244346135104	0.481655501960874	"scaffold"	"Learned-1. SMILES"	"mw_size60000_desc"	"  RNN"	"RMSE"	"MolWt"	60000
+22.9863760830639	1.24458301162512	"scaffold"	"Learned-2. Graph"	"mw_size60000_desc"	"GCN"	"RMSE"	"MolWt"	60000
+22.3896828376378	3.16696884111699	"scaffold"	"Learned-2. Graph"	"mw_size60000_desc"	"GIN"	"RMSE"	"MolWt"	60000
+29.2193741272881	6.86391253671224	"scaffold"	"Learned-2. Graph"	"mw_size60000_desc"	"GROVER"	"RMSE"	"MolWt"	60000
+35.5342287465851	0.485063235751596	"scaffold"	"Learned-1. SMILES"	"mw_size60000_desc"	" MolBERT"	"RMSE"	"MolWt"	60000
+21.5343156180289	0.683109745879473	"scaffold"	"Fixed-1. MorganBits"	"mw_size80000_desc"	"   RF"	"RMSE"	"MolWt"	80000
+19.5705270498478	0.32614923601149	"scaffold"	"Fixed-2. MACCS"	"mw_size80000_desc"	"   RF"	"RMSE"	"MolWt"	80000
+16.0280415021014	0.412930385498776	"scaffold"	"Fixed-3. AtomPairs"	"mw_size80000_desc"	"   RF"	"RMSE"	"MolWt"	80000
+14.2917349743724	0.336356306610488	"scaffold"	"Fixed-1. MorganBits"	"mw_size80000_desc"	"   SVM"	"RMSE"	"MolWt"	80000
+19.53959252994	0.16471964168139	"scaffold"	"Fixed-2. MACCS"	"mw_size80000_desc"	"   SVM"	"RMSE"	"MolWt"	80000
+2.83146623817162	0.626886971969971	"scaffold"	"Fixed-3. AtomPairs"	"mw_size80000_desc"	"   SVM"	"RMSE"	"MolWt"	80000
+22.6510992435245	0.468405241749516	"scaffold"	"Fixed-1. MorganBits"	"mw_size80000_desc"	"   XGBoost"	"RMSE"	"MolWt"	80000
+20.5609984298594	0.231330642932228	"scaffold"	"Fixed-2. MACCS"	"mw_size80000_desc"	"   XGBoost"	"RMSE"	"MolWt"	80000
+16.5409175756296	0.418219756955983	"scaffold"	"Fixed-3. AtomPairs"	"mw_size80000_desc"	"   XGBoost"	"RMSE"	"MolWt"	80000
+0.446094543667899	0.46139575897409	"scaffold"	"Learned-1. SMILES"	"mw_size80000_desc"	"  RNN"	"RMSE"	"MolWt"	80000
+21.8616565417278	0.734974932098151	"scaffold"	"Learned-2. Graph"	"mw_size80000_desc"	"GCN"	"RMSE"	"MolWt"	80000
+19.8173110960274	3.30473257986736	"scaffold"	"Learned-2. Graph"	"mw_size80000_desc"	"GIN"	"RMSE"	"MolWt"	80000
+29.1198198816113	6.99584589743488	"scaffold"	"Learned-2. Graph"	"mw_size80000_desc"	"GROVER"	"RMSE"	"MolWt"	80000
+30.0633059473708	0.313598749993055	"scaffold"	"Learned-1. SMILES"	"mw_size80000_desc"	" MolBERT"	"RMSE"	"MolWt"	80000
+21.4163117417957	0.720219176876989	"scaffold"	"Fixed-1. MorganBits"	"mw_size100000_desc"	"   RF"	"RMSE"	"MolWt"	100000
+19.3970452308118	0.3300469034274	"scaffold"	"Fixed-2. MACCS"	"mw_size100000_desc"	"   RF"	"RMSE"	"MolWt"	100000
+15.8342826309862	0.407824063694576	"scaffold"	"Fixed-3. AtomPairs"	"mw_size100000_desc"	"   RF"	"RMSE"	"MolWt"	100000
+14.2211916600729	0.367922822341235	"scaffold"	"Fixed-1. MorganBits"	"mw_size100000_desc"	"   SVM"	"RMSE"	"MolWt"	100000
+19.4862304873446	0.191021703010703	"scaffold"	"Fixed-2. MACCS"	"mw_size100000_desc"	"   SVM"	"RMSE"	"MolWt"	100000
+2.82462052835159	0.596082437565204	"scaffold"	"Fixed-3. AtomPairs"	"mw_size100000_desc"	"   SVM"	"RMSE"	"MolWt"	100000
+22.6407761714606	0.490185975100645	"scaffold"	"Fixed-1. MorganBits"	"mw_size100000_desc"	"   XGBoost"	"RMSE"	"MolWt"	100000
+20.5247444188336	0.250113585934809	"scaffold"	"Fixed-2. MACCS"	"mw_size100000_desc"	"   XGBoost"	"RMSE"	"MolWt"	100000
+16.5425106790056	0.429931899323089	"scaffold"	"Fixed-3. AtomPairs"	"mw_size100000_desc"	"   XGBoost"	"RMSE"	"MolWt"	100000
+0.422583021584497	0.246904772742278	"scaffold"	"Learned-1. SMILES"	"mw_size100000_desc"	"  RNN"	"RMSE"	"MolWt"	100000
+21.3677080147099	1.10486930545626	"scaffold"	"Learned-2. Graph"	"mw_size100000_desc"	"GCN"	"RMSE"	"MolWt"	100000
+17.3911626819671	3.39048135070635	"scaffold"	"Learned-2. Graph"	"mw_size100000_desc"	"GIN"	"RMSE"	"MolWt"	100000
+29.3729038001053	7.09356802061248	"scaffold"	"Learned-2. Graph"	"mw_size100000_desc"	"GROVER"	"RMSE"	"MolWt"	100000
+26.1255356456895	0.231578530643771	"scaffold"	"Learned-1. SMILES"	"mw_size100000_desc"	" MolBERT"	"RMSE"	"MolWt"	100000

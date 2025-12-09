@@ -1,0 +1,91 @@
+"preds"	"labels"	"SMILES"	"model_name"	"mol_rep"	"mol_prop"	"split_type"	"fold"	"label_rank"
+7.26799026275603	10.5141277326298	"CC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CC[C@H](O)C2)C1"	"   RF"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	1
+6.6081831948616	3.2962175253438	"CCCOC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"   RF"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	8
+6.63218439600164	6.29194979889779	"O=CN1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"   RF"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	6
+6.60412766599852	3.00853545289202	"CC(=O)N1CCN(C(=O)Cc2ccccc2)C(CN2CC[C@H](O)C2)C1"	"   RF"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	9
+8.35919301283759	10.0788096613719	"COC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCC(O)C2)C1"	"   RF"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	2
+6.55945721300602	7.06847858839679	"CCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"   RF"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	4
+6.64915081781781	7.74723703150463	"CCOC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"   RF"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	3
+6.35137479267026	1.02753398402543	"COCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"   RF"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	10
+6.43875182002738	4.9056554377779	"CCCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"   RF"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	7
+6.5000853694926	6.69741490700595	"CC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"   RF"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	5
+6.02737482840305	10.5141277326298	"CC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CC[C@H](O)C2)C1"	"   SVM"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	1
+4.24327522834278	3.2962175253438	"CCCOC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"   SVM"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	8
+4.03148284261115	6.29194979889779	"O=CN1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"   SVM"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	6
+5.19820377291018	3.00853545289202	"CC(=O)N1CCN(C(=O)Cc2ccccc2)C(CN2CC[C@H](O)C2)C1"	"   SVM"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	9
+5.30026736977264	10.0788096613719	"COC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCC(O)C2)C1"	"   SVM"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	2
+4.39617100435383	7.06847858839679	"CCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"   SVM"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	4
+3.81729519880077	7.74723703150463	"CCOC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"   SVM"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	3
+3.96308874719068	1.02753398402543	"COCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"   SVM"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	10
+4.63244226270478	4.9056554377779	"CCCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"   SVM"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	7
+4.12517013601095	6.69741490700595	"CC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"   SVM"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	5
+7.47100930399293	10.5141277326298	"CC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CC[C@H](O)C2)C1"	"   XGBoost"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	1
+6.59791052782165	3.2962175253438	"CCCOC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"   XGBoost"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	8
+5.66761980668198	6.29194979889779	"O=CN1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"   XGBoost"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	6
+6.31188639582893	3.00853545289202	"CC(=O)N1CCN(C(=O)Cc2ccccc2)C(CN2CC[C@H](O)C2)C1"	"   XGBoost"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	9
+8.26948808054018	10.0788096613719	"COC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCC(O)C2)C1"	"   XGBoost"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	2
+6.29410972071892	7.06847858839679	"CCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"   XGBoost"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	4
+7.08504054360496	7.74723703150463	"CCOC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"   XGBoost"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	3
+5.53708969347161	1.02753398402543	"COCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"   XGBoost"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	10
+6.29410972071892	4.9056554377779	"CCCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"   XGBoost"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	7
+5.63703117222594	6.69741490700595	"CC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"   XGBoost"	"rdkit2d"	"KOR"	"scaffold_balanced"	4	5
+6.59114599227905	10.5141277313232	"CC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CC[C@H](O)C2)C1"	"  RNN"	"SMILES"	"KOR"	"scaffold"	4	1
+4.58614206314087	3.29621744155884	"CCCOC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"  RNN"	"SMILES"	"KOR"	"scaffold"	4	8
+4.77674436569214	6.29194974899292	"O=CN1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"  RNN"	"SMILES"	"KOR"	"scaffold"	4	6
+1.60184669494629	3.00853538513184	"CC(=O)N1CCN(C(=O)Cc2ccccc2)C(CN2CC[C@H](O)C2)C1"	"  RNN"	"SMILES"	"KOR"	"scaffold"	4	9
+4.82816171646118	10.0788097381592	"COC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCC(O)C2)C1"	"  RNN"	"SMILES"	"KOR"	"scaffold"	4	2
+4.54626083374023	7.06847858428955	"CCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"  RNN"	"SMILES"	"KOR"	"scaffold"	4	4
+4.63041543960571	7.74723720550537	"CCOC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"  RNN"	"SMILES"	"KOR"	"scaffold"	4	3
+4.62406015396118	1.02753400802612	"COCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"  RNN"	"SMILES"	"KOR"	"scaffold"	4	10
+4.49557018280029	4.90565538406372	"CCCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"  RNN"	"SMILES"	"KOR"	"scaffold"	4	7
+4.590989112854	6.69741487503052	"CC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"  RNN"	"SMILES"	"KOR"	"scaffold"	4	5
+5.97434759140015	10	"CC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CC[C@H](O)C2)C1"	"GCN"	"Graph"	"KOR"	"scaffold"	4	1
+3.8116283416748	3	"CCCOC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GCN"	"Graph"	"KOR"	"scaffold"	4	8
+5.64355611801147	6	"O=CN1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GCN"	"Graph"	"KOR"	"scaffold"	4	6
+3.56080603599548	3	"CC(=O)N1CCN(C(=O)Cc2ccccc2)C(CN2CC[C@H](O)C2)C1"	"GCN"	"Graph"	"KOR"	"scaffold"	4	9
+5.41243934631348	10	"COC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCC(O)C2)C1"	"GCN"	"Graph"	"KOR"	"scaffold"	4	2
+4.61275291442871	7	"CCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GCN"	"Graph"	"KOR"	"scaffold"	4	4
+2.93164300918579	7	"CCOC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GCN"	"Graph"	"KOR"	"scaffold"	4	3
+3.27857875823975	1	"COCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GCN"	"Graph"	"KOR"	"scaffold"	4	10
+4.84674501419067	4	"CCCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GCN"	"Graph"	"KOR"	"scaffold"	4	7
+4.24708366394043	6	"CC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GCN"	"Graph"	"KOR"	"scaffold"	4	5
+6.44728517532349	10	"CC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CC[C@H](O)C2)C1"	"GIN"	"Graph"	"KOR"	"scaffold"	4	1
+2.66071009635925	3	"CCCOC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GIN"	"Graph"	"KOR"	"scaffold"	4	8
+2.80160760879517	6	"O=CN1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GIN"	"Graph"	"KOR"	"scaffold"	4	6
+5.14032602310181	3	"CC(=O)N1CCN(C(=O)Cc2ccccc2)C(CN2CC[C@H](O)C2)C1"	"GIN"	"Graph"	"KOR"	"scaffold"	4	9
+4.55365371704102	10	"COC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCC(O)C2)C1"	"GIN"	"Graph"	"KOR"	"scaffold"	4	2
+3.24524593353271	7	"CCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GIN"	"Graph"	"KOR"	"scaffold"	4	4
+3.16645002365112	7	"CCOC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GIN"	"Graph"	"KOR"	"scaffold"	4	3
+3.29866075515747	1	"COCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GIN"	"Graph"	"KOR"	"scaffold"	4	10
+3.42368030548096	4	"CCCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GIN"	"Graph"	"KOR"	"scaffold"	4	7
+4.46270656585693	6	"CC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GIN"	"Graph"	"KOR"	"scaffold"	4	5
+5.110041	10.5141277313232	"CC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CC[C@H](O)C2)C1"	" MolBERT"	"SMILES"	"KOR"	"scaffold_balanced"	4	1
+4.830357	3.29621744155884	"CCCOC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	" MolBERT"	"SMILES"	"KOR"	"scaffold_balanced"	4	8
+4.4374723	6.29194974899292	"O=CN1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	" MolBERT"	"SMILES"	"KOR"	"scaffold_balanced"	4	6
+4.4726977	3.00853538513184	"CC(=O)N1CCN(C(=O)Cc2ccccc2)C(CN2CC[C@H](O)C2)C1"	" MolBERT"	"SMILES"	"KOR"	"scaffold_balanced"	4	9
+4.4202323	10.0788097381592	"COC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCC(O)C2)C1"	" MolBERT"	"SMILES"	"KOR"	"scaffold_balanced"	4	2
+4.6423807	7.06847858428955	"CCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	" MolBERT"	"SMILES"	"KOR"	"scaffold_balanced"	4	4
+4.7813277	7.74723720550537	"CCOC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	" MolBERT"	"SMILES"	"KOR"	"scaffold_balanced"	4	3
+4.6008816	1.02753400802612	"COCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	" MolBERT"	"SMILES"	"KOR"	"scaffold_balanced"	4	10
+4.711076	4.90565538406372	"CCCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	" MolBERT"	"SMILES"	"KOR"	"scaffold_balanced"	4	7
+4.5383782	6.69741487503052	"CC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	" MolBERT"	"SMILES"	"KOR"	"scaffold_balanced"	4	5
+5.47345744364397	10.5141277326298	"CC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CC[C@H](O)C2)C1"	"GROVER"	"Graph"	"KOR"	"scaffold_balanced"	4	1
+4.56087707793633	3.2962175253438	"CCCOC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GROVER"	"Graph"	"KOR"	"scaffold_balanced"	4	8
+4.60802840635048	6.29194979889779	"O=CN1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GROVER"	"Graph"	"KOR"	"scaffold_balanced"	4	6
+5.44316135860332	3.00853545289202	"CC(=O)N1CCN(C(=O)Cc2ccccc2)C(CN2CC[C@H](O)C2)C1"	"GROVER"	"Graph"	"KOR"	"scaffold_balanced"	4	9
+5.36332886311984	10.0788096613719	"COC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCC(O)C2)C1"	"GROVER"	"Graph"	"KOR"	"scaffold_balanced"	4	2
+4.60503791204169	7.06847858839679	"CCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GROVER"	"Graph"	"KOR"	"scaffold_balanced"	4	4
+4.58070893960718	7.74723703150463	"CCOC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GROVER"	"Graph"	"KOR"	"scaffold_balanced"	4	3
+4.60774687063199	1.02753398402543	"COCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GROVER"	"Graph"	"KOR"	"scaffold_balanced"	4	10
+4.59165304962618	4.9056554377779	"CCCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GROVER"	"Graph"	"KOR"	"scaffold_balanced"	4	7
+4.61653789412872	6.69741490700595	"CC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GROVER"	"Graph"	"KOR"	"scaffold_balanced"	4	5
+5.64828634900736	10.5141277326298	"CC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CC[C@H](O)C2)C1"	"GROVER_RDKit"	"Graph"	"KOR"	"scaffold_balanced"	4	1
+4.73941068827288	3.2962175253438	"CCCOC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GROVER_RDKit"	"Graph"	"KOR"	"scaffold_balanced"	4	8
+4.7735921040384	6.29194979889779	"O=CN1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GROVER_RDKit"	"Graph"	"KOR"	"scaffold_balanced"	4	6
+5.14041463596241	3.00853545289202	"CC(=O)N1CCN(C(=O)Cc2ccccc2)C(CN2CC[C@H](O)C2)C1"	"GROVER_RDKit"	"Graph"	"KOR"	"scaffold_balanced"	4	9
+5.27007389267613	10.0788096613719	"COC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCC(O)C2)C1"	"GROVER_RDKit"	"Graph"	"KOR"	"scaffold_balanced"	4	2
+4.89442583730913	7.06847858839679	"CCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GROVER_RDKit"	"Graph"	"KOR"	"scaffold_balanced"	4	4
+4.58890614584705	7.74723703150463	"CCOC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GROVER_RDKit"	"Graph"	"KOR"	"scaffold_balanced"	4	3
+4.69469191495395	1.02753398402543	"COCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GROVER_RDKit"	"Graph"	"KOR"	"scaffold_balanced"	4	10
+5.0085314632913	4.9056554377779	"CCCC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GROVER_RDKit"	"Graph"	"KOR"	"scaffold_balanced"	4	7
+4.80427975871706	6.69741490700595	"CC(=O)N1CCN(C(=O)Cc2ccc(Cl)c(Cl)c2)C(CN2CCCC2)C1"	"GROVER_RDKit"	"Graph"	"KOR"	"scaffold_balanced"	4	5
