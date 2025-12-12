@@ -1,0 +1,32 @@
+[workspace]
+name = "TM-QSAR-Benchmark"
+channels = ["conda-forge"]
+platforms = ["win-64", "linux-64", "osx-64", "osx-arm64"]
+
+[tasks]
+test = "pytest -sv tests/"
+
+[dependencies]
+python = ">=3.12"
+pip = "*"
+numpy = ">=2.3.0,<3"
+scipy = ">=1.15.2,<2"
+ipdb = ">=0.13.13,<0.14"
+pandas = ">=2.3.0,<3"
+scikit-learn = ">=1.7.0,<2"
+ptyprocess = ">=0.7.0,<0.8"
+pyzmq = ">=26.4.0,<27"
+optuna = ">=4.4.0,<5"
+libxc-c = ">=7.0.0,<8"
+rdkit = ">=2025.9.2,<2026"
+
+[pypi-dependencies]
+matplotlib = "*"
+jupyterlab = "*"
+ipykernel = "*"
+packaging = "*"
+seaborn = "*"
+useful_rdkit_utils = { path = "./dev/useful_rdkit_utils", editable = true }
+tmu = { path = "./dev/tmu", editable = true}
+pyTsetlinMachineParallel = { path = "./dev/pyTsetlinMachineParallel", editable = true}
+chembl_structure_pipeline = { path = "./dev/chembl_structure_pipeline", editable = true}

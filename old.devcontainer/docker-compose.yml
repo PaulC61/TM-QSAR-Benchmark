@@ -1,0 +1,13 @@
+services:
+  tmu-developmentv2:
+    build:
+      context: ../
+      dockerfile: .devcontainer/Dockerfile
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #       - driver: nvidia
+    #         capabilities: [gpu]
+    #         #device_ids: ['13','14']
+    #         count: 'all' # Assign number of GPUs or use 'all' to assign all available GPUs

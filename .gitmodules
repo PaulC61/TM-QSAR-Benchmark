@@ -1,0 +1,12 @@
+[submodule "dev/useful_rdkit_utils"]
+	path = dev/useful_rdkit_utils
+	url = git@github.com:PatWalters/useful_rdkit_utils.git
+[submodule "dev/tmu"]
+	path = dev/tmu
+	url = git@github.com:cair/tmu.git
+[submodule "dev/pyTsetlinMachineParallel"]
+	path = dev/pyTsetlinMachineParallel
+	url = git@github.com:cair/pyTsetlinMachineParallel.git
+[submodule "dev/chembl_structure_pipeline"]
+	path = dev/chembl_structure_pipeline
+	url = git@github.com:chembl/ChEMBL_Structure_Pipeline.git
