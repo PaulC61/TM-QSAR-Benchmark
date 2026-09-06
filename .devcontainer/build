@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 set -euo pipefail
 
 TEMPLATE_FILE=".devcontainer/devcontainer.json.template"
@@ -5,8 +6,39 @@ OUTPUT_FILE=".devcontainer/devcontainer.json"
 
 USER_ID=${USER_ID:-$(id -u)}
 GROUP_ID=${GROUP_ID:-$(id -g)}
+GROUP_NAME=${GROUP_NAME:-$(id -gn)}
 USER_NAME=${USER_NAME:-$(whoami)}
-export USER_ID GROUP_ID USER_NAME
 
-echo "Using USER_ID: $USER_ID, GROUP_ID: $GROUP_ID, USER_NAME: $USER_NAME"
-envsubst '$USER_ID $GROUP_ID $USER_NAME' < "$TEMPLATE_FILE" > "$OUTPUT_FILE"
+# GPU detection: an H100/H200 dev box has `nvidia-smi` available; a laptop
+# doesn't. Override explicitly with GPU=1 or GPU=0 if auto-detection guesses
+# wrong (e.g. a GPU box whose driver isn't installed yet).
+if [ -z "${GPU:-}" ]; then
+    if command -v nvidia-smi >/dev/null 2>&1 && nvidia-smi >/dev/null 2>&1; then
+        GPU=1
+    else
+        GPU=0
+    fi
+fi
+
+if [ "$GPU" = "1" ]; then
+    PIXI_IMAGE_TAG=${PIXI_IMAGE_TAG:-noble-cuda-12.8.1}
+    # Pin to specific GPU(s) on a shared multi-GPU server (e.g. an 8x
+    # H100/H200 box, indices 0-7): set GPU_DEVICE="3" or GPU_DEVICE="2,3"
+    # before running this script. Defaults to all GPUs if unset.
+    GPU_DEVICE=${GPU_DEVICE:-${CUDA_VISIBLE_DEVICES:-}}
+    if [ -n "$GPU_DEVICE" ]; then
+        GPU_RUN_ARGS="\"--gpus\", \"device=${GPU_DEVICE}\","
+    else
+        GPU_RUN_ARGS='"--gpus", "all",'
+    fi
+else
+    PIXI_IMAGE_TAG=${PIXI_IMAGE_TAG:-0.41.4}
+    GPU_RUN_ARGS=''
+fi
+
+export USER_ID GROUP_ID GROUP_NAME USER_NAME PIXI_IMAGE_TAG GPU_RUN_ARGS
+
+echo "Using USER_ID: $USER_ID, GROUP_ID: $GROUP_ID, GROUP_NAME: $GROUP_NAME, USER_NAME: $USER_NAME"
+echo "GPU=$GPU -> PIXI_IMAGE_TAG=$PIXI_IMAGE_TAG"
+
+sed "s#\$USER_ID#$USER_ID#g; s#\$GROUP_ID#$GROUP_ID#g; s#\$GROUP_NAME#$GROUP_NAME#g; s#\$USER_NAME#$USER_NAME#g; s#\$PIXI_IMAGE_TAG#$PIXI_IMAGE_TAG#g; s#\$GPU_RUN_ARGS#$GPU_RUN_ARGS#g" < "$TEMPLATE_FILE" > "$OUTPUT_FILE"

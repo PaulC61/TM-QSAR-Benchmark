@@ -1,0 +1,39 @@
+{
+    "name": "TM-QSAR-Benchmark_$USER_NAME",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "USER_ID": "$USER_ID",
+            "GROUP_ID": "$GROUP_ID",
+            "GROUP_NAME": "$GROUP_NAME",
+            "USER_NAME": "$USER_NAME",
+            "PIXI_IMAGE_TAG": "$PIXI_IMAGE_TAG"
+        },
+        "options": [
+            "--tag=tm_qsar_benchmark_$USER_NAME:latest"
+        ]
+    },
+    "remoteUser": "$USER_NAME",
+    "updateRemoteUserUID": true,
+    "runArgs": [
+        $GPU_RUN_ARGS
+        "--add-host=host.docker.internal:host-gateway",
+        "--name=tm_qsar_benchmark_$USER_NAME"
+    ],
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+    ],
+    "workspaceFolder": "/workspace",
+    "overrideCommand": true,
+    "postStartCommand": "git submodule update --init --recursive && pixi run fix-submodules && pixi install",
+    "shutdownAction": "none",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.debugpy",
+                "ms-toolsai.jupyter"
+            ]
+        }
+    }
+}

@@ -1,3 +1,12 @@
+"""Post-hoc statistical analysis and plotting helpers for benchmark results
+(repeated-measures Tukey HSD, multiple-comparisons-of-means plots, ROC/PR
+curve helpers, etc.), used by `post-hoc-analysis.ipynb`.
+
+This module merges what used to be two near-identical copies (the former
+top-level `model_comparison.py` and `Polaris_examples/model_comparison.py`),
+which differed only in a hardcoded plot-grid column count (2 vs 3) in
+`make_mcs_plot_grid` -- now the `n_cols` parameter.
+"""
 import warnings
 
 import matplotlib.pyplot as plt
@@ -324,7 +333,8 @@ def mcs_plot(pc, effect_size, means, labels=True, cmap=None, cbar_ax_bbox=None,
 
 def make_mcs_plot_grid(df, stats, group_col, alpha=.05,
                        figsize=(20, 10), direction_dict={}, effect_dict={}, show_diff=True,
-                       cell_text_size=16, axis_text_size=12, title_text_size=16, sort_axes=False):
+                       cell_text_size=16, axis_text_size=12, title_text_size=16, sort_axes=False,
+                       n_cols=2):
     """
     Create a grid of multiple comparison of means plots using Tukey HSD test results.
 
@@ -341,16 +351,20 @@ def make_mcs_plot_grid(df, stats, group_col, alpha=.05,
     axis_text_size (int): Font size for the axis text. Default is 12.
     title_text_size (int): Font size for the title text. Default is 16.
     sort (bool): Whether to sort the axes. Default is False.
+    n_cols (int): Number of columns in the plot grid. Default is 2 (this
+        parameter replaces what used to be two near-duplicate copies of this
+        module -- the root version hardcoded 2 columns, `Polaris_examples`'
+        hardcoded 3 -- differing only in this value).
 
     Returns:
     None
     """
-    nrow = math.ceil(len(stats) / 2)
-    fig, ax = plt.subplots(nrow, 2, figsize=figsize)
+    nrow = math.ceil(len(stats) / n_cols)
+    fig, ax = plt.subplots(nrow, n_cols, figsize=figsize)
     for i, stat in enumerate(stats):
 
-        row = i // 2
-        col = i % 2
+        row = i // n_cols
+        col = i % n_cols
 
         if stat not in direction_dict:
             raise ValueError(f"Stat '{stat}' is missing in direction_dict. Please set its value.")
@@ -370,10 +384,10 @@ def make_mcs_plot_grid(df, stats, group_col, alpha=.05,
         hax.set_title(stat, fontsize=title_text_size)
 
     # If there are less plots than cells in the grid, hide the remaining cells
-    if (len(stats) % 3) != 0:
-        for i in range(len(stats), nrow * 3):
-            row = i // 3
-            col = i % 3
+    if (len(stats) % n_cols) != 0:
+        for i in range(len(stats), nrow * n_cols):
+            row = i // n_cols
+            col = i % n_cols
             ax[row, col].set_visible(False)
 
     plt.tight_layout()
