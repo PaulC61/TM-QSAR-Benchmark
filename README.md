@@ -115,6 +115,14 @@ Results are written as melted/long-format CSVs to `results/` (e.g.
 pre-existing files already committed there -- see `notebooks/` for a
 tutorial on loading and visualizing them.
 
+### Final models
+
+`models/` contains ready-to-use TM classifiers refit on 100% of a
+target's data (CYP3A4, CYP2D6). To train one for any classification
+target -- reusing that target's CV results if it's already been
+benchmarked, or running the full CV benchmark first if it hasn't --
+see `models/README.md` and `scripts/train_final_models.py --help`.
+
 ### Devcontainer (optional)
 
 `.devcontainer/` provides an optional, reproducible Docker environment.

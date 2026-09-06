@@ -1,141 +1,103 @@
 #!/usr/bin/env python
-"""Train and pickle "final" (full-dataset, no held-out split) TM classifiers
-for CYP3A4 and CYP2D6, at 1600 clauses, for downstream use outside this repo
-(e.g. handing a ready-to-use model to a colleague).
+"""CLI for training a "final" (100%-of-data refit) TM classifier for any
+QSAR classification dataset -- see `tm_qsar_benchmark.final_model` for the
+underlying logic.
 
-Hyperparameters (T, s) and the number of training epochs are not guessed:
-they're the CV-tuned values already produced by this repo's own benchmark
-runs, aggregated from `results/MACRO_TM_Benchmark_ALL_NClauses`
-(TsetlinMachine, N_Clauses=1600, Test/ROC_AUC rows) --
-mean(T)/mean(s) across every outer-CV fold's inner-search result for the
-descriptor that scored best on average, and the training epoch with the
-highest mean Test ROC_AUC across folds. That means each model here is
-trained with the same clause count/backend/descriptor pipeline as the rest
-of the benchmark, just refit on 100% of the data instead of a CV split
-(standard practice once CV has told you which hyperparameters to trust).
+The only required inputs are the dataset location and its SMILES/property
+column names. What happens next depends on whether this dataset already has
+a CV performance distribution in `results/`:
 
-Usage
------
-    pixi run python scripts/train_final_models.py
+* Already benchmarked (e.g. CYP3A4/CYP2D6/MOR/DOR/KOR at the requested
+  clause count): reuse those CV results directly -- aggregate the
+  best-performing descriptor/hyperparameters/epoch count and refit on all
+  the data. Fast (no CV search).
+* Never seen before: first run the same repeated 5x5 nested-CV benchmark
+  used for every other target in this project (`pixi run benchmark`'s
+  pipeline) to build that performance distribution, then aggregate and
+  refit exactly as above. This can take a long time (it's a full
+  benchmark run) -- use --n-outer/--n-inner/--n-trials/--n-tm-epochs to
+  shrink it for a quick/experimental pass.
 
-Writes one pickle per target to `models/`:
-    models/TM_CYP3A4_1600clauses.pkl
-    models/TM_CYP2D6_1600clauses.pkl
+Examples
+--------
+Reuse existing CV results for a previously benchmarked target::
 
-Each pickle contains a dict with the fitted TM classifier plus everything
-needed to featurize new SMILES the same way at inference time (see the
-module docstring of `tm_qsar_benchmark.descriptors` for the featurizer
-functions themselves).
+    pixi run python scripts/train_final_models.py \\
+        --dataset opioids/CYP3A4_cutoff6.csv --n-clauses 1600
+
+Train a final model for a brand new target (SMILES/label columns named
+differently), running the full CV benchmark first since it's unseen::
+
+    pixi run python scripts/train_final_models.py \\
+        --dataset my_new_target.csv --smiles-col Structure --prop-col Active \\
+        --target-name MyNewTarget --n-clauses 1600
+
+Force a fresh CV run even if results already exist (e.g. after changing the
+dataset), with a shrunk search budget for a quick pass::
+
+    pixi run python scripts/train_final_models.py \\
+        --dataset opioids/CYP3A4_cutoff6.csv --n-clauses 1600 \\
+        --force-benchmark --n-outer 1 --n-inner 2 --n-trials 2 --n-tm-epochs 2
 """
 from __future__ import annotations
 
 import argparse
 import logging
-import pickle
-from pathlib import Path
 
-import numpy as np
-
-from tm_qsar_benchmark.binarizer import Binarizer
-from tm_qsar_benchmark.descriptors import gen_ecfp_arr, gen_rdkit2D_arr, mol_from_smiles
-from tm_qsar_benchmark.hardware import describe, resolve_backend
-from tm_qsar_benchmark.tm_backends import get_backend
-
-log = logging.getLogger(__name__)
-
-N_CLAUSES = 1600
-FP_SIZE = 2048
-FP_RAD = 2
-RDKIT2D_BINARIZER_RESOLUTION = 10
-
-# CV-tuned hyperparameters, aggregated from results/MACRO_TM_Benchmark_ALL_NClauses
-# (TsetlinMachine, N_Clauses=1600, Test/ROC_AUC rows) -- see module docstring.
-TARGET_CONFIGS = {
-    "CYP3A4": {
-        "dataset_csv": "data/opioids/CYP3A4_cutoff6.csv",
-        "descriptor": "ECFP",
-        "params": {"T": 6626, "s": 4.32},
-        "n_epochs": 25,
-        "cv_mean_test_roc_auc": 0.887,
-    },
-    "CYP2D6": {
-        "dataset_csv": "data/opioids/CYP2D6_cutoff6.csv",
-        "descriptor": "RDKit2D",
-        "params": {"T": 6800, "s": 3.05},
-        "n_epochs": 33,
-        "cv_mean_test_roc_auc": 0.631,
-    },
-}
+from tm_qsar_benchmark.final_model import train_final_model
+from tm_qsar_benchmark.hardware import VALID_BACKENDS, describe
 
 
-def _featurize(descriptor: str, mol_df):
-    if descriptor == "ECFP":
-        X = gen_ecfp_arr(mol_df=mol_df, mol_col="mol", fp_size=FP_SIZE, fp_radius=FP_RAD, n_threads=-1)
-        return X, {"descriptor": "ECFP", "fp_size": FP_SIZE, "fp_rad": FP_RAD}
-    elif descriptor == "RDKit2D":
-        X_cont = gen_rdkit2D_arr(mol_df=mol_df, mol_col="mol")
-        binarizer = Binarizer(resolution=RDKIT2D_BINARIZER_RESOLUTION)
-        X = binarizer.fit_transform(X_cont)
-        return X, {"descriptor": "RDKit2D", "binarizer": binarizer}
-    raise ValueError(f"Unknown descriptor {descriptor!r}")
-
-
-def train_final_model(target: str, backend_name: str, output_dir: Path) -> Path:
-    import pandas as pd
-
-    cfg = TARGET_CONFIGS[target]
-    df = pd.read_csv(cfg["dataset_csv"])
-    df["mol"] = df["SMILES"].apply(mol_from_smiles)
-    n_dropped = df["mol"].isna().sum()
-    df = df.dropna(subset=["mol"]).reset_index(drop=True)
-    if n_dropped:
-        log.warning("%s: dropped %d rows with unparsable SMILES", target, n_dropped)
-
-    Y = np.array(df["label"]).flatten()
-    X, featurizer_meta = _featurize(cfg["descriptor"], df)
-
-    backend = get_backend(backend_name)
-    clf = backend.make_classifier(cfg["params"], N_CLAUSES)
-    for epoch in range(cfg["n_epochs"]):
-        backend.fit_clf_epoch(clf, X, Y)
-    log.info("%s: trained %d epochs on %d molecules (%s backend)", target, cfg["n_epochs"], len(df), backend_name)
-
-    payload = {
-        "target": target,
-        "model": clf,
-        "backend": backend_name,
-        "n_clauses": N_CLAUSES,
-        "n_epochs": cfg["n_epochs"],
-        "params": cfg["params"],
-        "n_train_molecules": len(df),
-        "cv_mean_test_roc_auc": cfg["cv_mean_test_roc_auc"],
-        "source_dataset": cfg["dataset_csv"],
-        **featurizer_meta,
-    }
-
-    output_dir.mkdir(parents=True, exist_ok=True)
-    out_path = output_dir / f"TM_{target}_{N_CLAUSES}clauses.pkl"
-    with open(out_path, "wb") as f:
-        pickle.dump(payload, f)
-    return out_path
+def build_arg_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(prog="train_final_models", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--dataset", required=True, help="Dataset CSV path relative to --data-dir, e.g. opioids/CYP3A4_cutoff6.csv.")
+    parser.add_argument("--smiles-col", default="SMILES", help="SMILES column name in the dataset CSV (default: SMILES).")
+    parser.add_argument("--prop-col", default="label", help="Classification label column name in the dataset CSV (default: label).")
+    parser.add_argument("--target-name", default=None, help="Name used in the output filename/pickle metadata (default: the dataset filename's stem).")
+    parser.add_argument("--n-clauses", type=int, default=1600, help="Number of TM clauses (default: 1600).")
+    parser.add_argument("--backend", choices=VALID_BACKENDS, default="auto", help="TM backend; 'auto' picks GPU/parallel/CPU based on detected hardware.")
+    parser.add_argument("--data-dir", default="data", help="Root directory containing dataset CSVs (default: data).")
+    parser.add_argument("--results-dir", default="results", help="Directory to look for/write CV benchmark results in (default: results).")
+    parser.add_argument("--output-dir", default="models", help="Directory to write the final model pickle into (default: models).")
+    parser.add_argument("--force-benchmark", action="store_true", help="Run the full CV benchmark even if results already exist for this dataset/clause count.")
+    parser.add_argument("--n-outer", type=int, default=None, help="Outer CV splits for a fresh benchmark run (default 5).")
+    parser.add_argument("--n-inner", type=int, default=None, help="Inner CV folds per outer split for a fresh benchmark run (default 5).")
+    parser.add_argument("--n-trials", type=int, default=None, help="Optuna trials per HP search for a fresh benchmark run (default 25).")
+    parser.add_argument("--n-tm-epochs", type=int, default=None, help="TM training epochs for a fresh benchmark run (default 50).")
+    parser.add_argument("-v", "--verbose", action="store_true")
+    return parser
 
 
 def main(argv=None) -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--targets", nargs="+", choices=list(TARGET_CONFIGS), default=list(TARGET_CONFIGS))
-    parser.add_argument("--backend", default="auto", help="TM backend; 'auto' picks GPU/parallel/CPU based on detected hardware.")
-    parser.add_argument("--output-dir", default="models", help="Directory to write pickle files into (default: models/).")
-    parser.add_argument("-v", "--verbose", action="store_true")
-    args = parser.parse_args(argv)
-
+    args = build_arg_parser().parse_args(argv)
     logging.basicConfig(level=logging.INFO if args.verbose else logging.WARNING)
-
-    backend_name = resolve_backend(args.backend)
     print(describe(args.backend))
 
-    for target in args.targets:
-        out_path = train_final_model(target, backend_name, Path(args.output_dir))
-        print(f"Saved {target} final model -> {out_path}")
+    cv_overrides = {
+        field: value
+        for field, value in (
+            ("n_outer", args.n_outer),
+            ("n_inner", args.n_inner),
+            ("n_trials", args.n_trials),
+            ("n_tm_epochs", args.n_tm_epochs),
+        )
+        if value is not None
+    }
+
+    out_path = train_final_model(
+        dataset_csv=args.dataset,
+        smiles_col=args.smiles_col,
+        prop_col=args.prop_col,
+        target_name=args.target_name,
+        n_clauses=args.n_clauses,
+        backend=args.backend,
+        data_dir=args.data_dir,
+        results_dir=args.results_dir,
+        output_dir=args.output_dir,
+        force_benchmark=args.force_benchmark,
+        cv_overrides=cv_overrides or None,
+    )
+    print(f"Saved final model -> {out_path}")
 
 
 if __name__ == "__main__":

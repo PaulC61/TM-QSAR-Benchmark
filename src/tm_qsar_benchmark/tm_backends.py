@@ -25,7 +25,6 @@ import importlib
 from typing import Protocol
 
 import numpy as np
-from joblib import Parallel, delayed
 from scipy.special import expit
 
 from tm_qsar_benchmark.hardware import BACKEND_CPU, BACKEND_GPU, BACKEND_PARALLEL
@@ -52,17 +51,26 @@ class TMBackend(Protocol):
     def predict_reg(self, model, X) -> np.ndarray: ...
 
 
-def _cust_threshold(i):
-    j = (i % 2) * (-1)
-    return 1 if (j > -1) else j
-
-
 def _parallel_tm_ccs(tm, X, n_classes=2, n_clauses=1000, n_jobs=22):
     """Class-clause-sum reducer for the array-based (`parallel`/`gpu`) TM
-    implementations, ported unchanged from `benchmark_8_para.py`."""
+    implementations, ported from `benchmark_8_para.py`.
+
+    NOTE: the original script computed the (purely deterministic,
+    alternating +1/-1) clause polarity `mask` by farming
+    ``range(n_clauses)`` out to a fresh 22-worker `joblib.Parallel` *process*
+    pool on every single prediction call (i.e. every epoch, for both train
+    and test). That's pure overhead for a trivial computation -- on a
+    laptop (far fewer cores, much higher process-spawn cost than the
+    original many-core server) this made every TM epoch take tens of
+    seconds instead of milliseconds. Replaced with the equivalent
+    vectorized numpy expression (`n_jobs` is kept as a no-op parameter for
+    backend-interface compatibility). `_n_jobs` on the backends is unused
+    now but left in place in case a genuinely parallel workload is added
+    here later.
+    """
     active_clauses = tm.transform(X, inverted=False)
     weight_state = tm.get_state()
-    mask = Parallel(n_jobs=n_jobs)(delayed(_cust_threshold)(i) for i in np.arange(n_clauses))
+    mask = np.where(np.arange(n_clauses) % 2 == 0, 1, -1)
 
     ccs = []
     for i_class in range(n_classes):
