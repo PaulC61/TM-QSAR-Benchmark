@@ -38,9 +38,9 @@ statistical comparisons.
 ## Repo layout
 
 ```
-src/tm_qsar_benchmark/   Consolidated benchmark package (see below)
+src/tm_qsar_benchmark/   Benchmark package: TM vs RandomForest vs XGBoost
 data/opioids/            Input datasets (SMILES + labels/regression targets)
-dev/                     Vendored TM library forks, as git submodules:
+dev/                     TM library dependencies, as git submodules:
                          tmu (CPU), pyTsetlinMachineParallel (parallel CPU /
                          GPU via PyCUDA), chembl_structure_pipeline,
                          useful_rdkit_utils
@@ -54,19 +54,6 @@ post-hoc-analysis.ipynb  In-depth statistical comparison of results (Tukey
 tests/                   Smoke/unit tests for the pipeline
 .devcontainer/           Optional Docker devcontainer (see "Devcontainer")
 ```
-
-### Why the code used to be duplicated
-
-Historically, running the same benchmark with a different clause count
-(8 vs 16) or a different TM backend (base `tmu` vs `pyTsetlinMachineParallel`
-vs GPU-backed `PyCUDATsetlinMachine`) meant copy-pasting an entire script
-(`benchmark_8.py`, `benchmark_8_GPU.py`, `benchmark_8_para.py`,
-`benchmark_16.py`, ...). This repo consolidates all of that into a single
-package, `src/tm_qsar_benchmark/`, parameterized by a `BenchmarkConfig` /
-CLI flags, with the TM backend **auto-detected from the hardware** the
-pipeline is running on (see `hardware.py`). The exact "melted"/long-format
-result CSV output style is unchanged -- only the code that produces it was
-de-duplicated.
 
 ## Setup
 
@@ -128,15 +115,13 @@ tutorial on loading and visualizing them.
 
 ### Devcontainer (optional)
 
-`.devcontainer/` provides an optional, reproducible Docker environment,
-following the same GPU-auto-detection pattern used by the sibling
-LitScraper project: `.devcontainer/build` probes for `nvidia-smi` and
-renders `.devcontainer/devcontainer.json` from
-`devcontainer.json.template`, picking a plain or CUDA-enabled pixi base
-image accordingly (override with `GPU=0`/`GPU=1`/`PIXI_IMAGE_TAG` env vars
-if auto-detection guesses wrong). It works unmodified on a laptop (CPU-only
-pixi image) and on an H100/H200 GPU server (CUDA pixi image + `--gpus`
-passthrough). To use it:
+`.devcontainer/` provides an optional, reproducible Docker environment.
+`.devcontainer/build` probes for `nvidia-smi` and renders
+`.devcontainer/devcontainer.json` from `devcontainer.json.template`,
+picking a plain or CUDA-enabled pixi base image accordingly (override with
+`GPU=0`/`GPU=1`/`PIXI_IMAGE_TAG` env vars if auto-detection guesses wrong).
+It works unmodified on a laptop (CPU-only pixi image) and on a CUDA GPU
+server (CUDA pixi image + `--gpus` passthrough). To use it:
 
 ```bash
 bash .devcontainer/build   # generates .devcontainer/devcontainer.json
@@ -147,17 +132,6 @@ The container's `postStartCommand` runs the same submodule-init /
 fix-submodules / `pixi install` steps as the plain setup above, so the
 devcontainer and bare-metal setups stay in sync. If you don't use
 devcontainers at all, just ignore this directory entirely.
-
-## Notes on prior bugs fixed during consolidation
-
-A few latent bugs in the original scripts were found and fixed while
-merging them (see inline comments in `src/tm_qsar_benchmark/` for detail):
-a missing-comma string-concatenation bug that silently dropped a dataset's
-label column, an undefined-variable bug in the GPU/parallel
-hyperparameter-search objective, and a `NameError`-inducing control-flow
-bug in the outer CV loop's hyperparameter re-use logic. These are
-consolidation-time fixes to make the pipeline actually runnable end-to-end;
-none of them change the melted-CSV output format itself.
 
 ## Interpretability
 
