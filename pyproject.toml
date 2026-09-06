@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tm_qsar_benchmark"
+version = "0.1.0"
+description = "Consolidated TM vs RandomForest vs XGBoost QSAR benchmarking pipeline."
+requires-python = ">=3.12"
+readme = "README.md"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+markers = [
+    "slow: exercises a full (if tiny) end-to-end benchmark run; may take a minute or more.",
+]
+
