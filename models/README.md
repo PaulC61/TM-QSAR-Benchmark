@@ -1,8 +1,7 @@
 # Final TM models
 
 Ready-to-use Tsetlin Machine classifiers, refit on 100% of their training
-data (not a CV split) at 1600 clauses, for handing off to a colleague rather
-than for further benchmarking.
+data (not a CV split) at 1600 clauses.
 
 | File | Target | Descriptor | Params | Epochs | CV mean Test ROC_AUC (1600 clauses) |
 |---|---|---|---|---|---|
