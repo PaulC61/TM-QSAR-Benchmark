@@ -1,11 +1,13 @@
 """Run configuration for the consolidated benchmark pipeline.
 
 Defaults reproduce the original `benchmark_8.py` (opioid targets, ECFP +
-RDKit2D descriptors, random/butina/scaffold splits, TM/RF/XGBoost). What
-used to require copy-pasting a whole new script (`benchmark_16.py` for
-`C_FACTOR=16`, `_GPU`/`_para` for a different TM backend, a different
-`DATASET_SUBSET` for a different target) is now just a different
-`BenchmarkConfig`/CLI flag.
+RDKit2D descriptors, random/butina/scaffold splits, TM/RF/XGBoost, 800
+TM clauses). What used to require copy-pasting a whole new script
+(`benchmark_16.py` for 1600 clauses, `_GPU`/`_para` for a different TM
+backend, a different `DATASET_SUBSET` for a different target) is now
+just a different `BenchmarkConfig`/CLI flag -- in particular, the TM
+clause count (`n_clauses`) is a plain integer parameter, not a
+qualitative "8x/16x" tag.
 """
 from __future__ import annotations
 
@@ -87,7 +89,7 @@ def resolve_param_grid(model_label: str, n_clauses: int) -> dict:
 
 @dataclass
 class BenchmarkConfig:
-    clause_factor: int = 8
+    n_clauses: int = 800
     backend: str = "auto"
 
     dataset_subset: list = field(default_factory=lambda: list(DEFAULT_DATASET_SUBSET))
@@ -116,15 +118,11 @@ class BenchmarkConfig:
     n_hp_jobs: int = 10
 
     @property
-    def n_clauses(self) -> int:
-        return self.n_trees * self.clause_factor
-
-    @property
     def macro_out_filename(self) -> str:
-        label = self.run_label or str(self.clause_factor)
+        label = self.run_label or str(self.n_clauses)
         return f"{self.output_dir}/MACRO_TM_Benchmark_{label}"
 
     @property
     def micro_out_filename(self) -> str:
-        label = self.run_label or str(self.clause_factor)
+        label = self.run_label or str(self.n_clauses)
         return f"{self.output_dir}/MICRO_TM_Benchmark_{label}"

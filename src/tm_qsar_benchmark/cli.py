@@ -2,17 +2,17 @@
 
 Examples
 --------
-Run the classic 8x-clause benchmark (auto-detects CPU/parallel/GPU backend)::
+Run the classic 800-clause benchmark (auto-detects CPU/parallel/GPU backend)::
 
-    pixi run python -m tm_qsar_benchmark.cli --clauses 8
+    pixi run python -m tm_qsar_benchmark.cli --n-clauses 800
 
-Run the 16x-clause variant, forcing the CPU backend::
+Run the 1600-clause variant, forcing the CPU backend::
 
-    pixi run python -m tm_qsar_benchmark.cli --clauses 16 --backend cpu
+    pixi run python -m tm_qsar_benchmark.cli --n-clauses 1600 --backend cpu
 
 Fast smoke test (tiny search budget, one dataset, resumable)::
 
-    pixi run python -m tm_qsar_benchmark.cli --clauses 8 \\
+    pixi run python -m tm_qsar_benchmark.cli --n-clauses 800 \\
         --datasets opioids/MOR_cutoff6.csv --n-outer 1 --n-inner 2 \\
         --n-trials 2 --n-tm-epochs 2 --run-label smoketest --resume
 """
@@ -31,12 +31,12 @@ def build_arg_parser() -> argparse.ArgumentParser:
         prog="tm_qsar_benchmark",
         description="Consolidated TM vs RandomForest vs XGBoost QSAR benchmark pipeline.",
     )
-    parser.add_argument("--clauses", type=int, default=8, help="TM clause factor (clauses = 100 trees * factor); default 8.")
+    parser.add_argument("--n-clauses", type=int, default=800, help="Number of TM clauses to use directly, e.g. 800 or 1600; default 800.")
     parser.add_argument("--backend", choices=VALID_BACKENDS, default="auto", help="TM backend; 'auto' picks GPU/parallel/CPU based on detected hardware.")
     parser.add_argument("--datasets", nargs="+", default=None, help="Dataset CSVs under --data-dir (default: opioid MOR/DOR/KOR).")
     parser.add_argument("--data-dir", default="data", help="Root directory containing dataset CSVs.")
     parser.add_argument("--output-dir", default="results", help="Directory to write MACRO/MICRO result CSVs into.")
-    parser.add_argument("--run-label", default=None, help="Suffix for output filenames (default: the clause factor, e.g. MACRO_TM_Benchmark_8).")
+    parser.add_argument("--run-label", default=None, help="Suffix for output filenames (default: the clause count, e.g. MACRO_TM_Benchmark_800).")
     parser.add_argument("--n-outer", type=int, default=None, help="Outer CV splits (default 5).")
     parser.add_argument("--n-inner", type=int, default=None, help="Inner CV folds per outer split (default 5).")
     parser.add_argument("--n-trials", type=int, default=None, help="Optuna trials per HP search (default 25).")
@@ -58,7 +58,7 @@ def main(argv=None) -> None:
         return
 
     config = BenchmarkConfig(
-        clause_factor=args.clauses,
+        n_clauses=args.n_clauses,
         backend=args.backend,
         data_dir=args.data_dir,
         output_dir=args.output_dir,

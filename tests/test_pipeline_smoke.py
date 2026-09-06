@@ -39,7 +39,7 @@ def test_smoke_benchmark_run_produces_melted_csv(tmp_path):
     2 optuna trials x 2 TM epochs, forced onto the CPU backend so this test
     doesn't depend on GPU hardware being present."""
     config = BenchmarkConfig(
-        clause_factor=8,
+        n_clauses=800,
         backend=BACKEND_CPU,
         dataset_subset=["opioids/MOR_cutoff6.csv"],
         learning_task=["class"],

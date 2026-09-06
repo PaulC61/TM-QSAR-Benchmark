@@ -86,8 +86,8 @@ Then run a benchmark:
 
 ```bash
 pixi run describe-hardware   # shows which TM backend will be auto-selected
-pixi run benchmark-8         # clauses = 100 trees * 8, opioid MOR/DOR/KOR
-pixi run benchmark-16        # clauses = 100 trees * 16
+pixi run benchmark --n-clauses 800    # opioid MOR/DOR/KOR, 800 TM clauses
+pixi run benchmark --n-clauses 1600   # same, with 1600 TM clauses
 pixi run test                # unit + smoke tests (pytest)
 ```
 
@@ -96,7 +96,7 @@ override, CV/HP-search sizing, resuming a partial run):
 
 ```bash
 pixi run python -m tm_qsar_benchmark.cli --help
-pixi run python -m tm_qsar_benchmark.cli --clauses 8 --backend cpu \
+pixi run python -m tm_qsar_benchmark.cli --n-clauses 800 --backend cpu \
     --datasets opioids/MOR_cutoff6.csv --n-outer 1 --n-inner 2 \
     --n-trials 2 --n-tm-epochs 2 --run-label smoketest -v
 ```

@@ -12,10 +12,11 @@ fix-submodules = "python scripts/patch_native_deps.py"
 test = "pytest -sv tests/"
 describe-hardware = "python -m tm_qsar_benchmark.cli --describe-hardware"
 # TM backend (cpu/parallel/gpu) is auto-selected based on detected hardware;
-# override with `pixi run benchmark-8 -- --backend cpu`, etc.
-benchmark-8 = "python -m tm_qsar_benchmark.cli --clauses 8"
-benchmark-16 = "python -m tm_qsar_benchmark.cli --clauses 16"
-smoke-test = "python -m tm_qsar_benchmark.cli --clauses 8 --datasets opioids/MOR_cutoff6.csv --n-outer 1 --n-inner 2 --n-trials 2 --n-tm-epochs 2 --run-label smoketest --resume -v"
+# override with `pixi run benchmark --n-clauses 800 -- --backend cpu`.
+# Clause count is a plain parameter (no "benchmark-8"-style qualitative
+# tags) -- pass whatever --n-clauses value you want.
+benchmark = "python -m tm_qsar_benchmark.cli"
+smoke-test = "python -m tm_qsar_benchmark.cli --n-clauses 800 --datasets opioids/MOR_cutoff6.csv --n-outer 1 --n-inner 2 --n-trials 2 --n-tm-epochs 2 --run-label smoketest --resume -v"
 
 [dependencies]
 # tmu, pyTsetlinMachineParallel and chembl_structure_pipeline (see
