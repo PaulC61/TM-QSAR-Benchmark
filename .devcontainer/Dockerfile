@@ -6,7 +6,7 @@ ARG PIXI_IMAGE_TAG=0.41.4
 FROM ghcr.io/prefix-dev/pixi:${PIXI_IMAGE_TAG} AS build
 
 # Build tools for tmu/pyTsetlinMachineParallel's native C extensions
-# (dev/*, built from source via `pixi install`; see pixi.toml), plus
+# (dev/*, built from source via `pixi install`; see pyproject.toml's [tool.pixi.*] tables), plus
 # general dev quality-of-life packages.
 RUN apt-get update && apt-get install -y \
     build-essential gcc g++ clang make \
@@ -39,6 +39,6 @@ USER "${USER_NAME}"
 # Dependencies (including the native dev/* extensions) are installed via
 # postStartCommand, not baked in at build time: the submodules need the
 # `scripts/patch_native_deps.py` portability fix applied first (see
-# pixi.toml's `fix-submodules` task), and this keeps the image reusable
+# pyproject.toml's `fix-submodules` task), and this keeps the image reusable
 # across submodule updates without a rebuild.
 CMD [ "tail", "-f", "/dev/null" ]

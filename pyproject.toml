@@ -17,3 +17,67 @@ markers = [
     "slow: exercises a full (if tiny) end-to-end benchmark run; may take a minute or more.",
 ]
 
+# pixi's environment/dependency/task config lives here too (under
+# [tool.pixi.*]) instead of a separate pixi.toml -- one file, one source of
+# truth for both "this is an installable Python package" (the [project]
+# table above) and "this is how to set up/run it" (pixi).
+[tool.pixi.workspace]
+name = "TM-QSAR-Benchmark"
+channels = ["conda-forge"]
+platforms = ["win-64", "linux-64", "osx-64", "osx-arm64"]
+
+[tool.pixi.tasks]
+# One-time setup (run in this order on a fresh clone):
+#   1. git submodule update --init --recursive
+#   2. pixi run fix-submodules
+#   3. pixi install
+fix-submodules = "python scripts/patch_native_deps.py"
+test = "pytest -sv tests/"
+describe-hardware = "python -m tm_qsar_benchmark.cli --describe-hardware"
+# TM backend (cpu/parallel/gpu) is auto-selected based on detected hardware;
+# override with `pixi run benchmark --n-clauses 800 -- --backend cpu`.
+# Clause count is a plain parameter (no "benchmark-8"-style qualitative
+# tags) -- pass whatever --n-clauses value you want.
+benchmark = "python -m tm_qsar_benchmark.cli"
+smoke-test = "python -m tm_qsar_benchmark.cli --n-clauses 800 --datasets opioids/MOR_cutoff6.csv --n-outer 1 --n-inner 2 --n-trials 2 --n-tm-epochs 2 --run-label smoketest --resume -v"
+
+[tool.pixi.dependencies]
+# tmu, pyTsetlinMachineParallel and chembl_structure_pipeline (see
+# [tool.pixi.pypi-dependencies] below) are editable installs of native C
+# extensions (dev/*). c-compiler/cxx-compiler pull in conda-forge's
+# platform-appropriate compiler + SDK/sysroot activation (this is what
+# makes e.g. macOS builds find headers like assert.h), so `pixi install`
+# can build them from source on any of this workspace's platforms.
+c-compiler = "*"
+cxx-compiler = "*"
+python = ">=3.12"
+pip = "*"
+numpy = ">=2.3.0,<3"
+scipy = ">=1.15.2,<2"
+ipdb = ">=0.13.13,<0.14"
+pandas = ">=2.3.0,<3"
+scikit-learn = ">=1.7.0,<2"
+ptyprocess = ">=0.7.0,<0.8"
+pyzmq = ">=26.4.0,<27"
+optuna = ">=4.4.0,<5"
+libxc-c = ">=7.0.0,<8"
+rdkit = ">=2025.9.2,<2026"
+xgboost = ">=2.0.0,<3"
+joblib = ">=1.3.0"
+pytest = ">=8.0.0"
+
+[tool.pixi.pypi-dependencies]
+matplotlib = "*"
+jupyterlab = "*"
+ipykernel = "*"
+packaging = "*"
+seaborn = "*"
+pingouin = "*"
+statsmodels = "*"
+scikit-posthocs = "*"
+useful_rdkit_utils = { path = "./dev/useful_rdkit_utils", editable = true }
+tmu = { path = "./dev/tmu", editable = true}
+pyTsetlinMachineParallel = { path = "./dev/pyTsetlinMachineParallel", editable = true}
+chembl_structure_pipeline = { path = "./dev/chembl_structure_pipeline", editable = true}
+tm_qsar_benchmark = { path = ".", editable = true }
+

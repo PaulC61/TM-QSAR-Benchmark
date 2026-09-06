@@ -46,6 +46,8 @@ dev/                     TM library dependencies, as git submodules:
                          useful_rdkit_utils
 results/                 Melted/long-format benchmark result CSVs (MACRO_*,
                          MICRO_*) -- committed outputs from prior runs
+models/                  Final (full-dataset-refit) TM classifiers, pickled
+                         for downstream use -- see models/README.md
 Polaris_examples/        Additional regression-task example/notebook
 notebooks/               Tutorial notebook for exploring result CSVs
 post-hoc-analysis.ipynb  In-depth statistical comparison of results (Tukey

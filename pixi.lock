@@ -9005,7 +9005,7 @@ packages:
 - pypi: ./
   name: tm-qsar-benchmark
   version: 0.1.0
-  sha256: 8774cfef351a50abb22de1139acfa24fa048dddf31af4f77c36622188584e0bb
+  sha256: cd3874895c7ab3dc61c81a6bafd2a869c11c664cf058a4e81f54abbfa1d6f4b3
   requires_python: '>=3.12'
   editable: true
 - pypi: ./dev/tmu
