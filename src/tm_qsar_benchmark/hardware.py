@@ -2,19 +2,28 @@
 
 This project historically kept separate copies of the benchmark script per
 machine: a CPU-only ("regular TM library", `tmu`) version, a multi-core CPU
-version (`pyTsetlinMachineParallel`), and a GPU version
-(`PyTsetlinMachineCUDA`), hand-picked depending on which server it ran on.
-This module replaces that manual process with automatic detection so the
-same consolidated pipeline "just works" on a laptop with no GPU and on an
-H100/H200 GPU server alike.
+version (`pyTsetlinMachineParallel`), and a GPU version (a separate
+`PyTsetlinMachineCUDA`/`PyCUDATsetlinMachine` package), hand-picked depending
+on which server it ran on. This module replaces that manual process with
+automatic detection so the same consolidated pipeline "just works" on a
+laptop with no GPU and on an H100/H200 GPU server alike.
+
+GPU support does *not* need a separate TM package: `tmu` itself ships a CUDA
+clause bank (`tmu.clause_bank.clause_bank_cuda.ClauseBankCUDA`) and switches
+to it for any model constructed with `platform="CUDA"` -- same
+`TMCoalescedClassifier`/`TMRegressor` classes, same fit/predict API, just a
+different constructor kwarg (see `tm_backends.py`). The only extra
+requirement is `pycuda` (which needs a working CUDA toolchain, so it's an
+opt-in pixi feature -- `pixi install -e gpu` -- rather than a default
+dependency; see pyproject.toml's `[tool.pixi.feature.gpu]`).
 
 Detection is done by shelling out to `nvidia-smi` (present with the NVIDIA
 driver, absent on a Mac or a GPU-less Linux box), mirroring the pattern used
 in the sibling `aerleumLitScraperV2` project's `hardware.py`. We additionally
-confirm the GPU-only Tsetlin Machine package (`PyTsetlinMachineCUDA`, which
-needs a working CUDA toolchain/`pycuda`) actually imports before selecting
-the GPU backend, so a GPU-equipped-but-not-yet-configured machine still
-falls back to a CPU backend rather than crashing.
+confirm `tmu`'s own CUDA clause bank actually initialized successfully
+(i.e. `pycuda` imported cleanly) before selecting the GPU backend, so a
+GPU-equipped-but-not-yet-configured machine still falls back to a CPU
+backend rather than crashing.
 """
 from __future__ import annotations
 
@@ -51,11 +60,16 @@ def has_nvidia_gpu() -> bool:
 
 @functools.lru_cache(maxsize=1)
 def gpu_backend_available() -> bool:
-    """True if both an NVIDIA GPU is detected *and* the GPU Tsetlin Machine
-    package (`PyTsetlinMachineCUDA`) is importable in this environment."""
+    """True if both an NVIDIA GPU is detected *and* `tmu`'s own CUDA clause
+    bank successfully imported `pycuda` in this environment (`tmu` is a
+    core dependency; `pycuda` is the opt-in `gpu` pixi feature)."""
     if not has_nvidia_gpu():
         return False
-    return importlib.util.find_spec("PyTsetlinMachineCUDA") is not None
+    if importlib.util.find_spec("tmu") is None:
+        return False
+    from tmu.clause_bank.clause_bank_cuda import cuda_installed
+
+    return bool(cuda_installed)
 
 
 @functools.lru_cache(maxsize=1)
@@ -68,12 +82,13 @@ def parallel_backend_available() -> bool:
 def resolve_backend(requested: str = "auto") -> str:
     """Resolve a requested backend name to a concrete, available one.
 
-    `"auto"` picks GPU if a CUDA GPU + `PyTsetlinMachineCUDA` are both
-    available, otherwise the multi-core parallel CPU backend if installed,
-    otherwise the plain single-core `tmu` CPU backend (always available, it
-    is a core dependency). Any explicit non-"auto" value is validated and
-    returned unchanged (explicit user choice wins, even if unavailable --
-    the caller will get an ImportError with a clear cause).
+    `"auto"` picks GPU if a CUDA GPU is detected and `tmu`'s CUDA clause
+    bank has `pycuda` available, otherwise the multi-core parallel CPU
+    backend if installed, otherwise the plain single-core `tmu` CPU backend
+    (always available, it is a core dependency). Any explicit non-"auto"
+    value is validated and returned unchanged (explicit user choice wins,
+    even if unavailable -- the caller will get an ImportError with a clear
+    cause).
     """
     if requested not in VALID_BACKENDS:
         raise ValueError(f"Unknown backend {requested!r}; expected one of {VALID_BACKENDS}")

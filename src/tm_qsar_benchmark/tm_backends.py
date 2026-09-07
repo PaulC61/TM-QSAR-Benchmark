@@ -1,21 +1,27 @@
-"""Backend adapters that hide the API differences between the three Tsetlin
+"""Backend adapters that hide the API differences between the Tsetlin
 Machine implementations this project has historically used on different
 hardware:
 
 * `cpu`      - `tmu.models.classification.coalesced_classifier.TMCoalescedClassifier`
-               / `tmu.models.regression.vanilla_regressor.TMRegressor`
-               (single/multi-threaded CPU, always available).
+               / `tmu.models.regression.vanilla_regressor.TMRegressor`,
+               constructed with `platform="CPU"` (single/multi-threaded CPU,
+               always available).
+* `gpu`      - the *same* `tmu` classifier/regressor classes, constructed
+               with `platform="CUDA"` instead (CUDA GPU, e.g. H100/H200
+               servers). `tmu` ships its own CUDA clause bank
+               (`tmu.clause_bank.clause_bank_cuda.ClauseBankCUDA`); no
+               separate `PyTsetlinMachineCUDA`/`PyCUDATsetlinMachine`
+               package is needed, just `pycuda` installed (`pixi install -e
+               gpu` on a CUDA-toolchain-equipped machine) -- see
+               `hardware.gpu_backend_available`. Because it's the same
+               `tmu` model classes as `cpu`, `gpu` also gets regression for
+               free (the old separate-package GPU backend never had one).
 * `parallel` - `pyTsetlinMachineParallel.tm.MultiClassTsetlinMachine`
-               (OpenMP multi-core CPU).
-* `gpu`      - `PyTsetlinMachineCUDA.tm.MultiClassTsetlinMachine`
-               (CUDA GPU, e.g. H100/H200 servers).
+               (OpenMP multi-core CPU; classification only -- it doesn't
+               ship a regressor).
 
-`parallel` and `gpu` share the exact same `MultiClassTsetlinMachine` API
-(`fit(X, Y, epochs=1, incremental=True)`, `.transform(X, inverted=False)`,
-`.get_state()`, `.T`) so they're implemented once as `_ArrayTMBackend` and
-only differ in which package they import the model class from. This is also
-where a real bug from the old `benchmark_8_GPU.py` copy is fixed: its
-HP-search objective computed `Y_val_css` but then referenced the
+This is also where a real bug from the old `benchmark_8_GPU.py` copy is
+fixed: its HP-search objective computed `Y_val_css` but then referenced the
 similarly-named but undefined `Y_val_ccs`, a copy-paste artifact from the
 `_para` script it was cloned from that never actually ran correctly.
 """
@@ -52,8 +58,8 @@ class TMBackend(Protocol):
 
 
 def _parallel_tm_ccs(tm, X, n_classes=2, n_clauses=1000, n_jobs=22):
-    """Class-clause-sum reducer for the array-based (`parallel`/`gpu`) TM
-    implementations, ported from `benchmark_8_para.py`.
+    """Class-clause-sum reducer for the array-based `parallel` TM
+    implementation, ported from `benchmark_8_para.py`.
 
     NOTE: the original script computed the (purely deterministic,
     alternating +1/-1) clause polarity `mask` by farming
@@ -64,7 +70,7 @@ def _parallel_tm_ccs(tm, X, n_classes=2, n_clauses=1000, n_jobs=22):
     original many-core server) this made every TM epoch take tens of
     seconds instead of milliseconds. Replaced with the equivalent
     vectorized numpy expression (`n_jobs` is kept as a no-op parameter for
-    backend-interface compatibility). `_n_jobs` on the backends is unused
+    backend-interface compatibility). `_n_jobs` on the backend is unused
     now but left in place in case a genuinely parallel workload is added
     here later.
     """
@@ -83,11 +89,14 @@ def _parallel_tm_ccs(tm, X, n_classes=2, n_clauses=1000, n_jobs=22):
     return np.array(ccs)
 
 
-class TMCpuBackend:
-    """`tmu` (single/multi-threaded CPU) backend -- the always-available
-    default when no faster backend is installed/detected."""
+class _TmuBackend:
+    """Shared implementation for `cpu` and `gpu`, which are both just `tmu`
+    (`TMCoalescedClassifier` / `TMRegressor`) constructed with a different
+    `platform` kwarg ("CPU" vs "CUDA") -- see class docstring at module
+    top for why no separate GPU package is needed."""
 
-    name = BACKEND_CPU
+    name: str
+    _platform: str
 
     def make_classifier(self, params: dict, n_clauses: int):
         from tmu.models.classification.coalesced_classifier import TMCoalescedClassifier
@@ -95,6 +104,7 @@ class TMCpuBackend:
         clf_params = dict(params)
         clf_params["number_of_clauses"] = n_clauses
         clf_params["weighted_clauses"] = True
+        clf_params["platform"] = self._platform
         return TMCoalescedClassifier(**clf_params)
 
     def make_regressor(self, params: dict, n_clauses: int):
@@ -103,6 +113,7 @@ class TMCpuBackend:
         reg_params = dict(params)
         reg_params["number_of_clauses"] = n_clauses
         reg_params["weighted_clauses"] = True
+        reg_params["platform"] = self._platform
         return TMRegressor(**reg_params)
 
     def fit_clf_epoch(self, model, X, Y) -> None:
@@ -119,14 +130,30 @@ class TMCpuBackend:
         return model.predict(X)
 
 
-class _ArrayTMBackend:
-    """Shared implementation for `parallel` (`pyTsetlinMachineParallel`) and
-    `gpu` (`PyTsetlinMachineCUDA`), which expose an identical
-    `MultiClassTsetlinMachine` API."""
+class TMCpuBackend(_TmuBackend):
+    """`tmu` (single/multi-threaded CPU, `platform="CPU"`) backend -- the
+    always-available default when no faster backend is installed/detected."""
 
-    name: str
-    _module_name: str
-    _n_jobs: int
+    name = BACKEND_CPU
+    _platform = "CPU"
+
+
+class TMGpuBackend(_TmuBackend):
+    """`tmu` CUDA GPU backend (`platform="CUDA"`), e.g. H100/H200 servers.
+    Requires `pycuda` (opt-in `gpu` pixi feature); see
+    `hardware.gpu_backend_available`."""
+
+    name = BACKEND_GPU
+    _platform = "CUDA"
+
+
+class TMParallelBackend:
+    """Multi-core CPU backend via `pyTsetlinMachineParallel` (OpenMP).
+    Classification only -- this package doesn't ship a regressor."""
+
+    name = BACKEND_PARALLEL
+    _module_name = "pyTsetlinMachineParallel"
+    _n_jobs = 22
 
     def _model_cls(self):
         module = importlib.import_module(f"{self._module_name}.tm")
@@ -139,10 +166,8 @@ class _ArrayTMBackend:
         return self._model_cls()(**clf_params)
 
     def make_regressor(self, params: dict, n_clauses: int):
-        # Neither pyTsetlinMachineParallel nor PyTsetlinMachineCUDA ship a
-        # dedicated regressor; regression runs use the CPU (`tmu`) backend.
         raise NotImplementedError(
-            f"{self.name} backend has no regression model; use the cpu backend for regression tasks."
+            f"{self.name} backend has no regression model; use the cpu or gpu backend for regression tasks."
         )
 
     def fit_clf_epoch(self, model, X, Y) -> None:
@@ -157,22 +182,6 @@ class _ArrayTMBackend:
 
     def predict_reg(self, model, X) -> np.ndarray:
         raise NotImplementedError(f"{self.name} backend has no regression model.")
-
-
-class TMParallelBackend(_ArrayTMBackend):
-    """Multi-core CPU backend via `pyTsetlinMachineParallel` (OpenMP)."""
-
-    name = BACKEND_PARALLEL
-    _module_name = "pyTsetlinMachineParallel"
-    _n_jobs = 22
-
-
-class TMGpuBackend(_ArrayTMBackend):
-    """CUDA GPU backend via `PyTsetlinMachineCUDA`."""
-
-    name = BACKEND_GPU
-    _module_name = "PyTsetlinMachineCUDA"
-    _n_jobs = 22
 
 
 _BACKENDS = {

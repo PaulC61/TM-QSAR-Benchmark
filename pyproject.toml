@@ -30,12 +30,16 @@ platforms = ["win-64", "linux-64", "osx-64", "osx-arm64"]
 # One-time setup (run in this order on a fresh clone):
 #   1. git submodule update --init --recursive
 #   2. pixi run fix-submodules
-#   3. pixi install
+#   3. pixi install                (GPU server: also `pixi install -e gpu`)
 fix-submodules = "python scripts/patch_native_deps.py"
 test = "pytest -sv tests/"
 describe-hardware = "python -m tm_qsar_benchmark.cli --describe-hardware"
 # TM backend (cpu/parallel/gpu) is auto-selected based on detected hardware;
-# override with `pixi run benchmark --n-clauses 800 -- --backend cpu`.
+# override with `pixi run benchmark --n-clauses 800 -- --backend cpu`. The
+# gpu backend is just tmu's own CUDA clause bank (platform="CUDA"), gated
+# behind the opt-in `gpu` pixi feature/environment below (needs `pycuda`,
+# which needs a real CUDA toolchain -- install it too on a GPU box with
+# `pixi install -e gpu`).
 # Clause count is a plain parameter (no "benchmark-8"-style qualitative
 # tags) -- pass whatever --n-clauses value you want.
 benchmark = "python -m tm_qsar_benchmark.cli"
@@ -80,4 +84,22 @@ tmu = { path = "./dev/tmu", editable = true}
 pyTsetlinMachineParallel = { path = "./dev/pyTsetlinMachineParallel", editable = true}
 chembl_structure_pipeline = { path = "./dev/chembl_structure_pipeline", editable = true}
 tm_qsar_benchmark = { path = ".", editable = true }
+
+# Opt-in GPU feature: `pycuda` needs a real CUDA toolchain to build, so it
+# must stay out of the default environment (or `pixi install` would fail
+# on any machine without one, including a laptop). Enable it on a CUDA
+# server with `pixi install -e gpu`; this only changes which pixi
+# *environment* pycuda is solved/installed into -- the same tmu classes
+# and pipeline code run either way, just with `platform="CUDA"` selected
+# automatically once `tmu.clause_bank.clause_bank_cuda.cuda_installed` is
+# True (see hardware.gpu_backend_available).
+[tool.pixi.feature.gpu]
+platforms = ["linux-64"]
+
+[tool.pixi.feature.gpu.pypi-dependencies]
+pycuda = "*"
+
+[tool.pixi.environments]
+default = { solve-group = "default" }
+gpu = { features = ["gpu"], solve-group = "default" }
 

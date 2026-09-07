@@ -41,9 +41,9 @@ statistical comparisons.
 src/tm_qsar_benchmark/   Benchmark package: TM vs RandomForest vs XGBoost
 data/opioids/            Input datasets (SMILES + labels/regression targets)
 dev/                     TM library dependencies, as git submodules:
-                         tmu (CPU), pyTsetlinMachineParallel (parallel CPU /
-                         GPU via PyCUDA), chembl_structure_pipeline,
-                         useful_rdkit_utils
+                         tmu (CPU and CUDA GPU, via its own built-in
+                         clause bank), pyTsetlinMachineParallel (parallel
+                         CPU), chembl_structure_pipeline, useful_rdkit_utils
 results/                 Melted/long-format benchmark result CSVs (MACRO_*)
                          -- committed outputs from prior runs
 models/                  Final (full-dataset-refit) TM classifiers, pickled
@@ -82,6 +82,12 @@ pixi run fix-submodules
 #    source; requires no manual compiler setup thanks to pixi's
 #    c-compiler/cxx-compiler packages).
 pixi install
+
+# 3b. (GPU server only, optional) also install pycuda so tmu's CUDA clause
+#     bank can actually run on the GPU -- needs a real CUDA toolchain, so
+#     this is a separate opt-in pixi environment, not part of `pixi install`
+#     above (which must succeed on a GPU-less laptop too).
+pixi install -e gpu
 ```
 
 Then run a benchmark:
@@ -104,8 +110,10 @@ pixi run python -m tm_qsar_benchmark.cli --n-clauses 800 --backend cpu \
 ```
 
 The TM backend is auto-selected (`--backend auto`, the default) by probing
-for an NVIDIA GPU via `nvidia-smi`: a CUDA-capable server picks the
-PyCUDA-backed GPU implementation, a machine without a GPU but with
+for an NVIDIA GPU via `nvidia-smi`: a CUDA-capable server picks `tmu`'s
+own CUDA clause bank (`platform="CUDA"` -- no separate GPU package needed,
+just `pycuda` installed via the opt-in `pixi install -e gpu`; see
+"Hardware / TM backend" below), a machine without a GPU but with
 `pyTsetlinMachineParallel` built picks the parallel CPU implementation, and
 otherwise it falls back to the base `tmu` CPU implementation. Override with
 `--backend cpu|parallel|gpu` to force a specific one.
@@ -114,6 +122,26 @@ Results are written as melted/long-format CSVs to `results/` (e.g.
 `MACRO_TM_Benchmark_8`) in the same format as pre-existing files already
 committed there -- see `notebooks/` for a tutorial on loading and
 visualizing them.
+
+### Hardware / TM backend
+
+Three TM backends are available; `--backend auto` (the default) picks the
+best one detected at runtime:
+
+* `cpu` -- `tmu`'s single/multi-threaded CPU clause bank
+  (`platform="CPU"`). Always available; the fallback if nothing faster is
+  installed.
+* `parallel` -- `pyTsetlinMachineParallel` (OpenMP multi-core CPU). Used
+  automatically if built and no GPU is detected.
+* `gpu` -- **the same `tmu` classes as `cpu`**, just constructed with
+  `platform="CUDA"` instead. `tmu` ships its own CUDA clause bank, so no
+  separate GPU package (e.g. `PyTsetlinMachineCUDA`/`PyCUDATsetlinMachine`)
+  is needed at all -- only `pycuda` (which needs a real CUDA toolchain to
+  build, so it's gated behind the opt-in `pixi install -e gpu` environment
+  above, not installed by default).
+
+Run `pixi run describe-hardware` to see which backend will be auto-selected
+on the current machine.
 
 ### Final models
 
