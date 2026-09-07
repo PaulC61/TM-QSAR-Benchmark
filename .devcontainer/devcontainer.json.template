@@ -25,7 +25,7 @@
     ],
     "workspaceFolder": "/workspace",
     "overrideCommand": true,
-    "postStartCommand": "git submodule update --init --recursive && pixi run fix-submodules && pixi install",
+    "postStartCommand": "git submodule update --init --recursive && pixi run fix-submodules && $PIXI_INSTALL_CMD",
     "shutdownAction": "none",
     "customizations": {
         "vscode": {

@@ -31,14 +31,33 @@ if [ "$GPU" = "1" ]; then
     else
         GPU_RUN_ARGS='"--gpus", "all",'
     fi
+    # The gpu TM backend is just tmu's own CUDA clause bank (platform="CUDA"),
+    # gated behind the opt-in `gpu` pixi feature/environment (needs `pycuda`,
+    # which needs the CUDA toolchain this image tag provides) -- install it
+    # too on a detected GPU box.
+    PIXI_INSTALL_CMD="pixi install && pixi install -e gpu"
 else
     PIXI_IMAGE_TAG=${PIXI_IMAGE_TAG:-0.41.4}
     GPU_RUN_ARGS=''
+    PIXI_INSTALL_CMD="pixi install"
 fi
 
-export USER_ID GROUP_ID GROUP_NAME USER_NAME PIXI_IMAGE_TAG GPU_RUN_ARGS
+export USER_ID GROUP_ID GROUP_NAME USER_NAME PIXI_IMAGE_TAG GPU_RUN_ARGS PIXI_INSTALL_CMD
 
 echo "Using USER_ID: $USER_ID, GROUP_ID: $GROUP_ID, GROUP_NAME: $GROUP_NAME, USER_NAME: $USER_NAME"
-echo "GPU=$GPU -> PIXI_IMAGE_TAG=$PIXI_IMAGE_TAG"
+echo "GPU=$GPU -> PIXI_IMAGE_TAG=$PIXI_IMAGE_TAG, PIXI_INSTALL_CMD=$PIXI_INSTALL_CMD"
 
-sed "s#\$USER_ID#$USER_ID#g; s#\$GROUP_ID#$GROUP_ID#g; s#\$GROUP_NAME#$GROUP_NAME#g; s#\$USER_NAME#$USER_NAME#g; s#\$PIXI_IMAGE_TAG#$PIXI_IMAGE_TAG#g; s#\$GPU_RUN_ARGS#$GPU_RUN_ARGS#g" < "$TEMPLATE_FILE" > "$OUTPUT_FILE"
+# Plain literal substitution (not sed): PIXI_INSTALL_CMD contains "&&",
+# which sed's replacement syntax treats as "insert the matched text"
+# unless escaped, silently corrupting the output. python3's str.replace is
+# always literal, so it's the safer tool here.
+python3 - "$TEMPLATE_FILE" "$OUTPUT_FILE" << 'PYEOF'
+import os
+import sys
+
+template_file, output_file = sys.argv[1], sys.argv[2]
+content = open(template_file).read()
+for var in ("USER_ID", "GROUP_ID", "GROUP_NAME", "USER_NAME", "PIXI_IMAGE_TAG", "GPU_RUN_ARGS", "PIXI_INSTALL_CMD"):
+    content = content.replace(f"${var}", os.environ[var])
+open(output_file, "w").write(content)
+PYEOF

@@ -33,6 +33,20 @@ def test_resolve_backend_rejects_unknown():
         resolve_backend("not-a-real-backend")
 
 
+def test_gpu_backend_uses_tmu_with_cuda_platform():
+    """The `gpu` backend is just `tmu`'s own CUDA clause bank
+    (`platform="CUDA"`), not a separate PyTsetlinMachineCUDA package.
+    Construction should succeed even without `pycuda` installed (only
+    `.fit()` needs a real GPU/pycuda) -- this asserts the plumbing is wired
+    to the right platform kwarg without requiring GPU hardware here."""
+    from tm_qsar_benchmark.tm_backends import get_backend
+
+    backend = get_backend(BACKEND_GPU)
+    params = {"T": 10, "s": 5.0, "number_of_state_bits_ta": 8}
+    clf = backend.make_classifier(params, n_clauses=10)
+    assert clf.platform == "CUDA"
+
+
 @pytest.mark.slow
 def test_smoke_benchmark_run_produces_melted_csv(tmp_path):
     """Fast end-to-end run: 1 dataset x 1 outer split x 2 inner folds x
