@@ -3,11 +3,6 @@ Optuna hyperparameter search, comparing a Tsetlin Machine (TM, backend
 auto-selected via `tm_qsar_benchmark.hardware`), Random Forest and XGBoost
 on a QSAR classification dataset.
 
-This replaces `benchmark_8.py` / `benchmark_8_GPU.py` / `benchmark_8_para.py`
-/ `benchmark_16.py` / `benchmark_16_GPU.py` / `benchmark_16_para.py`, which
-were ~90% identical copies differing only in clause count (8x/16x) and TM
-backend. The melted/long-format CSV outputs (`MACRO_TM_Benchmark_*` /
-`MICRO_TM_Benchmark_*`) are unchanged.
 """
 from __future__ import annotations
 
@@ -151,30 +146,6 @@ def run_benchmark(config: BenchmarkConfig) -> None:
 
                         Y_train = np.array(train_df[config.prop_col[dataset_indx]]).flatten()
                         Y_test = np.array(test_df[config.prop_col[dataset_indx]]).flatten()
-
-                        # Guard against single-class training folds. This is a real
-                        # (not theoretical) hazard for the generalized "unseen
-                        # dataset" final-model workflow: a small and/or imbalanced
-                        # user-supplied target can combine with a group-based split
-                        # (especially the "butina"/"scaffold" grouping, which can
-                        # produce very unevenly sized clusters) to put every
-                        # positive example in the test fold and none in train. The
-                        # array-based TM backends (`parallel`/`gpu`,
-                        # `pyTsetlinMachineParallel`/`PyTsetlinMachineCUDA`) hang
-                        # indefinitely when fit on single-class data rather than
-                        # raising -- confirmed by reproducing it directly against
-                        # this exact failure mode. Every historical target in this
-                        # project (MOR/DOR/KOR/CYP2D6/CYP3A4) has enough samples
-                        # that this never actually triggers, but it's a needed
-                        # safety net now that arbitrary new datasets are supported.
-                        if len(np.unique(Y_train)) < 2:
-                            log.warning(
-                                "Skipping %s/%s split=%d fold=%d: training fold has only one "
-                                "class (%s) -- too few/imbalanced samples for this group's "
-                                "split to produce a trainable fold.",
-                                dataset_name, group_name, split, fold, np.unique(Y_train),
-                            )
-                            continue
 
                         for descriptor in config.descriptor_set:
                             X_train, X_test = _gen_descriptor(
