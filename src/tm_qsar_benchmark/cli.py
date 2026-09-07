@@ -35,7 +35,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--backend", choices=VALID_BACKENDS, default="auto", help="TM backend; 'auto' picks GPU/parallel/CPU based on detected hardware.")
     parser.add_argument("--datasets", nargs="+", default=None, help="Dataset CSVs under --data-dir (default: opioid MOR/DOR/KOR).")
     parser.add_argument("--data-dir", default="data", help="Root directory containing dataset CSVs.")
-    parser.add_argument("--output-dir", default="results", help="Directory to write MACRO/MICRO result CSVs into.")
+    parser.add_argument("--output-dir", default="results", help="Directory to write MACRO result CSVs into.")
     parser.add_argument("--run-label", default=None, help="Suffix for output filenames (default: the clause count, e.g. MACRO_TM_Benchmark_800).")
     parser.add_argument("--n-outer", type=int, default=None, help="Outer CV splits (default 5).")
     parser.add_argument("--n-inner", type=int, default=None, help="Inner CV folds per outer split (default 5).")

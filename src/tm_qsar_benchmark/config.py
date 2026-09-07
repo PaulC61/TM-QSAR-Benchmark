@@ -121,8 +121,3 @@ class BenchmarkConfig:
     def macro_out_filename(self) -> str:
         label = self.run_label or str(self.n_clauses)
         return f"{self.output_dir}/MACRO_TM_Benchmark_{label}"
-
-    @property
-    def micro_out_filename(self) -> str:
-        label = self.run_label or str(self.n_clauses)
-        return f"{self.output_dir}/MICRO_TM_Benchmark_{label}"

@@ -25,7 +25,7 @@ from tm_qsar_benchmark.binarizer import Binarizer as QuantileBinarizer
 from tm_qsar_benchmark.config import BenchmarkConfig, resolve_param_grid
 from tm_qsar_benchmark.descriptors import gen_ecfp_arr, gen_rdkit2D_arr, mol_from_smiles
 from tm_qsar_benchmark.hardware import resolve_backend
-from tm_qsar_benchmark.metrics import write_clf_scores, write_MICRO_clf_scores
+from tm_qsar_benchmark.metrics import write_clf_scores
 from tm_qsar_benchmark.tm_backends import get_backend
 
 log = logging.getLogger(__name__)
@@ -102,7 +102,7 @@ def _benchmark_clf_objective(trial, X_train_in, X_val_in, Y_train_in, Y_val_in, 
 
 def run_benchmark(config: BenchmarkConfig) -> None:
     """Run the full nested-CV benchmark and append melted/long-format rows
-    to `config.macro_out_filename` / `config.micro_out_filename`."""
+    to `config.macro_out_filename`."""
     backend_name = resolve_backend(config.backend)
     tm_backend = get_backend(backend_name)
     log.info("Using TM backend: %s (requested=%s)", backend_name, config.backend)
@@ -110,14 +110,11 @@ def run_benchmark(config: BenchmarkConfig) -> None:
     output_dir = Path(config.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     macro_path = Path(config.macro_out_filename)
-    micro_path = Path(config.micro_out_filename)
 
     explored_configs = _load_explored_configs(macro_path) if config.resume else set()
 
     result_file = open(macro_path, "a", newline="")
     result_writer = csv.writer(result_file)
-    micro_result_file = open(micro_path, "a", newline="")
-    micro_result_writer = csv.writer(micro_result_file)
 
     try:
         for dataset_indx, dataset_name in enumerate(config.dataset_subset):
@@ -258,10 +255,6 @@ def run_benchmark(config: BenchmarkConfig) -> None:
                                     write_clf_scores(Y=Y_train, Y_pred=Y_train_pred_prob, meta_info=meta_info, model=model_label, dataset="Train", writer=result_writer)
                                     Y_test_pred_prob = clf_model.predict_proba(X_test)[:, 1]
                                     write_clf_scores(Y=Y_test, Y_pred=Y_test_pred_prob, meta_info=meta_info, model=model_label, dataset="Test", writer=result_writer)
-
-                                    micro_meta = [dataset_name, group_name, split, fold, descriptor, config.n_tm_epochs]
-                                    write_MICRO_clf_scores(Y_index=train_indx, Y=Y_train, Y_pred=Y_train_pred_prob, meta_info=micro_meta, model=model_label, dataset="Train", micro_writer=micro_result_writer)
-                                    write_MICRO_clf_scores(Y_index=test_indx, Y=Y_test, Y_pred=Y_test_pred_prob, meta_info=micro_meta, model=model_label, dataset="Test", micro_writer=micro_result_writer)
                                 else:
                                     clf_model = tm_backend.make_classifier(final_params, config.n_clauses)
 
@@ -287,12 +280,6 @@ def run_benchmark(config: BenchmarkConfig) -> None:
                                         Y_test_pred_prob = tm_backend.predict_clf_proba(clf_model, X_test, config.n_clauses)
                                         write_clf_scores(Y=Y_test, Y_pred=Y_test_pred_prob, meta_info=meta_info, model=model_label, dataset="Test", writer=result_writer)
 
-                                        micro_meta = [dataset_name, group_name, split, fold, descriptor, epoch + 1]
-                                        write_MICRO_clf_scores(Y_index=train_indx, Y=Y_train, Y_pred=Y_train_pred_prob, meta_info=micro_meta, model=model_label, dataset="Train", micro_writer=micro_result_writer)
-                                        write_MICRO_clf_scores(Y_index=test_indx, Y=Y_test, Y_pred=Y_test_pred_prob, meta_info=micro_meta, model=model_label, dataset="Test", micro_writer=micro_result_writer)
-
                                 result_file.flush()
-                                micro_result_file.flush()
     finally:
         result_file.close()
-        micro_result_file.close()

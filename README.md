@@ -44,8 +44,8 @@ dev/                     TM library dependencies, as git submodules:
                          tmu (CPU), pyTsetlinMachineParallel (parallel CPU /
                          GPU via PyCUDA), chembl_structure_pipeline,
                          useful_rdkit_utils
-results/                 Melted/long-format benchmark result CSVs (MACRO_*,
-                         MICRO_*) -- committed outputs from prior runs
+results/                 Melted/long-format benchmark result CSVs (MACRO_*)
+                         -- committed outputs from prior runs
 models/                  Final (full-dataset-refit) TM classifiers, pickled
                          for downstream use -- see models/README.md
 Polaris_examples/        Additional regression-task example/notebook
@@ -111,9 +111,9 @@ otherwise it falls back to the base `tmu` CPU implementation. Override with
 `--backend cpu|parallel|gpu` to force a specific one.
 
 Results are written as melted/long-format CSVs to `results/` (e.g.
-`MACRO_TM_Benchmark_8`, `MICRO_TM_Benchmark_8`) in the same format as
-pre-existing files already committed there -- see `notebooks/` for a
-tutorial on loading and visualizing them.
+`MACRO_TM_Benchmark_8`) in the same format as pre-existing files already
+committed there -- see `notebooks/` for a tutorial on loading and
+visualizing them.
 
 ### Final models
 

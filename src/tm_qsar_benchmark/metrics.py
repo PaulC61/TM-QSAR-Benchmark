@@ -1,11 +1,14 @@
 """Classification/regression metrics and the melted/long-format CSV row
 writers used by every benchmark run.
 
-The row layout written here (`write_clf_scores`, `write_MICRO_clf_scores`,
-`write_reg_scores`) is intentionally preserved byte-for-byte from the
-original `benchmark_*.py` scripts: downstream analysis (post-hoc-analysis.ipynb,
-model_comparison.py, results/MACRO_TM_Benchmark_* / MICRO_TM_Benchmark_*)
-depends on this exact "melted"/long redundant-metadata format.
+The row layout written here (`write_clf_scores`, `write_reg_scores`) is
+intentionally preserved byte-for-byte from the original `benchmark_*.py`
+scripts: downstream analysis (post-hoc-analysis.ipynb, model_comparison.py,
+results/MACRO_TM_Benchmark_*) depends on this exact "melted"/long
+redundant-metadata format. Per-sample "micro" results (one row per
+individual prediction rather than per aggregate metric) were previously
+also collected but are no longer written -- too exhaustive to be useful
+in practice.
 """
 from __future__ import annotations
 
@@ -26,7 +29,6 @@ __all__ = [
     "prc_auc_score",
     "ppv_npv_score",
     "write_clf_scores",
-    "write_MICRO_clf_scores",
     "oos_r2_score",
     "write_reg_scores",
     "expit",
@@ -70,15 +72,6 @@ def write_clf_scores(Y, Y_pred, meta_info, model, dataset, writer):
     writer.writerow(meta_info + [ppv, "PPV"])
     writer.writerow(meta_info + [npv, "NPV"])
 
-    return None
-
-
-def write_MICRO_clf_scores(Y_index, Y, Y_pred, meta_info, model, dataset, micro_writer):
-    """Write one melted/long-format row per individual sample prediction."""
-    meta_info = meta_info + [model, dataset]
-    for sample_indx in range(len(Y_index)):
-        sample_pred = meta_info + [Y_index[sample_indx], Y[sample_indx], Y_pred[sample_indx]]
-        micro_writer.writerow(sample_pred)
     return None
 
 
