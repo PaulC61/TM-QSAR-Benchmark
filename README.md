@@ -100,10 +100,13 @@ pixi run test                # unit + smoke tests (pytest)
 ```
 
 The default study design is **repeated 5x5 CV**: 5 outer splits
-(`--n-outer`, each a 5-fold group-aware split, `--n-inner`), with a nested
-**2-fold split** (`--k-val`) inside each outer split's training data for
-the HP search. Every outer split runs its own real Optuna search by
-default -- nothing is skipped or reused. Any deviation from this
+(`--n-outer`, each a 5-fold group-aware split, `--n-inner`) -- 25
+(split, fold) combinations total. For every one of them, a nested
+**2-fold split** (`--k-val`) of that fold's training data is used for the
+HP search, and the single best-performing inner fold's (descriptor +
+model) hyperparameters are taken as that fold's final params. Every split
+*and* fold runs its own real Optuna search by default -- nothing is
+skipped, reused, or averaged across folds. Any deviation from this
 (fewer/more splits, or opting into skipping the per-split search via
 `--param-search-min-split` to save compute on long runs) must be
 requested explicitly; there is no implicit "fast" default.

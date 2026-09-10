@@ -133,7 +133,11 @@ def run_benchmark(config: BenchmarkConfig) -> None:
             for group_name, group_func in config.group_lst:
                 current_group = np.array(group_func(dataset_df[config.smiles_col[dataset_indx]]))
 
-                split_params = {descriptor: {} for descriptor in config.descriptor_set}
+                split_params = {
+                    (descriptor, model_label): {}
+                    for descriptor in config.descriptor_set
+                    for model_label in config.model_labels
+                }
                 for split in range(config.n_outer):
                     kf_outer = GroupKFoldShuffle(n_splits=config.n_inner, shuffle=True)
                     for fold, (train_indx, test_indx) in enumerate(kf_outer.split(dataset_df, groups=current_group)):
@@ -159,15 +163,19 @@ def run_benchmark(config: BenchmarkConfig) -> None:
                                 final_params = {}
                                 hp_search_time = 0.0
                                 # Default study design: repeated 5x5 CV (n_outer=5
-                                # repeats of an n_inner=5-fold split) with a nested
-                                # k_val=2-fold split for the HP search -- every outer
-                                # split runs its own real Optuna search by default;
-                                # nothing is skipped or reused.
+                                # repeats of an n_inner=5-fold split); for every one
+                                # of those 25 (split, fold) combinations, a nested
+                                # k_val=2-fold split is run for the HP search, and
+                                # the single best-performing inner fold's params are
+                                # taken as that (split, fold)'s final hyperparameters
+                                # -- every split AND fold runs its own real Optuna
+                                # search by default; nothing is skipped or reused.
                                 #
                                 # `param_search_min_split=None` (the default) means
                                 # always search. Setting it to an outer-split index is
                                 # an explicit, non-default opt-in to skip re-searching
-                                # after that split (reusing the most recently searched
+                                # after that split (every fold within it, reusing the
+                                # most recently searched (descriptor, model_label)
                                 # params instead), to save compute on longer runs.
                                 #
                                 # NOTE: the original scripts only ever populated
@@ -246,10 +254,10 @@ def run_benchmark(config: BenchmarkConfig) -> None:
                                     # preferred instead.
                                     best_fold = max(range(len(cv_best_values)), key=lambda k: cv_best_values[k])
                                     final_params = dict(cv_best_params[best_fold])
-                                    split_params[descriptor][split] = final_params
+                                    split_params[(descriptor, model_label)][split] = final_params
                                 else:
-                                    if split_params[descriptor]:
-                                        final_params = dict(next(reversed(split_params[descriptor].values())))
+                                    if split_params[(descriptor, model_label)]:
+                                        final_params = dict(next(reversed(split_params[(descriptor, model_label)].values())))
                                     else:
                                         final_params = {
                                             param: (int((lo + hi) / 2) if is_int else (lo + hi) / 2)
