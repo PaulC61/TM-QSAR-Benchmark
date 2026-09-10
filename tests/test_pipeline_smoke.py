@@ -77,3 +77,80 @@ def test_smoke_benchmark_run_produces_melted_csv(tmp_path):
     macro_df = pd.read_csv(config.macro_out_filename, names=RESULTS_COLUMNS)
     assert set(macro_df["Model"]) <= {"TsetlinMachine", "RandomForest", "XGBoost"}
     assert set(macro_df["ScoreType"]) <= {"ROC_AUC", "PRC_AUC", "PPV", "NPV"}
+
+
+@pytest.mark.slow
+def test_smoke_benchmark_run_actually_searches_hyperparameters(tmp_path, monkeypatch):
+    """Regression test for a real bug: with the old default
+    `param_search_min_split=3` and a short (e.g. `n_outer=1`, as every
+    smoke test here uses) run, the outer-split HP-search gate used to only
+    ever trigger on `split > param_search_min_split` -- which is never true
+    when `n_outer <= param_search_min_split + 1` -- so `optuna.create_study`
+    was never actually called and every row silently used the fixed
+    grid-midpoint default instead of a real per-trial sampled T/s. The
+    default is now `None` (always search, matching the documented default
+    repeated-5x5-CV/2-fold-inner-search design -- no split is skipped
+    unless the caller explicitly opts in via `param_search_min_split`), so
+    this must actually invoke `optuna.create_study` at least once even for
+    a tiny `n_outer=1` run."""
+    import optuna as optuna_module
+
+    create_study_calls = []
+    real_create_study = optuna_module.create_study
+
+    def _spying_create_study(*args, **kwargs):
+        create_study_calls.append((args, kwargs))
+        return real_create_study(*args, **kwargs)
+
+    monkeypatch.setattr(optuna_module, "create_study", _spying_create_study)
+
+    config = BenchmarkConfig(
+        n_clauses=200,
+        backend=BACKEND_CPU,
+        dataset_subset=["opioids/MOR_cutoff6.csv"],
+        learning_task=["class"],
+        smiles_col=["SMILES"],
+        prop_col=["label"],
+        n_outer=1,
+        n_inner=2,
+        n_trials=2,
+        n_tm_epochs=2,
+        output_dir=str(tmp_path),
+        run_label="pytest_smoketest_hpsearch",
+    )
+    assert config.param_search_min_split is None, "default must be 'always search', not a magic split index"
+
+    run_benchmark(config)
+
+    assert len(create_study_calls) > 0
+
+
+@pytest.mark.slow
+def test_param_search_min_split_is_explicit_opt_in_deviation(tmp_path, monkeypatch):
+    """Skipping the per-split HP search (reusing the most recently searched
+    params instead) is a deliberate, non-default deviation from the
+    repeated-5x5-CV design -- it must be requested explicitly by setting
+    `param_search_min_split`, and only then does `optuna.create_study` stop
+    being called on every outer split. With `param_search_min_split=0` and
+    `n_outer=2`, split 1 should reuse split 0's cached result rather than
+    being skipped entirely."""
+    config = BenchmarkConfig(
+        n_clauses=200,
+        backend=BACKEND_CPU,
+        dataset_subset=["opioids/MOR_cutoff6.csv"],
+        learning_task=["class"],
+        smiles_col=["SMILES"],
+        prop_col=["label"],
+        n_outer=2,
+        n_inner=2,
+        n_trials=2,
+        n_tm_epochs=2,
+        param_search_min_split=0,
+        output_dir=str(tmp_path),
+        run_label="pytest_smoketest_skipsearch",
+    )
+
+    run_benchmark(config)
+
+    macro_df = pd.read_csv(config.macro_out_filename, names=RESULTS_COLUMNS)
+    assert set(macro_df["Split"]) == {0, 1}

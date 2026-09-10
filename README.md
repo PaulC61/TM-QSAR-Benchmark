@@ -99,6 +99,15 @@ pixi run benchmark --n-clauses 1600   # same, with 1600 TM clauses
 pixi run test                # unit + smoke tests (pytest)
 ```
 
+The default study design is **repeated 5x5 CV**: 5 outer splits
+(`--n-outer`, each a 5-fold group-aware split, `--n-inner`), with a nested
+**2-fold split** (`--k-val`) inside each outer split's training data for
+the HP search. Every outer split runs its own real Optuna search by
+default -- nothing is skipped or reused. Any deviation from this
+(fewer/more splits, or opting into skipping the per-split search via
+`--param-search-min-split` to save compute on long runs) must be
+requested explicitly; there is no implicit "fast" default.
+
 Or invoke the CLI directly for full control (dataset selection, backend
 override, CV/HP-search sizing, resuming a partial run):
 

@@ -42,14 +42,25 @@ DEFAULT_FP_RAD = 2
 
 DEFAULT_N_TREES = 100
 DEFAULT_N_TM_EPOCHS = 50
+# Default study design: repeated 5x5 CV (5 outer splits, each a 5-fold
+# GroupKFold) with a nested 2-fold inner split for the HP search -- see
+# `BenchmarkConfig.n_outer`/`n_inner`/`k_val`. Any run that deviates from
+# this (fewer/more splits, or skipping the per-split HP search via
+# `param_search_min_split`) must set that explicitly; there is no implicit
+# "fast" default.
 DEFAULT_N_OUTER = 5
 DEFAULT_N_INNER = 5
 DEFAULT_K_VAL = 2
 DEFAULT_N_TRIALS = 25
-# Outer splits beyond this index trigger a fresh inner-CV hyperparameter
-# search (kept from the original "two-fold CV does not need re-initializing
-# for multiple different splits" behaviour).
-DEFAULT_PARAM_SEARCH_MIN_SPLIT = 3
+# `None` (the default) means every one of the `n_outer` outer splits runs
+# its own real nested-CV Optuna HP search -- the full repeated-5x5-CV/
+# 2-fold-inner-search design above, with no shortcuts. Set this to an
+# explicit outer-split index to opt into a (non-default) speed shortcut:
+# splits up to and including that index each run a fresh search, and every
+# split after it reuses the most recently searched params instead of
+# re-searching. This must be set explicitly (e.g. via `--param-search-
+# min-split`) -- it is never silently applied.
+DEFAULT_PARAM_SEARCH_MIN_SPLIT = None
 
 # start, end, log, is_int -- by model (TsetlinMachine, RandomForest, XGBoost).
 # The TM "T" bound scales with the run's clause count, so it's filled in by
@@ -105,11 +116,20 @@ class BenchmarkConfig:
 
     n_trees: int = DEFAULT_N_TREES
     n_tm_epochs: int = DEFAULT_N_TM_EPOCHS
+    # Default study design: repeated 5x5 CV (n_outer=5 repeats of an
+    # n_inner=5-fold GroupKFold split) with a nested k_val=2-fold split for
+    # the HP search. Passing non-default values for these is a deliberate
+    # deviation and must be specified explicitly (e.g. via --n-outer/
+    # --n-inner/--k-val).
     n_outer: int = DEFAULT_N_OUTER
     n_inner: int = DEFAULT_N_INNER
     k_val: int = DEFAULT_K_VAL
     n_trials: int = DEFAULT_N_TRIALS
-    param_search_min_split: int = DEFAULT_PARAM_SEARCH_MIN_SPLIT
+    # None (default): every outer split runs its own real HP search --
+    # nothing is skipped/reused. Set to an outer-split index to explicitly
+    # opt into skipping the search (and reusing the most recent result)
+    # for every split after it -- a deliberate, non-default deviation.
+    param_search_min_split: int | None = DEFAULT_PARAM_SEARCH_MIN_SPLIT
 
     data_dir: str = "data"
     output_dir: str = "results"

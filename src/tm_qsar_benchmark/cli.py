@@ -37,8 +37,21 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--data-dir", default="data", help="Root directory containing dataset CSVs.")
     parser.add_argument("--output-dir", default="results", help="Directory to write MACRO result CSVs into.")
     parser.add_argument("--run-label", default=None, help="Suffix for output filenames (default: the clause count, e.g. MACRO_TM_Benchmark_800).")
-    parser.add_argument("--n-outer", type=int, default=None, help="Outer CV splits (default 5).")
-    parser.add_argument("--n-inner", type=int, default=None, help="Inner CV folds per outer split (default 5).")
+    parser.add_argument("--n-outer", type=int, default=None, help="Outer CV splits (default 5). Deviating from the default repeated-5x5-CV design must be specified explicitly.")
+    parser.add_argument("--n-inner", type=int, default=None, help="Inner CV folds per outer split (default 5). Deviating from the default repeated-5x5-CV design must be specified explicitly.")
+    parser.add_argument("--k-val", type=int, default=None, help="Folds for the nested HP-search split within each outer split's training data (default 2). Deviating from the default nested-2-fold HP search must be specified explicitly.")
+    parser.add_argument(
+        "--param-search-min-split", type=int, default=None,
+        help=(
+            "By default (unset), every outer split runs its own real nested-CV "
+            "Optuna HP search -- the default repeated-5x5-CV/2-fold-inner-search "
+            "design searches on every split, nothing is skipped. Pass an outer-"
+            "split index to explicitly opt into skipping the search (and reusing "
+            "the most recently searched params instead) for every split after "
+            "it, e.g. to save compute on long runs -- this is a deliberate, "
+            "non-default deviation."
+        ),
+    )
     parser.add_argument("--n-trials", type=int, default=None, help="Optuna trials per HP search (default 25).")
     parser.add_argument("--n-tm-epochs", type=int, default=None, help="TM training epochs (default 50).")
     parser.add_argument("--resume", action="store_true", help="Skip (dataset, group, split, fold, descriptor, model) combinations already present in the macro output file.")
@@ -74,6 +87,10 @@ def main(argv=None) -> None:
         config.n_outer = args.n_outer
     if args.n_inner is not None:
         config.n_inner = args.n_inner
+    if args.k_val is not None:
+        config.k_val = args.k_val
+    if args.param_search_min_split is not None:
+        config.param_search_min_split = args.param_search_min_split
     if args.n_trials is not None:
         config.n_trials = args.n_trials
     if args.n_tm_epochs is not None:

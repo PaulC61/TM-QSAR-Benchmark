@@ -8,7 +8,6 @@ from __future__ import annotations
 
 import csv
 import logging
-import statistics
 import time
 from pathlib import Path
 
@@ -159,22 +158,45 @@ def run_benchmark(config: BenchmarkConfig) -> None:
 
                                 final_params = {}
                                 hp_search_time = 0.0
-                                # Two-fold CV need not be re-initialized for every outer split;
-                                # only refresh the HP search on later splits, reusing the most
-                                # recently searched params for this descriptor otherwise.
+                                # Default study design: repeated 5x5 CV (n_outer=5
+                                # repeats of an n_inner=5-fold split) with a nested
+                                # k_val=2-fold split for the HP search -- every outer
+                                # split runs its own real Optuna search by default;
+                                # nothing is skipped or reused.
                                 #
-                                # NOTE: the original scripts only ever populated `final_params`
-                                # inside this "search now" branch (`if split > 3`, i.e. only the
-                                # very last of 5 outer splits) and left the "reuse it on earlier
-                                # splits" branch entirely commented out -- so `final_params` was
-                                # actually an undefined name until split 4, meaning the script as
-                                # committed would raise a `NameError` on the very first
-                                # (dataset, group, split=0, fold, descriptor, model) combination it
-                                # ever processed. This is fixed here by implementing the reuse
-                                # logic the commented-out code was clearly aiming for (falling back
-                                # to the HP grid's midpoint before any search has happened yet).
-                                if split > config.param_search_min_split:
+                                # `param_search_min_split=None` (the default) means
+                                # always search. Setting it to an outer-split index is
+                                # an explicit, non-default opt-in to skip re-searching
+                                # after that split (reusing the most recently searched
+                                # params instead), to save compute on longer runs.
+                                #
+                                # NOTE: the original scripts only ever populated
+                                # `final_params` inside this "search now" branch
+                                # (`if split > 3`, i.e. only the very last of 5 outer
+                                # splits) and left the "reuse it on earlier splits"
+                                # branch entirely commented out -- so `final_params`
+                                # was actually an undefined name until split 4,
+                                # meaning the script as committed would raise a
+                                # `NameError` on the very first (dataset, group,
+                                # split=0, fold, descriptor, model) combination it ever
+                                # processed. A prior fix implemented the reuse logic
+                                # the commented-out code was clearly aiming for
+                                # (falling back to the HP grid's midpoint before any
+                                # search happened), but kept the same
+                                # `split > param_search_min_split` gate with a default
+                                # `param_search_min_split=3` -- which, backwards from
+                                # any sensible intent, only ever searched on the
+                                # *last* outer split and used the fixed grid-midpoint
+                                # default for every split before it (including every
+                                # split whenever n_outer <= param_search_min_split + 1,
+                                # e.g. any short smoke-test run). That meant most/all
+                                # runs never actually sampled hyperparameters via
+                                # Optuna at all. Fixed by making "always search" the
+                                # default, with skip-and-reuse now an explicit, opt-in
+                                # deviation instead.
+                                if config.param_search_min_split is None or split <= config.param_search_min_split:
                                     cv_best_params = []
+                                    cv_best_values = []
                                     kf_inner = GroupKFoldShuffle(n_splits=config.k_val, shuffle=False)
                                     for train_val_indx, val_indx in kf_inner.split(
                                         train_df, groups=current_group[train_indx]
@@ -212,15 +234,19 @@ def run_benchmark(config: BenchmarkConfig) -> None:
                                         )
                                         hp_search_time += time.time() - hp_start
                                         cv_best_params.append(study.best_params)
+                                        cv_best_values.append(study.best_value)
 
-                                    mean_best_params = {}
-                                    for param, (_, _, _, is_int) in param_grid.items():
-                                        fold_values = [cv_best_params[k][param] for k in range(config.k_val)]
-                                        mean_best_params[param] = (
-                                            int(statistics.mean(fold_values)) if is_int else statistics.mean(fold_values)
-                                        )
-                                    split_params[descriptor][split] = mean_best_params
-                                    final_params = mean_best_params
+                                    # Take the single best-performing inner fold's
+                                    # params outright, rather than averaging across
+                                    # folds -- two folds' separately "best" values
+                                    # combined via a numeric mean need not be a good
+                                    # (or even valid) combination, so the fold that
+                                    # actually validated best (highest ROC AUC here;
+                                    # this pipeline is classification-only) is
+                                    # preferred instead.
+                                    best_fold = max(range(len(cv_best_values)), key=lambda k: cv_best_values[k])
+                                    final_params = dict(cv_best_params[best_fold])
+                                    split_params[descriptor][split] = final_params
                                 else:
                                     if split_params[descriptor]:
                                         final_params = dict(next(reversed(split_params[descriptor].values())))
