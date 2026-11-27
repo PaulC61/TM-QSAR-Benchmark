@@ -195,6 +195,6 @@ def get_backend(name: str) -> TMBackend:
     """Instantiate the TM backend adapter for a resolved (non-"auto")
     backend name (see `tm_qsar_benchmark.hardware.resolve_backend`)."""
     try:
-        return _BACKENDS[name]()
+        return _BACKENDS[name]()  # type: ignore[return-value]
     except KeyError:
         raise ValueError(f"Unknown TM backend {name!r}; expected one of {list(_BACKENDS)}") from None

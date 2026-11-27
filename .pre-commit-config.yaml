@@ -1,0 +1,31 @@
+# Local pre-commit hooks mirroring CI's lint/format/typecheck jobs
+# (.github/workflows/ci.yml), run via pixi's lightweight `lint`
+# environment so they don't need the project's native-extension
+# dependencies or dev/* git submodules -- just `pixi install -e lint`
+# once (pre-commit's own bootstrap calls `pixi run`, which does this
+# automatically on first use).
+#
+# Install with:
+#   pixi run pre-commit install
+# (add `pre-commit` to the `lint` pixi feature, or run it from any Python
+# environment that has the `pre-commit` package -- it only shells out to
+# `pixi run ...` below, so it doesn't need to be inside the project's own
+# pixi environment itself).
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: ruff check
+        entry: pixi run -e lint ruff check src tests
+        language: system
+        pass_filenames: false
+      - id: ruff-format
+        name: ruff format --check
+        entry: pixi run -e lint ruff format --check src tests
+        language: system
+        pass_filenames: false
+      - id: mypy
+        name: mypy
+        entry: pixi run -e lint mypy src
+        language: system
+        pass_filenames: false

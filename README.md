@@ -183,6 +183,47 @@ fix-submodules / `pixi install` steps as the plain setup above, so the
 devcontainer and bare-metal setups stay in sync. If you don't use
 devcontainers at all, just ignore this directory entirely.
 
+## Development / CI
+
+Lint, format-check, type-check and tests all run automatically on every
+push and pull request (`.github/workflows/ci.yml`), with lint/format/type
+jobs running in a lightweight dedicated pixi environment (see below) that
+doesn't need the native dev/* submodule builds, so they're fast and always
+run. Run the same checks locally via pixi:
+
+```bash
+pixi run -e lint lint            # ruff check src tests
+pixi run -e lint format-check     # ruff format --check src tests
+pixi run -e lint typecheck        # mypy src
+pixi run test                     # pytest -sv tests/ (needs the full `default`
+                                   # environment set up as in "Plain setup" above)
+```
+
+`ruff`/`mypy` live in their own pixi feature/environment (`lint`) that only
+needs `pixi install -e lint` -- it doesn't pull in numpy/pandas/rdkit/the
+native TM libraries, so it's independent of the rest of the "Plain setup"
+steps above and safe to run even before `pixi install`/submodule setup.
+
+Optionally, install the equivalent [pre-commit](https://pre-commit.com)
+hooks (`.pre-commit-config.yaml`) so the same checks run on every local
+commit:
+
+```bash
+pipx install pre-commit   # or: pip install pre-commit
+pre-commit install
+```
+
+**CI native-build note:** the `test` CI job builds the real `default` pixi
+environment (including the native `tmu`/`pyTsetlinMachineParallel`/
+`chembl_structure_pipeline` C extensions from the `dev/*` git submodules)
+on a standard `ubuntu-latest` GitHub-hosted runner and has been verified to
+build and pass there. There is no GPU runner available in CI, so the
+opt-in `gpu` pixi feature/environment (`pixi install -e gpu`, needs a real
+CUDA toolchain for `pycuda`) is never installed or tested automatically --
+verifying GPU-backend behavior still requires a manual run on a CUDA
+machine (or wiring up a self-hosted GPU runner, which this template does
+not attempt).
+
 ## Interpretability
 
 TM clause/rule interpretability analysis (WAC scores, TM-MPM) is

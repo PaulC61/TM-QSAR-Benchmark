@@ -7,28 +7,32 @@ top-level `model_comparison.py` and `Polaris_examples/model_comparison.py`),
 which differed only in a hardcoded plot-grid column count (2 vs 3) in
 `make_mcs_plot_grid` -- now the `n_cols` parameter.
 """
+import math
 import warnings
 
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import pingouin as pg
-from scipy import stats
+import scikit_posthocs as sp
 import seaborn as sns
+from scipy import stats
 from scipy.stats import spearmanr
-from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score, precision_score, recall_score
+from sklearn.metrics import (
+    average_precision_score,
+    matthews_corrcoef,
+    mean_absolute_error,
+    mean_squared_error,
+    precision_recall_curve,
+    precision_score,
+    r2_score,
+    recall_score,
+    roc_auc_score,
+    roc_curve,
+)
+from sklearn.preprocessing import LabelEncoder
 from statsmodels.stats.anova import AnovaRM
 from statsmodels.stats.libqsturng import psturng, qsturng
-from matplotlib import cm
-from sklearn.preprocessing import LabelEncoder
-from sklearn.metrics import roc_curve, precision_recall_curve
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.metrics import roc_auc_score, average_precision_score, matthews_corrcoef, precision_score, recall_score
-import scikit_posthocs as sp
-
-
-import math
 
 
 def calc_regression_metrics(df, cycle_col, val_col, pred_col, thresh):
@@ -95,7 +99,7 @@ def rm_tukey_hsd(df, metric, group_col, alpha=0.05, sort = False, direction_dict
         warnings.filterwarnings('ignore', category=RuntimeWarning,
                                 message='divide by zero encountered in scalar divide')
         aov = pg.rm_anova(dv=metric, within=group_col, subject='Split', data=df, detailed=True)
-    
+
     mse = aov.loc[1, 'MS']
     df_resid = aov.loc[1, 'DF']
 
@@ -198,7 +202,7 @@ def make_boxplots_nonparametric(df, metric_ls):
         ax.set_xticks(list(range(0, len(x_tick_labels))))
         ax.set_xticklabels(new_xtick_labels)
     plt.tight_layout()
-        
+
 def make_sign_plots_nonparametric(df, metric_ls):
     heatmap_args = {'linewidths': 0.25, 'linecolor': '0.5', 'clip_on': True, 'square': True}
     sns.set(rc={'figure.figsize': (4, 3)}, font_scale=1.5)
@@ -232,7 +236,7 @@ def make_normality_diagnostic(df, metric_ls):
     None
     """
     df_norm = df.copy()
-    
+
     for metric in metric_ls:
         df_norm[metric] = df_norm[metric] - df_norm.groupby("Model")[metric].transform("mean")
 
@@ -243,23 +247,23 @@ def make_normality_diagnostic(df, metric_ls):
 
     sns.set_context('notebook', font_scale=1.5)
     sns.set_style('whitegrid')
-    
+
     metrics = df_norm['metric'].unique()
     n_metrics = len(metrics)
-    
+
     fig, axes = plt.subplots(2, n_metrics, figsize=(20, 10))
-    
+
     for i, metric in enumerate(metrics):
         ax = axes[0, i]
         sns.histplot(df_norm[df_norm['metric'] == metric]['value'], kde=True, ax=ax)
         ax.set_title(f'{metric}', fontsize=16)
-    
+
     for i, metric in enumerate(metrics):
         ax = axes[1, i]
         metric_data = df_norm[df_norm['metric'] == metric]['value']
         stats.probplot(metric_data, dist="norm", plot=ax)
         ax.set_title("")
-    
+
     plt.tight_layout()
 
 
@@ -306,7 +310,7 @@ def mcs_plot(pc, effect_size, means, labels=True, cmap=None, cbar_ax_bbox=None,
     np.fill_diagonal(significance.values, '')
 
     # Create a DataFrame for the annotations
-    
+
     if show_diff:
         annotations = effect_size.round(3).astype(str) + significance
     else:
@@ -462,7 +466,7 @@ def ci_plot(result_tab, ax_in, name):
     ax.set_xlabel("Mean Difference")
     ax.set_ylabel("")
     ax.set_title(name)
-    ax.set_xlim(-0.2, 0.2) 
+    ax.set_xlim(-0.2, 0.2)
 
 
 def make_ci_plot_grid(df_in, metric_list, group_col="method"):
@@ -498,13 +502,13 @@ def recall_at_precision(y_true, y_score, precision_threshold=0.5, direction='gre
 
     if direction == 'greater':
         thresholds = np.sort(thresholds)
-    else:  
+    else:
         thresholds = np.sort(thresholds)[::-1]
 
     for threshold in thresholds:
         if direction == 'greater':
             y_pred = y_score >= threshold
-        else:  
+        else:
             y_pred = y_score <= threshold
 
         precision = precision_score(y_true, y_pred)
@@ -520,12 +524,12 @@ def calc_classification_metrics(df_in, cycle_col, val_col, prob_col, pred_col):
         roc_auc = roc_auc_score(v[val_col], v[prob_col])
         pr_auc = average_precision_score(v[val_col], v[prob_col])
         mcc = matthews_corrcoef(v[val_col], v[pred_col])
-        
+
         recall, _ = recall_at_precision(v[val_col].astype(bool), v[prob_col], precision_threshold=0.8, direction='greater')
         tnr, _ = recall_at_precision(~v[val_col].astype(bool), v[prob_col], precision_threshold=0.8, direction='lesser')
 
         metric_list.append([cycle, method, split, roc_auc, pr_auc, mcc, recall, tnr])
-        
+
     metric_df = pd.DataFrame(metric_list, columns=["Split", "Model", "Fold",
                                                     "roc_auc", "pr_auc", "mcc", "recall", "tnr"])
     return metric_df
