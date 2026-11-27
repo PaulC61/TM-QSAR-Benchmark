@@ -1,0 +1,115 @@
+name: CI
+
+# Run on every push and on every PR so lint/type/test problems are caught
+# before merge. There is intentionally no path filtering -- this is a small
+# repo and keeping the trigger simple is easier to reason about.
+on:
+  push:
+  pull_request:
+
+# Cancel superseded runs on the same branch/PR to save CI minutes.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # --- Lint / format / typecheck -------------------------------------------
+  # These use the dedicated `lint` pixi environment (see pyproject.toml),
+  # which only depends on ruff/mypy -- it does NOT pull in the project's
+  # own (editable, native-extension-backed) dependencies, so it installs in
+  # seconds and never needs the dev/* git submodules or a C/C++ toolchain.
+  lint:
+    name: Lint (ruff check)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: prefix-dev/setup-pixi@v0.9.0
+        with:
+          pixi-version: v0.48.0
+          environments: lint
+          cache: true
+      - run: pixi run -e lint lint
+
+  format-check:
+    name: Lint (ruff format --check)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: prefix-dev/setup-pixi@v0.9.0
+        with:
+          pixi-version: v0.48.0
+          environments: lint
+          cache: true
+      - run: pixi run -e lint format-check
+
+  typecheck:
+    name: Typecheck (mypy)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: prefix-dev/setup-pixi@v0.9.0
+        with:
+          pixi-version: v0.48.0
+          environments: lint
+          cache: true
+      - run: pixi run -e lint typecheck
+
+  # --- Tests ----------------------------------------------------------------
+  # Unlike the lint jobs above, this needs the *full* `default` pixi
+  # environment: tmu / pyTsetlinMachineParallel / chembl_structure_pipeline
+  # are editable installs of native C extensions that live in the dev/*
+  # git submodules and are compiled from source by `pixi install` (see
+  # pyproject.toml's [tool.pixi.dependencies] comment). That means this job
+  # needs the submodules checked out *and* a working C/C++ toolchain, which
+  # `pixi install` provides via conda-forge's c-compiler/cxx-compiler
+  # packages -- no apt/manual compiler setup required.
+  #
+  # NOTE on submodule URLs: .gitmodules points at the dev/* submodules via
+  # SSH (git@github.com:...) for the maintainers' convenience when pushing.
+  # GitHub-hosted runners have no SSH deploy key for these (public, third-
+  # party) repos, so `actions/checkout`'s submodule clone would fail
+  # authentication. All four submodules are public, so we rewrite SSH URLs
+  # to anonymous HTTPS globally before checkout -- no secrets needed.
+  #
+  # We deliberately only install/test the `default` pixi environment here,
+  # not the opt-in `gpu` feature/environment (`pixi install -e gpu`): that
+  # needs `pycuda`, which needs a real CUDA toolchain that hosted runners
+  # don't have. GPU-backend testing remains a manual/self-hosted-runner
+  # step -- see the README and the PR description for details.
+  test:
+    name: Test (pytest)
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Rewrite submodule SSH URLs to HTTPS
+        run: git config --global url."https://github.com/".insteadOf "git@github.com:"
+
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 1
+
+      - uses: prefix-dev/setup-pixi@v0.9.0
+        with:
+          pixi-version: v0.48.0
+          environments: default
+          cache: true
+
+      # One-time setup exactly as documented in pyproject.toml's
+      # [tool.pixi.tasks] comment: patch the vendored tmu submodule's
+      # portability issue (an x86-only compiler flag that only breaks
+      # non-x86_64 builds, e.g. Apple Silicon -- hosted Linux runners are
+      # x86_64, so this build would likely succeed even unpatched, but we
+      # run it anyway to match local setup 1:1 and keep dev/tmu patched for
+      # any later step), then install.
+      - name: Patch native submodule build flags
+        run: pixi run fix-submodules
+
+      - name: Install pixi environment (builds native extensions)
+        run: pixi install -e default
+
+      - name: Run tests
+        run: pixi run test

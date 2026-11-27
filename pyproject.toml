@@ -17,6 +17,67 @@ markers = [
     "slow: exercises a full (if tiny) end-to-end benchmark run; may take a minute or more.",
 ]
 
+# Lint/format config. Kept deliberately light-touch for a scientific
+# codebase with heavy numpy/pandas/sklearn/rdkit usage: the goal is a
+# clean, passing CI baseline going forward, not full strict-mode
+# compliance or a retroactive rewrite of existing code.
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["src", "tests"]
+# dev/* are vendored git submodules (third-party native-extension
+# packages) -- never lint/format those as if they were our own code.
+extend-exclude = ["dev"]
+
+[tool.ruff.lint]
+# Pyflakes + pycodestyle + import-sort + pyupgrade; a reasonable, common
+# baseline rather than ruff's full/"ALL" rule set.
+select = ["E", "F", "I", "UP", "W"]
+# E501 (line-too-long) is ignored rather than reformatted: existing code
+# has many long lines (data-wrangling/metric-writing calls with many
+# keyword args), and reflowing them all is a style-only churn unrelated to
+# this tooling change -- `ruff format` already targets a sane line length
+# for *new* code, this just avoids retroactively failing CI on existing
+# lines.
+ignore = ["E501"]
+
+[tool.ruff.format]
+# Pre-existing modules that predate `ruff format` adoption and are not yet
+# reformatted here, to keep this tooling PR free of large, logic-unrelated
+# reflow diffs across the pipeline/analysis code. `ruff format` already
+# applies (and `format-check` enforces) on any new or newly-touched file;
+# this baseline exclusion only grandfathers in current files. Remove an
+# entry once that file has been reformatted (e.g. in a dedicated,
+# review-friendly "reformat X" commit).
+exclude = [
+    "src/tm_qsar_benchmark/analysis/model_comparison.py",
+    "src/tm_qsar_benchmark/binarizer.py",
+    "src/tm_qsar_benchmark/cli.py",
+    "src/tm_qsar_benchmark/config.py",
+    "src/tm_qsar_benchmark/descriptors.py",
+    "src/tm_qsar_benchmark/final_model.py",
+    "src/tm_qsar_benchmark/hardware.py",
+    "src/tm_qsar_benchmark/metrics.py",
+    "src/tm_qsar_benchmark/pipeline.py",
+    "src/tm_qsar_benchmark/tm_backends.py",
+    "tests/test_pipeline_smoke.py",
+]
+
+[tool.mypy]
+python_version = "3.12"
+files = ["src"]
+exclude = ["^dev/"]
+# Lenient-by-design: third-party scientific packages are either untyped or
+# have incomplete/optional stubs, and we don't vendor stubs for them here.
+ignore_missing_imports = true
+# Opt-in strictness signals without full `--strict` (which would currently
+# surface a large number of pre-existing findings unrelated to this
+# tooling change); tighten incrementally over time instead.
+warn_unused_configs = true
+warn_redundant_casts = true
+no_implicit_optional = false
+check_untyped_defs = false
+
 # pixi's environment/dependency/task config lives here too (under
 # [tool.pixi.*]) instead of a separate pixi.toml -- one file, one source of
 # truth for both "this is an installable Python package" (the [project]
@@ -99,7 +160,24 @@ platforms = ["linux-64"]
 [tool.pixi.feature.gpu.pypi-dependencies]
 pycuda = "*"
 
+# Dev-only lint/typecheck tooling, deliberately kept in its own feature and
+# *not* merged into the `default` solve-group: ruff/mypy don't need numpy/
+# pandas/rdkit/the native dev/* submodule builds to analyze the source, so
+# giving them a standalone environment (`pixi install -e lint`) means CI's
+# lint/format/typecheck jobs install in seconds and never need a C/C++
+# toolchain or the git submodules at all -- only the `test` job does.
+[tool.pixi.feature.lint.dependencies]
+python = ">=3.12"
+ruff = ">=0.8,<1"
+mypy = ">=1.11,<2"
+
+[tool.pixi.feature.lint.tasks]
+lint = "ruff check src tests"
+format-check = "ruff format --check src tests"
+typecheck = "mypy src"
+
 [tool.pixi.environments]
 default = { solve-group = "default" }
 gpu = { features = ["gpu"], solve-group = "default" }
+lint = { features = ["lint"], no-default-feature = true }
 

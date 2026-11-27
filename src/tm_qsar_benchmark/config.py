@@ -92,7 +92,7 @@ def resolve_param_grid(model_label: str, n_clauses: int) -> dict:
     the TsetlinMachine grid depends on `n_clauses` (its `T` threshold search
     range is defined relative to the number of clauses, as in the original
     scripts)."""
-    grid = dict(DEFAULT_PARAM_GRIDS[model_label])
+    grid = dict(DEFAULT_PARAM_GRIDS[model_label])  # type: ignore[call-overload]
     if model_label == "TsetlinMachine":
         grid["T"] = (1 * n_clauses, 10 * n_clauses, False, True)
     return grid

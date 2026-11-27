@@ -14,7 +14,6 @@ from pathlib import Path
 import numpy as np
 import optuna
 import pandas as pd
-from scipy.special import expit
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import roc_auc_score
 from useful_rdkit_utils import GroupKFoldShuffle
@@ -133,7 +132,7 @@ def run_benchmark(config: BenchmarkConfig) -> None:
             for group_name, group_func in config.group_lst:
                 current_group = np.array(group_func(dataset_df[config.smiles_col[dataset_indx]]))
 
-                split_params = {
+                split_params: dict = {
                     (descriptor, model_label): {}
                     for descriptor in config.descriptor_set
                     for model_label in config.model_labels
